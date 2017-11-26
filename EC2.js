@@ -603,6 +603,20 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateDefaultSubnet=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AvailabilityZone",params); 
+			
+			copyArg(msg,"AvailabilityZone",params); 
+			copyArg(msg,"DryRun",params); 
+			
+
+			svc.createDefaultSubnet(params,cb);
+		}
+
+		
 		service.CreateDefaultVpc=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1033,15 +1047,19 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"ServiceName",params); 
 			copyArg(n,"VpcId",params); 
+			copyArg(n,"ServiceName",params); 
 			
-			copyArg(msg,"ClientToken",params); 
 			copyArg(msg,"DryRun",params); 
+			copyArg(msg,"VpcEndpointType",params); 
+			copyArg(msg,"VpcId",params); 
+			copyArg(msg,"ServiceName",params); 
 			copyArg(msg,"PolicyDocument",params); 
 			copyArg(msg,"RouteTableIds",params); 
-			copyArg(msg,"ServiceName",params); 
-			copyArg(msg,"VpcId",params); 
+			copyArg(msg,"SubnetIds",params); 
+			copyArg(msg,"SecurityGroupIds",params); 
+			copyArg(msg,"ClientToken",params); 
+			copyArg(msg,"PrivateDnsEnabled",params); 
 			
 
 			svc.createVpcEndpoint(params,cb);
@@ -2517,6 +2535,8 @@ module.exports = function(RED) {
 			
 			
 			copyArg(msg,"DryRun",params); 
+			copyArg(msg,"ServiceNames",params); 
+			copyArg(msg,"Filters",params); 
 			copyArg(msg,"MaxResults",params); 
 			copyArg(msg,"NextToken",params); 
 			
@@ -2531,10 +2551,10 @@ module.exports = function(RED) {
 			
 			
 			copyArg(msg,"DryRun",params); 
+			copyArg(msg,"VpcEndpointIds",params); 
 			copyArg(msg,"Filters",params); 
 			copyArg(msg,"MaxResults",params); 
 			copyArg(msg,"NextToken",params); 
-			copyArg(msg,"VpcEndpointIds",params); 
 			
 
 			svc.describeVpcEndpoints(params,cb);
@@ -3274,12 +3294,17 @@ module.exports = function(RED) {
 			
 			copyArg(n,"VpcEndpointId",params); 
 			
-			copyArg(msg,"AddRouteTableIds",params); 
 			copyArg(msg,"DryRun",params); 
-			copyArg(msg,"PolicyDocument",params); 
-			copyArg(msg,"RemoveRouteTableIds",params); 
-			copyArg(msg,"ResetPolicy",params); 
 			copyArg(msg,"VpcEndpointId",params); 
+			copyArg(msg,"ResetPolicy",params); 
+			copyArg(msg,"PolicyDocument",params); 
+			copyArg(msg,"AddRouteTableIds",params); 
+			copyArg(msg,"RemoveRouteTableIds",params); 
+			copyArg(msg,"AddSubnetIds",params); 
+			copyArg(msg,"RemoveSubnetIds",params); 
+			copyArg(msg,"AddSecurityGroupIds",params); 
+			copyArg(msg,"RemoveSecurityGroupIds",params); 
+			copyArg(msg,"PrivateDnsEnabled",params); 
 			
 
 			svc.modifyVpcEndpoint(params,cb);

@@ -15,7 +15,7 @@
   limitations under the License.
 -->
 
-<script type="text/x-red" data-template-name="AWS IotData">
+<script type="text/x-red" data-template-name="AWS Polly">
 		<style scoped>
 				.hiddenAttrs {display:none;}
 				.visibleAttrs {display:block;}
@@ -28,13 +28,17 @@
 		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
 		<select type="text" id="node-input-operation">
 		
-			<option value="DeleteThingShadow">DeleteThingShadow</option>
+			<option value="DeleteLexicon">DeleteLexicon</option>
 		
-			<option value="GetThingShadow">GetThingShadow</option>
+			<option value="DescribeVoices">DescribeVoices</option>
 		
-			<option value="Publish">Publish</option>
+			<option value="GetLexicon">GetLexicon</option>
 		
-			<option value="UpdateThingShadow">UpdateThingShadow</option>
+			<option value="ListLexicons">ListLexicons</option>
+		
+			<option value="PutLexicon">PutLexicon</option>
+		
+			<option value="SynthesizeSpeech">SynthesizeSpeech</option>
 		;
 		</select>
 	</div>
@@ -45,34 +49,48 @@
 	<hr/>	
 	<div id="AttrHolder">
 	      
-	<div class="form-row" id='thingNameAttr' class='hiddenAttrs'>
-		<label for="node-input-thingName"><i class="fa fa-tag"></i>thingName</label>
-		<input type="text" id="node-input-thingName" placeholder="thingName"></input>
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
 	</div> 
-	<div class="form-row" id='topicAttr' class='hiddenAttrs'>
-		<label for="node-input-topic"><i class="fa fa-tag"></i>topic</label>
-		<input type="text" id="node-input-topic" placeholder="topic"></input>
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
 	</div> 
-	<div class="form-row" id='payloadAttr' class='hiddenAttrs'>
-		<label for="node-input-payload"><i class="fa fa-tag"></i>payload</label>
-		<input type="text" id="node-input-payload" placeholder="payload"></input>
+	<div class="form-row" id='OutputFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputFormat"><i class="fa fa-tag"></i>OutputFormat</label>
+		<input type="text" id="node-input-OutputFormat" placeholder="OutputFormat"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i>Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='VoiceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceId"><i class="fa fa-tag"></i>VoiceId</label>
+		<input type="text" id="node-input-VoiceId" placeholder="VoiceId"></input>
 	</div> 
 	</div>
 
  <script>
 	  var nodeOps={
 			
-				DeleteThingShadow:[
-					'#thingNameAttr'
+				DeleteLexicon:[
+					'#NameAttr'
 					],
-				GetThingShadow:[
-					'#thingNameAttr'
+				DescribeVoices:[
+					
 					],
-				Publish:[
-					'#topicAttr'
+				GetLexicon:[
+					'#NameAttr'
 					],
-				UpdateThingShadow:[
-					'#thingNameAttr','#payloadAttr'
+				ListLexicons:[
+					
+					],
+				PutLexicon:[
+					'#NameAttr','#ContentAttr'
+					],
+				SynthesizeSpeech:[
+					'#OutputFormatAttr','#TextAttr','#VoiceIdAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -84,9 +102,9 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon IotData">
+<script type="text/x-red" data-help-name="amazon Polly">
 <p>
-AWS AWS IoT Data Plane
+AWS Amazon Polly
 </p>
 <p>
 <b>Descriptions to be added</b<
@@ -98,16 +116,18 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 </script>
 
 <script type="text/javascript">
-	RED.nodes.registerType('AWS IotData',{
+	RED.nodes.registerType('AWS Polly',{
 		category: 'AWS',
 		color:"#C0DEED",
 		defaults: {
 			aws: {type:"amazon config",required:true},
-			operation: { value: 'DeleteThingShadow' },
+			operation: { value: 'DeleteLexicon' },
 			
-				thingName: { value: ""} ,
-				topic: { value: ""} ,
-				payload: { value: ""} ,
+				Name: { value: ""} ,
+				Content: { value: ""} ,
+				OutputFormat: { value: ""} ,
+				Text: { value: ""} ,
+				VoiceId: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,
@@ -115,7 +135,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		icon: "aws.png",
 		align: "right",
 		label: function() {
-			return this.name || "IotData " + this.operation;
+			return this.name || "Polly " + this.operation;
 		},
 		oneditprepare: function () {
 

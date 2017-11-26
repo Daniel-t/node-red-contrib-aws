@@ -200,6 +200,8 @@
 		
 			<option value="RestoreDBInstanceFromDBSnapshot">RestoreDBInstanceFromDBSnapshot</option>
 		
+			<option value="RestoreDBInstanceFromS3">RestoreDBInstanceFromS3</option>
+		
 			<option value="RestoreDBInstanceToPointInTime">RestoreDBInstanceToPointInTime</option>
 		
 			<option value="RevokeDBSecurityGroupIngress">RevokeDBSecurityGroupIngress</option>
@@ -703,6 +705,9 @@
 					],
 				RestoreDBInstanceFromDBSnapshot:[
 					'#DBInstanceIdentifierAttr','#DBSnapshotIdentifierAttr'
+					],
+				RestoreDBInstanceFromS3:[
+					'#DBInstanceIdentifierAttr','#DBInstanceClassAttr','#EngineAttr','#SourceEngineAttr','#SourceEngineVersionAttr','#S3BucketNameAttr','#S3IngestionRoleArnAttr'
 					],
 				RestoreDBInstanceToPointInTime:[
 					'#SourceDBInstanceIdentifierAttr','#TargetDBInstanceIdentifierAttr'

@@ -1,0 +1,195 @@
+
+<!--
+  Copyright 2017 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Rekognition">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CompareFaces">CompareFaces</option>
+		
+			<option value="CreateCollection">CreateCollection</option>
+		
+			<option value="DeleteCollection">DeleteCollection</option>
+		
+			<option value="DeleteFaces">DeleteFaces</option>
+		
+			<option value="DetectFaces">DetectFaces</option>
+		
+			<option value="DetectLabels">DetectLabels</option>
+		
+			<option value="DetectModerationLabels">DetectModerationLabels</option>
+		
+			<option value="GetCelebrityInfo">GetCelebrityInfo</option>
+		
+			<option value="IndexFaces">IndexFaces</option>
+		
+			<option value="ListCollections">ListCollections</option>
+		
+			<option value="ListFaces">ListFaces</option>
+		
+			<option value="RecognizeCelebrities">RecognizeCelebrities</option>
+		
+			<option value="SearchFaces">SearchFaces</option>
+		
+			<option value="SearchFacesByImage">SearchFacesByImage</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>	
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SourceImageAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceImage"><i class="fa fa-tag"></i>SourceImage</label>
+		<input type="text" id="node-input-SourceImage" placeholder="SourceImage"></input>
+	</div> 
+	<div class="form-row" id='TargetImageAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetImage"><i class="fa fa-tag"></i>TargetImage</label>
+		<input type="text" id="node-input-TargetImage" placeholder="TargetImage"></input>
+	</div> 
+	<div class="form-row" id='CollectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CollectionId"><i class="fa fa-tag"></i>CollectionId</label>
+		<input type="text" id="node-input-CollectionId" placeholder="CollectionId"></input>
+	</div> 
+	<div class="form-row" id='FaceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceIds"><i class="fa fa-tag"></i>FaceIds</label>
+		<input type="text" id="node-input-FaceIds" placeholder="FaceIds"></input>
+	</div> 
+	<div class="form-row" id='ImageAttr' class='hiddenAttrs'>
+		<label for="node-input-Image"><i class="fa fa-tag"></i>Image</label>
+		<input type="text" id="node-input-Image" placeholder="Image"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='FaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceId"><i class="fa fa-tag"></i>FaceId</label>
+		<input type="text" id="node-input-FaceId" placeholder="FaceId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CompareFaces:[
+					'#SourceImageAttr','#TargetImageAttr'
+					],
+				CreateCollection:[
+					'#CollectionIdAttr'
+					],
+				DeleteCollection:[
+					'#CollectionIdAttr'
+					],
+				DeleteFaces:[
+					'#CollectionIdAttr','#FaceIdsAttr'
+					],
+				DetectFaces:[
+					'#ImageAttr'
+					],
+				DetectLabels:[
+					'#ImageAttr'
+					],
+				DetectModerationLabels:[
+					'#ImageAttr'
+					],
+				GetCelebrityInfo:[
+					'#IdAttr'
+					],
+				IndexFaces:[
+					'#CollectionIdAttr','#ImageAttr'
+					],
+				ListCollections:[
+					
+					],
+				ListFaces:[
+					'#CollectionIdAttr'
+					],
+				RecognizeCelebrities:[
+					'#ImageAttr'
+					],
+				SearchFaces:[
+					'#CollectionIdAttr','#FaceIdAttr'
+					],
+				SearchFacesByImage:[
+					'#CollectionIdAttr','#ImageAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="amazon Rekognition">
+<p>
+AWS Amazon Rekognition
+</p>
+<p>
+<b>Descriptions to be added</b<
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Rekognition',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CompareFaces' },
+			
+				SourceImage: { value: ""} ,
+				TargetImage: { value: ""} ,
+				CollectionId: { value: ""} ,
+				FaceIds: { value: ""} ,
+				Image: { value: ""} ,
+				Id: { value: ""} ,
+				FaceId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+		outputs:1,
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Rekognition " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

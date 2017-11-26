@@ -123,6 +123,10 @@
 		<label for="node-input-GranteePrincipal"><i class="fa fa-tag"></i>GranteePrincipal</label>
 		<input type="text" id="node-input-GranteePrincipal" placeholder="GranteePrincipal"></input>
 	</div> 
+	<div class="form-row" id='OperationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Operations"><i class="fa fa-tag"></i>Operations</label>
+		<input type="text" id="node-input-Operations" placeholder="Operations"></input>
+	</div> 
 	<div class="form-row" id='CiphertextBlobAttr' class='hiddenAttrs'>
 		<label for="node-input-CiphertextBlob"><i class="fa fa-tag"></i>CiphertextBlob</label>
 		<input type="text" id="node-input-CiphertextBlob" placeholder="CiphertextBlob"></input>
@@ -191,7 +195,7 @@
 					'#AliasNameAttr','#TargetKeyIdAttr'
 					],
 				CreateGrant:[
-					'#KeyIdAttr','#GranteePrincipalAttr'
+					'#KeyIdAttr','#GranteePrincipalAttr','#OperationsAttr'
 					],
 				CreateKey:[
 					
@@ -324,6 +328,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				AliasName: { value: ""} ,
 				TargetKeyId: { value: ""} ,
 				GranteePrincipal: { value: ""} ,
+				Operations: { value: ""} ,
 				CiphertextBlob: { value: ""} ,
 				Plaintext: { value: ""} ,
 				PolicyName: { value: ""} ,

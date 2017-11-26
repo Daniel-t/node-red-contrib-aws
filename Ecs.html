@@ -1,0 +1,320 @@
+
+<!--
+  Copyright 2017 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Ecs">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateService">CreateService</option>
+		
+			<option value="DeleteAttributes">DeleteAttributes</option>
+		
+			<option value="DeleteCluster">DeleteCluster</option>
+		
+			<option value="DeleteService">DeleteService</option>
+		
+			<option value="DeregisterContainerInstance">DeregisterContainerInstance</option>
+		
+			<option value="DeregisterTaskDefinition">DeregisterTaskDefinition</option>
+		
+			<option value="DescribeClusters">DescribeClusters</option>
+		
+			<option value="DescribeContainerInstances">DescribeContainerInstances</option>
+		
+			<option value="DescribeServices">DescribeServices</option>
+		
+			<option value="DescribeTaskDefinition">DescribeTaskDefinition</option>
+		
+			<option value="DescribeTasks">DescribeTasks</option>
+		
+			<option value="DiscoverPollEndpoint">DiscoverPollEndpoint</option>
+		
+			<option value="ListAttributes">ListAttributes</option>
+		
+			<option value="ListClusters">ListClusters</option>
+		
+			<option value="ListContainerInstances">ListContainerInstances</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTaskDefinitionFamilies">ListTaskDefinitionFamilies</option>
+		
+			<option value="ListTaskDefinitions">ListTaskDefinitions</option>
+		
+			<option value="ListTasks">ListTasks</option>
+		
+			<option value="PutAttributes">PutAttributes</option>
+		
+			<option value="RegisterContainerInstance">RegisterContainerInstance</option>
+		
+			<option value="RegisterTaskDefinition">RegisterTaskDefinition</option>
+		
+			<option value="RunTask">RunTask</option>
+		
+			<option value="StartTask">StartTask</option>
+		
+			<option value="StopTask">StopTask</option>
+		
+			<option value="SubmitContainerStateChange">SubmitContainerStateChange</option>
+		
+			<option value="SubmitTaskStateChange">SubmitTaskStateChange</option>
+		
+			<option value="UpdateContainerAgent">UpdateContainerAgent</option>
+		
+			<option value="UpdateContainerInstancesState">UpdateContainerInstancesState</option>
+		
+			<option value="UpdateService">UpdateService</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>	
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='serviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceName"><i class="fa fa-tag"></i>serviceName</label>
+		<input type="text" id="node-input-serviceName" placeholder="serviceName"></input>
+	</div> 
+	<div class="form-row" id='taskDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-taskDefinition"><i class="fa fa-tag"></i>taskDefinition</label>
+		<input type="text" id="node-input-taskDefinition" placeholder="taskDefinition"></input>
+	</div> 
+	<div class="form-row" id='desiredCountAttr' class='hiddenAttrs'>
+		<label for="node-input-desiredCount"><i class="fa fa-tag"></i>desiredCount</label>
+		<input type="text" id="node-input-desiredCount" placeholder="desiredCount"></input>
+	</div> 
+	<div class="form-row" id='attributesAttr' class='hiddenAttrs'>
+		<label for="node-input-attributes"><i class="fa fa-tag"></i>attributes</label>
+		<input type="text" id="node-input-attributes" placeholder="attributes"></input>
+	</div> 
+	<div class="form-row" id='clusterAttr' class='hiddenAttrs'>
+		<label for="node-input-cluster"><i class="fa fa-tag"></i>cluster</label>
+		<input type="text" id="node-input-cluster" placeholder="cluster"></input>
+	</div> 
+	<div class="form-row" id='serviceAttr' class='hiddenAttrs'>
+		<label for="node-input-service"><i class="fa fa-tag"></i>service</label>
+		<input type="text" id="node-input-service" placeholder="service"></input>
+	</div> 
+	<div class="form-row" id='containerInstanceAttr' class='hiddenAttrs'>
+		<label for="node-input-containerInstance"><i class="fa fa-tag"></i>containerInstance</label>
+		<input type="text" id="node-input-containerInstance" placeholder="containerInstance"></input>
+	</div> 
+	<div class="form-row" id='containerInstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-containerInstances"><i class="fa fa-tag"></i>containerInstances</label>
+		<input type="text" id="node-input-containerInstances" placeholder="containerInstances"></input>
+	</div> 
+	<div class="form-row" id='servicesAttr' class='hiddenAttrs'>
+		<label for="node-input-services"><i class="fa fa-tag"></i>services</label>
+		<input type="text" id="node-input-services" placeholder="services"></input>
+	</div> 
+	<div class="form-row" id='tasksAttr' class='hiddenAttrs'>
+		<label for="node-input-tasks"><i class="fa fa-tag"></i>tasks</label>
+		<input type="text" id="node-input-tasks" placeholder="tasks"></input>
+	</div> 
+	<div class="form-row" id='targetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-targetType"><i class="fa fa-tag"></i>targetType</label>
+		<input type="text" id="node-input-targetType" placeholder="targetType"></input>
+	</div> 
+	<div class="form-row" id='familyAttr' class='hiddenAttrs'>
+		<label for="node-input-family"><i class="fa fa-tag"></i>family</label>
+		<input type="text" id="node-input-family" placeholder="family"></input>
+	</div> 
+	<div class="form-row" id='containerDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-containerDefinitions"><i class="fa fa-tag"></i>containerDefinitions</label>
+		<input type="text" id="node-input-containerDefinitions" placeholder="containerDefinitions"></input>
+	</div> 
+	<div class="form-row" id='taskAttr' class='hiddenAttrs'>
+		<label for="node-input-task"><i class="fa fa-tag"></i>task</label>
+		<input type="text" id="node-input-task" placeholder="task"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i>status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateCluster:[
+					
+					],
+				CreateService:[
+					'#serviceNameAttr','#taskDefinitionAttr','#desiredCountAttr'
+					],
+				DeleteAttributes:[
+					'#attributesAttr'
+					],
+				DeleteCluster:[
+					'#clusterAttr'
+					],
+				DeleteService:[
+					'#serviceAttr'
+					],
+				DeregisterContainerInstance:[
+					'#containerInstanceAttr'
+					],
+				DeregisterTaskDefinition:[
+					'#taskDefinitionAttr'
+					],
+				DescribeClusters:[
+					
+					],
+				DescribeContainerInstances:[
+					'#containerInstancesAttr'
+					],
+				DescribeServices:[
+					'#servicesAttr'
+					],
+				DescribeTaskDefinition:[
+					'#taskDefinitionAttr'
+					],
+				DescribeTasks:[
+					'#tasksAttr'
+					],
+				DiscoverPollEndpoint:[
+					
+					],
+				ListAttributes:[
+					'#targetTypeAttr'
+					],
+				ListClusters:[
+					
+					],
+				ListContainerInstances:[
+					
+					],
+				ListServices:[
+					
+					],
+				ListTaskDefinitionFamilies:[
+					
+					],
+				ListTaskDefinitions:[
+					
+					],
+				ListTasks:[
+					
+					],
+				PutAttributes:[
+					'#attributesAttr'
+					],
+				RegisterContainerInstance:[
+					
+					],
+				RegisterTaskDefinition:[
+					'#familyAttr','#containerDefinitionsAttr'
+					],
+				RunTask:[
+					'#taskDefinitionAttr'
+					],
+				StartTask:[
+					'#taskDefinitionAttr','#containerInstancesAttr'
+					],
+				StopTask:[
+					'#taskAttr'
+					],
+				SubmitContainerStateChange:[
+					
+					],
+				SubmitTaskStateChange:[
+					
+					],
+				UpdateContainerAgent:[
+					'#containerInstanceAttr'
+					],
+				UpdateContainerInstancesState:[
+					'#containerInstancesAttr','#statusAttr'
+					],
+				UpdateService:[
+					'#serviceAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="amazon Ecs">
+<p>
+AWS Amazon EC2 Container Service
+</p>
+<p>
+<b>Descriptions to be added</b<
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Ecs',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateCluster' },
+			
+				serviceName: { value: ""} ,
+				taskDefinition: { value: ""} ,
+				desiredCount: { value: ""} ,
+				attributes: { value: ""} ,
+				cluster: { value: ""} ,
+				service: { value: ""} ,
+				containerInstance: { value: ""} ,
+				containerInstances: { value: ""} ,
+				services: { value: ""} ,
+				tasks: { value: ""} ,
+				targetType: { value: ""} ,
+				family: { value: ""} ,
+				containerDefinitions: { value: ""} ,
+				task: { value: ""} ,
+				status: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+		outputs:1,
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Ecs " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

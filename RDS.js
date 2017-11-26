@@ -1630,6 +1630,62 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RestoreDBInstanceFromS3=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBInstanceIdentifier",params); 
+			copyArg(n,"DBInstanceClass",params); 
+			copyArg(n,"Engine",params); 
+			copyArg(n,"SourceEngine",params); 
+			copyArg(n,"SourceEngineVersion",params); 
+			copyArg(n,"S3BucketName",params); 
+			copyArg(n,"S3IngestionRoleArn",params); 
+			
+			copyArg(msg,"DBName",params); 
+			copyArg(msg,"DBInstanceIdentifier",params); 
+			copyArg(msg,"AllocatedStorage",params); 
+			copyArg(msg,"DBInstanceClass",params); 
+			copyArg(msg,"Engine",params); 
+			copyArg(msg,"MasterUsername",params); 
+			copyArg(msg,"MasterUserPassword",params); 
+			copyArg(msg,"DBSecurityGroups",params); 
+			copyArg(msg,"VpcSecurityGroupIds",params); 
+			copyArg(msg,"AvailabilityZone",params); 
+			copyArg(msg,"DBSubnetGroupName",params); 
+			copyArg(msg,"PreferredMaintenanceWindow",params); 
+			copyArg(msg,"DBParameterGroupName",params); 
+			copyArg(msg,"BackupRetentionPeriod",params); 
+			copyArg(msg,"PreferredBackupWindow",params); 
+			copyArg(msg,"Port",params); 
+			copyArg(msg,"MultiAZ",params); 
+			copyArg(msg,"EngineVersion",params); 
+			copyArg(msg,"AutoMinorVersionUpgrade",params); 
+			copyArg(msg,"LicenseModel",params); 
+			copyArg(msg,"Iops",params); 
+			copyArg(msg,"OptionGroupName",params); 
+			copyArg(msg,"PubliclyAccessible",params); 
+			copyArg(msg,"Tags",params); 
+			copyArg(msg,"StorageType",params); 
+			copyArg(msg,"StorageEncrypted",params); 
+			copyArg(msg,"KmsKeyId",params); 
+			copyArg(msg,"CopyTagsToSnapshot",params); 
+			copyArg(msg,"MonitoringInterval",params); 
+			copyArg(msg,"MonitoringRoleArn",params); 
+			copyArg(msg,"EnableIAMDatabaseAuthentication",params); 
+			copyArg(msg,"SourceEngine",params); 
+			copyArg(msg,"SourceEngineVersion",params); 
+			copyArg(msg,"S3BucketName",params); 
+			copyArg(msg,"S3Prefix",params); 
+			copyArg(msg,"S3IngestionRoleArn",params); 
+			copyArg(msg,"EnablePerformanceInsights",params); 
+			copyArg(msg,"PerformanceInsightsKMSKeyId",params); 
+			
+
+			svc.restoreDBInstanceFromS3(params,cb);
+		}
+
+		
 		service.RestoreDBInstanceToPointInTime=function(svc,msg,cb){
 			var params={};
 			//copyArgs

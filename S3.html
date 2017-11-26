@@ -44,6 +44,8 @@
 		
 			<option value="DeleteBucketCors">DeleteBucketCors</option>
 		
+			<option value="DeleteBucketEncryption">DeleteBucketEncryption</option>
+		
 			<option value="DeleteBucketInventoryConfiguration">DeleteBucketInventoryConfiguration</option>
 		
 			<option value="DeleteBucketLifecycle">DeleteBucketLifecycle</option>
@@ -71,6 +73,8 @@
 			<option value="GetBucketAnalyticsConfiguration">GetBucketAnalyticsConfiguration</option>
 		
 			<option value="GetBucketCors">GetBucketCors</option>
+		
+			<option value="GetBucketEncryption">GetBucketEncryption</option>
 		
 			<option value="GetBucketInventoryConfiguration">GetBucketInventoryConfiguration</option>
 		
@@ -137,6 +141,8 @@
 			<option value="PutBucketAnalyticsConfiguration">PutBucketAnalyticsConfiguration</option>
 		
 			<option value="PutBucketCors">PutBucketCors</option>
+		
+			<option value="PutBucketEncryption">PutBucketEncryption</option>
 		
 			<option value="PutBucketInventoryConfiguration">PutBucketInventoryConfiguration</option>
 		
@@ -221,6 +227,10 @@
 		<label for="node-input-CORSConfiguration"><i class="fa fa-tag"></i>CORSConfiguration</label>
 		<input type="text" id="node-input-CORSConfiguration" placeholder="CORSConfiguration"></input>
 	</div> 
+	<div class="form-row" id='ServerSideEncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerSideEncryptionConfiguration"><i class="fa fa-tag"></i>ServerSideEncryptionConfiguration</label>
+		<input type="text" id="node-input-ServerSideEncryptionConfiguration" placeholder="ServerSideEncryptionConfiguration"></input>
+	</div> 
 	<div class="form-row" id='InventoryConfigurationAttr' class='hiddenAttrs'>
 		<label for="node-input-InventoryConfiguration"><i class="fa fa-tag"></i>InventoryConfiguration</label>
 		<input type="text" id="node-input-InventoryConfiguration" placeholder="InventoryConfiguration"></input>
@@ -294,6 +304,9 @@
 				DeleteBucketCors:[
 					'#BucketAttr'
 					],
+				DeleteBucketEncryption:[
+					'#BucketAttr'
+					],
 				DeleteBucketInventoryConfiguration:[
 					'#BucketAttr','#IdAttr'
 					],
@@ -334,6 +347,9 @@
 					'#BucketAttr','#IdAttr'
 					],
 				GetBucketCors:[
+					'#BucketAttr'
+					],
+				GetBucketEncryption:[
 					'#BucketAttr'
 					],
 				GetBucketInventoryConfiguration:[
@@ -435,6 +451,9 @@
 				PutBucketCors:[
 					'#BucketAttr','#CORSConfigurationAttr'
 					],
+				PutBucketEncryption:[
+					'#BucketAttr','#ServerSideEncryptionConfigurationAttr'
+					],
 				PutBucketInventoryConfiguration:[
 					'#BucketAttr','#IdAttr','#InventoryConfigurationAttr'
 					],
@@ -532,6 +551,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				AccelerateConfiguration: { value: ""} ,
 				AnalyticsConfiguration: { value: ""} ,
 				CORSConfiguration: { value: ""} ,
+				ServerSideEncryptionConfiguration: { value: ""} ,
 				InventoryConfiguration: { value: ""} ,
 				BucketLoggingStatus: { value: ""} ,
 				MetricsConfiguration: { value: ""} ,
