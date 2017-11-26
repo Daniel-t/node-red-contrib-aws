@@ -111,6 +111,7 @@ module.exports = function(RED) {
 			
 			copyArg(n,"KeyId",params); 
 			copyArg(n,"GranteePrincipal",params); 
+			copyArg(n,"Operations",params); 
 			
 			copyArg(msg,"KeyId",params); 
 			copyArg(msg,"GranteePrincipal",params); 

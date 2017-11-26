@@ -258,6 +258,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteBucketEncryption=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Bucket",params); 
+			
+			copyArg(msg,"Bucket",params); 
+			
+
+			svc.deleteBucketEncryption(params,cb);
+		}
+
+		
 		service.DeleteBucketInventoryConfiguration=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -455,6 +468,19 @@ module.exports = function(RED) {
 			
 
 			svc.getBucketCors(params,cb);
+		}
+
+		
+		service.GetBucketEncryption=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Bucket",params); 
+			
+			copyArg(msg,"Bucket",params); 
+			
+
+			svc.getBucketEncryption(params,cb);
 		}
 
 		
@@ -982,6 +1008,22 @@ module.exports = function(RED) {
 		}
 
 		
+		service.PutBucketEncryption=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Bucket",params); 
+			copyArg(n,"ServerSideEncryptionConfiguration",params); 
+			
+			copyArg(msg,"Bucket",params); 
+			copyArg(msg,"ContentMD5",params); 
+			copyArg(msg,"ServerSideEncryptionConfiguration",params); 
+			
+
+			svc.putBucketEncryption(params,cb);
+		}
+
+		
 		service.PutBucketInventoryConfiguration=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1101,6 +1143,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Bucket",params); 
 			copyArg(msg,"ContentMD5",params); 
+			copyArg(msg,"ConfirmRemoveSelfBucketAccess",params); 
 			copyArg(msg,"Policy",params); 
 			
 

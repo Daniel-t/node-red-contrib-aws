@@ -92,6 +92,8 @@
 		
 			<option value="CreateCustomerGateway">CreateCustomerGateway</option>
 		
+			<option value="CreateDefaultSubnet">CreateDefaultSubnet</option>
+		
 			<option value="CreateDefaultVpc">CreateDefaultVpc</option>
 		
 			<option value="CreateDhcpOptions">CreateDhcpOptions</option>
@@ -1074,6 +1076,9 @@
 				CreateCustomerGateway:[
 					'#BgpAsnAttr','#PublicIpAttr','#TypeAttr'
 					],
+				CreateDefaultSubnet:[
+					'#AvailabilityZoneAttr'
+					],
 				CreateDefaultVpc:[
 					
 					],
@@ -1150,7 +1155,7 @@
 					'#CidrBlockAttr'
 					],
 				CreateVpcEndpoint:[
-					'#ServiceNameAttr','#VpcIdAttr'
+					'#VpcIdAttr','#ServiceNameAttr'
 					],
 				CreateVpcPeeringConnection:[
 					

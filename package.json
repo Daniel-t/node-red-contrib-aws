@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-aws",
   "version": "0.3.1",
-  "description": "A collection of Node-RED nodes for AWS.  Includes nodes for DynamoDB, EC2, IoT, Kinesis, Lambda, SNS, SQS and S3.",
+  "description": "A collection of Node-RED nodes for AWS.  Includes nodes for DynamoDB, EC2, IoT, Kinesis, Lambda, Rekognition, Polly, SNS, SQS and S3.",
   "dependencies": {
     "aws-sdk": "2"
   },
@@ -22,7 +22,9 @@
     "dynamodb",
     "iot",
     "es",
-    "rds"
+    "rds",
+    "rekognition",
+    "polly"
   ],
   "node-red": {
     "nodes": {
@@ -38,6 +40,8 @@
       "AWS IotData": "IotData.js",
       "AWS KMS": "KMS.js",
       "AWS ES": "ES.js",
+      "AWS Rekognition": "Rekognition.js",
+      "AWS Polly": "Polly.js",
       "amazon config": "config.js"
     }
   },

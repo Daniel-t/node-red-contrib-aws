@@ -3,6 +3,7 @@ buildService: function(filename){
 var fs= require('fs');
 var serviceDef=JSON.parse(fs.readFileSync(filename,'utf8'));
 console.log(serviceDef.metadata);
+
 /*
 Object.keys(serviceDef.operations).forEach(function(key){
 	console.log(key);
@@ -20,7 +21,8 @@ function serviceNameMapper(name){
 		Kms:'KMS',
 		Es:'ES',
 		DynamoDB:'DynamoDB',
-		Ec2:'EC2'
+		Ec2:'EC2',
+		Rekognition:'Rekognition'
 	};
 	//really special cases
 	map['Data.iot']='IotData';

@@ -40,7 +40,7 @@ module.exports = function(RED) {
 			return;
 		}
 
-		var awsService = new AWS.IotData( { 'region': node.region } );
+		var awsService = new AWS.Polly( { 'region': node.region } );
 
 		node.on("input", function(msg) {
 			node.sendMsg = function (err, data) {
@@ -77,64 +77,95 @@ module.exports = function(RED) {
 		var service={};
 
 		
-		service.DeleteThingShadow=function(svc,msg,cb){
+		service.DeleteLexicon=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"thingName",params); 
+			copyArg(n,"Name",params); 
 			
-			copyArg(msg,"thingName",params); 
+			copyArg(msg,"Name",params); 
 			
 
-			svc.deleteThingShadow(params,cb);
+			svc.deleteLexicon(params,cb);
 		}
 
 		
-		service.GetThingShadow=function(svc,msg,cb){
+		service.DescribeVoices=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"thingName",params); 
 			
-			copyArg(msg,"thingName",params); 
+			copyArg(msg,"LanguageCode",params); 
+			copyArg(msg,"NextToken",params); 
 			
 
-			svc.getThingShadow(params,cb);
+			svc.describeVoices(params,cb);
 		}
 
 		
-		service.Publish=function(svc,msg,cb){
+		service.GetLexicon=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"topic",params); 
+			copyArg(n,"Name",params); 
 			
-			copyArg(msg,"topic",params); 
-			copyArg(msg,"qos",params); 
-			copyArg(msg,"payload",params); 
+			copyArg(msg,"Name",params); 
 			
 
-			svc.publish(params,cb);
+			svc.getLexicon(params,cb);
 		}
 
 		
-		service.UpdateThingShadow=function(svc,msg,cb){
+		service.ListLexicons=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"thingName",params); 
-			copyArg(n,"payload",params); 
 			
-			copyArg(msg,"thingName",params); 
-			copyArg(msg,"payload",params); 
+			copyArg(msg,"NextToken",params); 
 			
 
-			svc.updateThingShadow(params,cb);
+			svc.listLexicons(params,cb);
+		}
+
+		
+		service.PutLexicon=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Name",params); 
+			copyArg(n,"Content",params); 
+			
+			copyArg(msg,"Name",params); 
+			copyArg(msg,"Content",params); 
+			
+
+			svc.putLexicon(params,cb);
+		}
+
+		
+		service.SynthesizeSpeech=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"OutputFormat",params); 
+			copyArg(n,"Text",params); 
+			copyArg(n,"VoiceId",params); 
+			
+			copyArg(msg,"LexiconNames",params); 
+			copyArg(msg,"OutputFormat",params); 
+			copyArg(msg,"SampleRate",params); 
+			copyArg(msg,"SpeechMarkTypes",params); 
+			copyArg(msg,"Text",params); 
+			copyArg(msg,"TextType",params); 
+			copyArg(msg,"VoiceId",params); 
+			
+
+			svc.synthesizeSpeech(params,cb);
 		}
 
 			
 
 	}
-	RED.nodes.registerType("AWS IotData", AmazonAPINode);
+	RED.nodes.registerType("AWS Polly", AmazonAPINode);
 
 };
