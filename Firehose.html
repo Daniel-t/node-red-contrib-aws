@@ -25,7 +25,7 @@
 	<div id="AttrHolder">
 	      
 	<div class="form-row" id='DeliveryStreamNameAttr' class='hiddenAttrs'>
-		<label for="node-input-DeliveryStreamName"><i class="fa fa-tag"></i>StreamName</label>
+		<label for="node-input-DeliveryStreamName"><i class="fa fa-tag"></i>DeliveryStreamName</label>
 		<input type="text" id="node-input-DeliveryStreamName" placeholder="DeliveryStreamName"></input>
 	</div> 
 	<div class="form-row" id='RecordAttr' class='hiddenAttrs'>
@@ -72,6 +72,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 			operation: { value: 'PutRecord' },
 			
 				StreamName: { value: ""} ,
+				DeliveryStreamName: { value: ""} ,
 				Tags: { value: ""} ,
 				ShardCount: { value: ""} ,
 				RetentionPeriodHours: { value: ""} ,
@@ -83,6 +84,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				AdjacentShardToMerge: { value: ""} ,
 				Data: { value: ""} ,
 				PartitionKey: { value: ""} ,
+				Record: { value: ""} ,
 				Records: { value: ""} ,
 				TagKeys: { value: ""} ,
 				ShardToSplit: { value: ""} ,
