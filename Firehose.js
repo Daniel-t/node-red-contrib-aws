@@ -82,20 +82,20 @@ module.exports = function(RED) {
 		var service={};
 
 		
-		
-		service.PutRecord=function(svc,msg,cb){
-			var params={};
-			//copyArgs
-			
-			copyArg(n,"DeliveryStreamName",params); 
-			copyArg(n,"Record",params); 
-			
-			copyArg(msg,"DeliveryStreamName",params); 
-			copyArg(msg,"Record",params); 
-
-			svc.putRecord(params,cb);
-		}
-
+                service.PutRecord=function(svc,msg,cb){
+                        var params={};
+                        copyArg(n,"DeliveryStreamName",params);
+                        copyArg(n,"Record",params);
+                        copyArg(msg,"DeliveryStreamName",params);
+                        copyArg(msg,"Record",params);
+                        if (params.Record !== "") {
+                            var data = params.Record;
+                        } else {
+                            var data = msg.payload;
+                        }
+                        params['Record']={Data: new Buffer(JSON.stringify(data)) }
+                        svc.putRecord(params,cb);
+                }		
 		
 	}
 	RED.nodes.registerType("AWS Firehose", AmazonAPINode);
