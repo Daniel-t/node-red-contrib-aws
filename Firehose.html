@@ -1,0 +1,110 @@
+
+<script type="text/x-red" data-template-name="AWS Firehose">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="PutRecord">PutRecord</option>
+		
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>	
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DeliveryStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryStreamName"><i class="fa fa-tag"></i>DeliveryStreamName</label>
+		<input type="text" id="node-input-DeliveryStreamName" placeholder="DeliveryStreamName"></input>
+	</div> 
+	<div class="form-row" id='RecordAttr' class='hiddenAttrs'>
+		<label for="node-input-Record"><i class="fa fa-tag"></i>Data</label>
+		<input type="text" id="node-input-Record" placeholder="Record"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				PutRecord:[
+					'#DeliveryStreamNameAttr','#RecordAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="amazon Firehose">
+<p>
+AWS Amazon Firehose
+</p>
+<p>
+<b>Descriptions to be added</b<
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Firehose',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'PutRecord' },
+			
+				StreamName: { value: ""} ,
+				DeliveryStreamName: { value: ""} ,
+				Tags: { value: ""} ,
+				ShardCount: { value: ""} ,
+				RetentionPeriodHours: { value: ""} ,
+				ShardLevelMetrics: { value: ""} ,
+				ShardIterator: { value: ""} ,
+				ShardId: { value: ""} ,
+				ShardIteratorType: { value: ""} ,
+				ShardToMerge: { value: ""} ,
+				AdjacentShardToMerge: { value: ""} ,
+				Data: { value: ""} ,
+				PartitionKey: { value: ""} ,
+				Record: { value: ""} ,
+				Records: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ShardToSplit: { value: ""} ,
+				NewStartingHashKey: { value: ""} ,
+				EncryptionType: { value: ""} ,
+				KeyId: { value: ""} ,
+				TargetShardCount: { value: ""} ,
+				ScalingType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+		outputs:1,
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Firehose " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -15,6 +15,7 @@
     "aws",
     "ec2",
     "kinesis",
+    "firehose",
     "lamdba",
     "s3",
     "sqs",
@@ -31,6 +32,7 @@
     "nodes": {
       "AWS EC2": "EC2.js",
       "AWS Kinesis": "Kinesis.js",
+      "AWS Firehose": "Firehose.js",
       "AWS Lambda": "Lambda.js",
       "AWS S3": "S3.js",
       "AWS DynamoDB": "DynamoDB.js",
