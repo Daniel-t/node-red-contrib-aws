@@ -54,7 +54,7 @@ module.exports = function(RED) {
 				if (err) {
 				node.status({fill:"red",shape:"ring",text:"error"});
 				node.error("failed: " + err.toString(),msg);
-				return;
+				//return;
 				} else {
 				msg.payload = data;
 				node.status({});
