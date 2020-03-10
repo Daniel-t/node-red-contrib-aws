@@ -376,22 +376,45 @@ module.exports = function(RED) {
 		}
 
 		
-		service.PutRecord=function(svc,msg,cb){
-			var params={};
-			//copyArgs
-			
-			copyArg(n,"StreamName",params,undefined,false); 
-			copyArg(n,"Data",params,undefined,false); 
-			copyArg(n,"PartitionKey",params,undefined,false); 
-			
-			copyArg(msg,"StreamName",params,undefined,false); 
-			copyArg(msg,"Data",params,undefined,false); 
-			copyArg(msg,"PartitionKey",params,undefined,false); 
-			copyArg(msg,"ExplicitHashKey",params,undefined,false); 
-			copyArg(msg,"SequenceNumberForOrdering",params,undefined,false); 
-			
+		service.PutRecord = function (svc, msg, cb) {
 
-			svc.putRecord(params,cb);
+
+			var params = {};
+			//copyArgs
+
+			if (n.Data.indexOf('msg') >= 0) {
+				/** 
+				 * to handle msg or msg.payload
+				 * https://github.com/joeartsea/node-red-contrib-aws/blob/master/kinesis.js
+				 * set Data as msg.payload || msg.topic
+				 * */
+
+				params = {
+					Data: (n.Data.indexOf('.') >= 3) ? msg[n.Data.split(".")[1]] : msg,
+					StreamName: n.StreamName || msg.streamname,
+					PartitionKey: n.PartitionKey || msg.partitionkey,
+					ExplicitHashKey: n.ExplicitHashKey || msg.explicithashkey,
+					SequenceNumberForOrdering: n.SequenceNumberForOrdering || msg.SequenceNumberForOrdering
+				};
+				node.status({ fill: "blue", shape: "dot", text: "custom puts data record" });
+			} else {
+				copyArg(n, "StreamName", params, undefined, false);
+				copyArg(n, "Data", params, undefined, false);
+				copyArg(n, "PartitionKey", params, undefined, false);
+
+				copyArg(msg, "StreamName", params, undefined, false);
+				copyArg(msg, "Data", params, undefined, false);
+				copyArg(msg, "PartitionKey", params, undefined, false);
+				copyArg(msg, "ExplicitHashKey", params, undefined, false);
+				copyArg(msg, "SequenceNumberForOrdering", params, undefined, false);
+				node.status({ fill: "blue", shape: "dot", text: "original puts data record" });
+			}
+
+
+			node.status({ fill: "blue", shape: "dot", text: "PutRecord to AWS" });
+			node.warn("n");
+			node.warn(n);
+			svc.putRecord(params, cb);
 		}
 
 		
