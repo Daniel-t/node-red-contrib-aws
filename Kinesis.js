@@ -390,7 +390,7 @@ module.exports = function(RED) {
 				 * */
 
 				params = {
-					Data: (n.Data.indexOf('.') >= 3) ? msg[n.Data.split(".")[1]] : msg,
+					Data: (n.Data.indexOf('.') >= 3) ? msg[n.Data.split(".")[1]] : ((typeof msg === 'string') ? msg : JSON.stringify(msg)),
 					StreamName: n.StreamName || msg.streamname,
 					PartitionKey: n.PartitionKey || msg.partitionkey,
 					ExplicitHashKey: n.ExplicitHashKey || msg.explicithashkey,
