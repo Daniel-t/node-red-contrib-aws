@@ -1,5 +1,5 @@
 {
-  "name": "node-red-mqtt-contrib-aws",
+  "name": "node-red-contrib-aws",
   "version": "0.5.0",
   "description": "A collection of Node-RED nodes for AWS.  Includes nodes for DynamoDB, EC2, IoT, Kinesis, Lambda, SNS, SQS and S3.",
   "dependencies": {
