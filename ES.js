@@ -95,6 +95,19 @@ module.exports = function(RED) {
 		var service={};
 
 		
+		service.AcceptInboundCrossClusterSearchConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+
+			svc.acceptInboundCrossClusterSearchConnection(params,cb);
+		}
+
+		
 		service.AddTags=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -107,6 +120,21 @@ module.exports = function(RED) {
 			
 
 			svc.addTags(params,cb);
+		}
+
+		
+		service.AssociatePackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			copyArg(n,"DomainName",params,undefined,false); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			copyArg(msg,"DomainName",params,undefined,false); 
+			
+
+			svc.associatePackage(params,cb);
 		}
 
 		
@@ -141,9 +169,46 @@ module.exports = function(RED) {
 			copyArg(msg,"NodeToNodeEncryptionOptions",params,undefined,true); 
 			copyArg(msg,"AdvancedOptions",params,undefined,true); 
 			copyArg(msg,"LogPublishingOptions",params,undefined,true); 
+			copyArg(msg,"DomainEndpointOptions",params,undefined,true); 
+			copyArg(msg,"AdvancedSecurityOptions",params,undefined,true); 
 			
 
 			svc.createElasticsearchDomain(params,cb);
+		}
+
+		
+		service.CreateOutboundCrossClusterSearchConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"SourceDomainInfo",params,undefined,true); 
+			copyArg(n,"DestinationDomainInfo",params,undefined,true); 
+			copyArg(n,"ConnectionAlias",params,undefined,false); 
+			
+			copyArg(msg,"SourceDomainInfo",params,undefined,true); 
+			copyArg(msg,"DestinationDomainInfo",params,undefined,true); 
+			copyArg(msg,"ConnectionAlias",params,undefined,false); 
+			
+
+			svc.createOutboundCrossClusterSearchConnection(params,cb);
+		}
+
+		
+		service.CreatePackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageName",params,undefined,false); 
+			copyArg(n,"PackageType",params,undefined,false); 
+			copyArg(n,"PackageSource",params,undefined,true); 
+			
+			copyArg(msg,"PackageName",params,undefined,false); 
+			copyArg(msg,"PackageType",params,undefined,false); 
+			copyArg(msg,"PackageDescription",params,undefined,false); 
+			copyArg(msg,"PackageSource",params,undefined,true); 
+			
+
+			svc.createPackage(params,cb);
 		}
 
 		
@@ -168,6 +233,45 @@ module.exports = function(RED) {
 			
 
 			svc.deleteElasticsearchServiceRole(params,cb);
+		}
+
+		
+		service.DeleteInboundCrossClusterSearchConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+
+			svc.deleteInboundCrossClusterSearchConnection(params,cb);
+		}
+
+		
+		service.DeleteOutboundCrossClusterSearchConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+
+			svc.deleteOutboundCrossClusterSearchConnection(params,cb);
+		}
+
+		
+		service.DeletePackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			
+
+			svc.deletePackage(params,cb);
 		}
 
 		
@@ -226,6 +330,48 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeInboundCrossClusterSearchConnections=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeInboundCrossClusterSearchConnections(params,cb);
+		}
+
+		
+		service.DescribeOutboundCrossClusterSearchConnections=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeOutboundCrossClusterSearchConnections(params,cb);
+		}
+
+		
+		service.DescribePackages=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filters",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describePackages(params,cb);
+		}
+
+		
 		service.DescribeReservedElasticsearchInstanceOfferings=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -254,6 +400,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DissociatePackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			copyArg(n,"DomainName",params,undefined,false); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			copyArg(msg,"DomainName",params,undefined,false); 
+			
+
+			svc.dissociatePackage(params,cb);
+		}
+
+		
 		service.GetCompatibleElasticsearchVersions=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -263,6 +424,21 @@ module.exports = function(RED) {
 			
 
 			svc.getCompatibleElasticsearchVersions(params,cb);
+		}
+
+		
+		service.GetPackageVersionHistory=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.getPackageVersionHistory(params,cb);
 		}
 
 		
@@ -305,6 +481,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListDomainsForPackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.listDomainsForPackage(params,cb);
+		}
+
+		
 		service.ListElasticsearchInstanceTypes=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -334,6 +525,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListPackagesForDomain=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DomainName",params,undefined,false); 
+			
+			copyArg(msg,"DomainName",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.listPackagesForDomain(params,cb);
+		}
+
+		
 		service.ListTags=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -360,6 +566,19 @@ module.exports = function(RED) {
 			
 
 			svc.purchaseReservedElasticsearchInstanceOffering(params,cb);
+		}
+
+		
+		service.RejectInboundCrossClusterSearchConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"CrossClusterSearchConnectionId",params,undefined,false); 
+			
+
+			svc.rejectInboundCrossClusterSearchConnection(params,cb);
 		}
 
 		
@@ -406,9 +625,28 @@ module.exports = function(RED) {
 			copyArg(msg,"AdvancedOptions",params,undefined,true); 
 			copyArg(msg,"AccessPolicies",params,undefined,false); 
 			copyArg(msg,"LogPublishingOptions",params,undefined,true); 
+			copyArg(msg,"DomainEndpointOptions",params,undefined,true); 
+			copyArg(msg,"AdvancedSecurityOptions",params,undefined,true); 
 			
 
 			svc.updateElasticsearchDomainConfig(params,cb);
+		}
+
+		
+		service.UpdatePackage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PackageID",params,undefined,false); 
+			copyArg(n,"PackageSource",params,undefined,true); 
+			
+			copyArg(msg,"PackageID",params,undefined,false); 
+			copyArg(msg,"PackageSource",params,undefined,true); 
+			copyArg(msg,"PackageDescription",params,undefined,false); 
+			copyArg(msg,"CommitMessage",params,undefined,false); 
+			
+
+			svc.updatePackage(params,cb);
 		}
 
 		

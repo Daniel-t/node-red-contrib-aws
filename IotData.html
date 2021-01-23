@@ -32,6 +32,8 @@
 		
 			<option value="GetThingShadow">GetThingShadow</option>
 		
+			<option value="ListNamedShadowsForThing">ListNamedShadowsForThing</option>
+		
 			<option value="Publish">Publish</option>
 		
 			<option value="UpdateThingShadow">UpdateThingShadow</option>
@@ -42,11 +44,6 @@
 		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
 		<input type="text" id="node-input-name" placeholder="Name"></input>
 	</div>
-	 <div class="form-row">
-         <label for="node-input-endPoint"><i class="fa fa-tag"></i>Endpoint (*)</label>
-         <input type="text" id="node-input-endPoint" placeholder="">
-         </input>
-        </div>
 	<hr/>	
 	<div id="AttrHolder">
 	      
@@ -71,6 +68,9 @@
 					'#thingNameAttr'
 					],
 				GetThingShadow:[
+					'#thingNameAttr'
+					],
+				ListNamedShadowsForThing:[
 					'#thingNameAttr'
 					],
 				Publish:[
@@ -113,7 +113,6 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				thingName: { value: ""} ,
 				topic: { value: ""} ,
 				payload: { value: ""} ,
-			endPoint: { value: "" },
 			name: { value: "" }
 		},
 		inputs:1,

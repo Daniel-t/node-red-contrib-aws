@@ -104,11 +104,14 @@ module.exports = function(RED) {
 			copyArg(msg,"DeliveryStreamName",params,undefined,false); 
 			copyArg(msg,"DeliveryStreamType",params,undefined,false); 
 			copyArg(msg,"KinesisStreamSourceConfiguration",params,undefined,false); 
+			copyArg(msg,"DeliveryStreamEncryptionConfigurationInput",params,undefined,true); 
 			copyArg(msg,"S3DestinationConfiguration",params,undefined,true); 
 			copyArg(msg,"ExtendedS3DestinationConfiguration",params,undefined,false); 
 			copyArg(msg,"RedshiftDestinationConfiguration",params,undefined,false); 
 			copyArg(msg,"ElasticsearchDestinationConfiguration",params,undefined,false); 
 			copyArg(msg,"SplunkDestinationConfiguration",params,undefined,false); 
+			copyArg(msg,"HttpEndpointDestinationConfiguration",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
 			
 
 			svc.createDeliveryStream(params,cb);
@@ -122,6 +125,7 @@ module.exports = function(RED) {
 			copyArg(n,"DeliveryStreamName",params,undefined,false); 
 			
 			copyArg(msg,"DeliveryStreamName",params,undefined,false); 
+			copyArg(msg,"AllowForceDelete",params,undefined,false); 
 			
 
 			svc.deleteDeliveryStream(params,cb);
@@ -202,15 +206,42 @@ module.exports = function(RED) {
 		}
 
 		
+		service.StartDeliveryStreamEncryption=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DeliveryStreamName",params,undefined,false); 
+			
+			copyArg(msg,"DeliveryStreamName",params,undefined,false); 
+			copyArg(msg,"DeliveryStreamEncryptionConfigurationInput",params,undefined,true); 
+			
+
+			svc.startDeliveryStreamEncryption(params,cb);
+		}
+
+		
+		service.StopDeliveryStreamEncryption=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DeliveryStreamName",params,undefined,false); 
+			
+			copyArg(msg,"DeliveryStreamName",params,undefined,false); 
+			
+
+			svc.stopDeliveryStreamEncryption(params,cb);
+		}
+
+		
 		service.TagDeliveryStream=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			copyArg(n,"DeliveryStreamName",params,undefined,false); 
-			copyArg(n,"Tags",params,undefined,false); 
+			copyArg(n,"Tags",params,undefined,true); 
 			
 			copyArg(msg,"DeliveryStreamName",params,undefined,false); 
-			copyArg(msg,"Tags",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
 			
 
 			svc.tagDeliveryStream(params,cb);
@@ -248,6 +279,7 @@ module.exports = function(RED) {
 			copyArg(msg,"RedshiftDestinationUpdate",params,undefined,false); 
 			copyArg(msg,"ElasticsearchDestinationUpdate",params,undefined,false); 
 			copyArg(msg,"SplunkDestinationUpdate",params,undefined,false); 
+			copyArg(msg,"HttpEndpointDestinationUpdate",params,undefined,false); 
 			
 
 			svc.updateDestination(params,cb);

@@ -95,12 +95,32 @@ module.exports = function(RED) {
 		var service={};
 
 		
+		service.CreateCapacityProvider=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"name",params,undefined,false); 
+			copyArg(n,"autoScalingGroupProvider",params,undefined,true); 
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"autoScalingGroupProvider",params,undefined,true); 
+			copyArg(msg,"tags",params,undefined,true); 
+			
+
+			svc.createCapacityProvider(params,cb);
+		}
+
+		
 		service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			
 			copyArg(msg,"clusterName",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			copyArg(msg,"settings",params,undefined,true); 
+			copyArg(msg,"capacityProviders",params,undefined,true); 
+			copyArg(msg,"defaultCapacityProviderStrategy",params,undefined,true); 
 			
 
 			svc.createCluster(params,cb);
@@ -112,7 +132,6 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			copyArg(n,"serviceName",params,undefined,false); 
-			copyArg(n,"taskDefinition",params,undefined,false); 
 			
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"serviceName",params,undefined,false); 
@@ -122,6 +141,7 @@ module.exports = function(RED) {
 			copyArg(msg,"desiredCount",params,undefined,false); 
 			copyArg(msg,"clientToken",params,undefined,false); 
 			copyArg(msg,"launchType",params,undefined,false); 
+			copyArg(msg,"capacityProviderStrategy",params,undefined,true); 
 			copyArg(msg,"platformVersion",params,undefined,false); 
 			copyArg(msg,"role",params,undefined,false); 
 			copyArg(msg,"deploymentConfiguration",params,undefined,true); 
@@ -130,9 +150,54 @@ module.exports = function(RED) {
 			copyArg(msg,"networkConfiguration",params,undefined,true); 
 			copyArg(msg,"healthCheckGracePeriodSeconds",params,undefined,false); 
 			copyArg(msg,"schedulingStrategy",params,undefined,false); 
+			copyArg(msg,"deploymentController",params,undefined,true); 
+			copyArg(msg,"tags",params,undefined,true); 
+			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
+			copyArg(msg,"propagateTags",params,undefined,false); 
 			
 
 			svc.createService(params,cb);
+		}
+
+		
+		service.CreateTaskSet=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"service",params,undefined,false); 
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"taskDefinition",params,undefined,false); 
+			
+			copyArg(msg,"service",params,undefined,false); 
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"externalId",params,undefined,false); 
+			copyArg(msg,"taskDefinition",params,undefined,false); 
+			copyArg(msg,"networkConfiguration",params,undefined,true); 
+			copyArg(msg,"loadBalancers",params,undefined,true); 
+			copyArg(msg,"serviceRegistries",params,undefined,true); 
+			copyArg(msg,"launchType",params,undefined,false); 
+			copyArg(msg,"capacityProviderStrategy",params,undefined,true); 
+			copyArg(msg,"platformVersion",params,undefined,false); 
+			copyArg(msg,"scale",params,undefined,true); 
+			copyArg(msg,"clientToken",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			
+
+			svc.createTaskSet(params,cb);
+		}
+
+		
+		service.DeleteAccountSetting=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"name",params,undefined,false); 
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"principalArn",params,undefined,false); 
+			
+
+			svc.deleteAccountSetting(params,cb);
 		}
 
 		
@@ -147,6 +212,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteAttributes(params,cb);
+		}
+
+		
+		service.DeleteCapacityProvider=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"capacityProvider",params,undefined,false); 
+			
+			copyArg(msg,"capacityProvider",params,undefined,false); 
+			
+
+			svc.deleteCapacityProvider(params,cb);
 		}
 
 		
@@ -178,6 +256,24 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteTaskSet=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"service",params,undefined,false); 
+			copyArg(n,"taskSet",params,undefined,false); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"service",params,undefined,false); 
+			copyArg(msg,"taskSet",params,undefined,false); 
+			copyArg(msg,"force",params,undefined,false); 
+			
+
+			svc.deleteTaskSet(params,cb);
+		}
+
+		
 		service.DeregisterContainerInstance=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -206,6 +302,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeCapacityProviders=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"capacityProviders",params,undefined,true); 
+			copyArg(msg,"include",params,undefined,false); 
+			copyArg(msg,"maxResults",params,undefined,false); 
+			copyArg(msg,"nextToken",params,undefined,false); 
+			
+
+			svc.describeCapacityProviders(params,cb);
+		}
+
+		
 		service.DescribeClusters=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -227,6 +338,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"containerInstances",params,undefined,true); 
+			copyArg(msg,"include",params,undefined,false); 
 			
 
 			svc.describeContainerInstances(params,cb);
@@ -241,6 +353,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"services",params,undefined,true); 
+			copyArg(msg,"include",params,undefined,false); 
 			
 
 			svc.describeServices(params,cb);
@@ -254,9 +367,27 @@ module.exports = function(RED) {
 			copyArg(n,"taskDefinition",params,undefined,false); 
 			
 			copyArg(msg,"taskDefinition",params,undefined,false); 
+			copyArg(msg,"include",params,undefined,false); 
 			
 
 			svc.describeTaskDefinition(params,cb);
+		}
+
+		
+		service.DescribeTaskSets=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"service",params,undefined,false); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"service",params,undefined,false); 
+			copyArg(msg,"taskSets",params,undefined,true); 
+			copyArg(msg,"include",params,undefined,false); 
+			
+
+			svc.describeTaskSets(params,cb);
 		}
 
 		
@@ -268,6 +399,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"tasks",params,undefined,true); 
+			copyArg(msg,"include",params,undefined,false); 
 			
 
 			svc.describeTasks(params,cb);
@@ -284,6 +416,23 @@ module.exports = function(RED) {
 			
 
 			svc.discoverPollEndpoint(params,cb);
+		}
+
+		
+		service.ListAccountSettings=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"value",params,undefined,false); 
+			copyArg(msg,"principalArn",params,undefined,false); 
+			copyArg(msg,"effectiveSettings",params,undefined,false); 
+			copyArg(msg,"nextToken",params,undefined,false); 
+			copyArg(msg,"maxResults",params,undefined,false); 
+			
+
+			svc.listAccountSettings(params,cb);
 		}
 
 		
@@ -350,6 +499,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListTagsForResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"resourceArn",params,undefined,false); 
+			
+			copyArg(msg,"resourceArn",params,undefined,false); 
+			
+
+			svc.listTagsForResource(params,cb);
+		}
+
+		
 		service.ListTaskDefinitionFamilies=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -401,6 +563,37 @@ module.exports = function(RED) {
 		}
 
 		
+		service.PutAccountSetting=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"name",params,undefined,false); 
+			copyArg(n,"value",params,undefined,false); 
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"value",params,undefined,false); 
+			copyArg(msg,"principalArn",params,undefined,false); 
+			
+
+			svc.putAccountSetting(params,cb);
+		}
+
+		
+		service.PutAccountSettingDefault=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"name",params,undefined,false); 
+			copyArg(n,"value",params,undefined,false); 
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"value",params,undefined,false); 
+			
+
+			svc.putAccountSettingDefault(params,cb);
+		}
+
+		
 		service.PutAttributes=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -412,6 +605,23 @@ module.exports = function(RED) {
 			
 
 			svc.putAttributes(params,cb);
+		}
+
+		
+		service.PutClusterCapacityProviders=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"capacityProviders",params,undefined,true); 
+			copyArg(n,"defaultCapacityProviderStrategy",params,undefined,true); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"capacityProviders",params,undefined,true); 
+			copyArg(msg,"defaultCapacityProviderStrategy",params,undefined,true); 
+			
+
+			svc.putClusterCapacityProviders(params,cb);
 		}
 
 		
@@ -427,6 +637,8 @@ module.exports = function(RED) {
 			copyArg(msg,"versionInfo",params,undefined,true); 
 			copyArg(msg,"containerInstanceArn",params,undefined,false); 
 			copyArg(msg,"attributes",params,undefined,true); 
+			copyArg(msg,"platformDevices",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
 			
 
 			svc.registerContainerInstance(params,cb);
@@ -450,6 +662,11 @@ module.exports = function(RED) {
 			copyArg(msg,"requiresCompatibilities",params,undefined,true); 
 			copyArg(msg,"cpu",params,undefined,false); 
 			copyArg(msg,"memory",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			copyArg(msg,"pidMode",params,undefined,false); 
+			copyArg(msg,"ipcMode",params,undefined,false); 
+			copyArg(msg,"proxyConfiguration",params,undefined,true); 
+			copyArg(msg,"inferenceAccelerators",params,undefined,true); 
 			
 
 			svc.registerTaskDefinition(params,cb);
@@ -462,17 +679,22 @@ module.exports = function(RED) {
 			
 			copyArg(n,"taskDefinition",params,undefined,false); 
 			
+			copyArg(msg,"capacityProviderStrategy",params,undefined,true); 
 			copyArg(msg,"cluster",params,undefined,false); 
-			copyArg(msg,"taskDefinition",params,undefined,false); 
-			copyArg(msg,"overrides",params,undefined,true); 
 			copyArg(msg,"count",params,undefined,false); 
-			copyArg(msg,"startedBy",params,undefined,false); 
+			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
 			copyArg(msg,"group",params,undefined,false); 
+			copyArg(msg,"launchType",params,undefined,false); 
+			copyArg(msg,"networkConfiguration",params,undefined,true); 
+			copyArg(msg,"overrides",params,undefined,true); 
 			copyArg(msg,"placementConstraints",params,undefined,true); 
 			copyArg(msg,"placementStrategy",params,undefined,true); 
-			copyArg(msg,"launchType",params,undefined,false); 
 			copyArg(msg,"platformVersion",params,undefined,false); 
-			copyArg(msg,"networkConfiguration",params,undefined,true); 
+			copyArg(msg,"propagateTags",params,undefined,false); 
+			copyArg(msg,"referenceId",params,undefined,false); 
+			copyArg(msg,"startedBy",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			copyArg(msg,"taskDefinition",params,undefined,false); 
 			
 
 			svc.runTask(params,cb);
@@ -483,16 +705,20 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"taskDefinition",params,undefined,false); 
 			copyArg(n,"containerInstances",params,undefined,true); 
+			copyArg(n,"taskDefinition",params,undefined,false); 
 			
 			copyArg(msg,"cluster",params,undefined,false); 
-			copyArg(msg,"taskDefinition",params,undefined,false); 
-			copyArg(msg,"overrides",params,undefined,true); 
 			copyArg(msg,"containerInstances",params,undefined,true); 
-			copyArg(msg,"startedBy",params,undefined,false); 
+			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
 			copyArg(msg,"group",params,undefined,false); 
 			copyArg(msg,"networkConfiguration",params,undefined,true); 
+			copyArg(msg,"overrides",params,undefined,true); 
+			copyArg(msg,"propagateTags",params,undefined,false); 
+			copyArg(msg,"referenceId",params,undefined,false); 
+			copyArg(msg,"startedBy",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			copyArg(msg,"taskDefinition",params,undefined,false); 
 			
 
 			svc.startTask(params,cb);
@@ -514,6 +740,20 @@ module.exports = function(RED) {
 		}
 
 		
+		service.SubmitAttachmentStateChanges=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"attachments",params,undefined,true); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"attachments",params,undefined,true); 
+			
+
+			svc.submitAttachmentStateChanges(params,cb);
+		}
+
+		
 		service.SubmitContainerStateChange=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -522,6 +762,7 @@ module.exports = function(RED) {
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"task",params,undefined,false); 
 			copyArg(msg,"containerName",params,undefined,false); 
+			copyArg(msg,"runtimeId",params,undefined,false); 
 			copyArg(msg,"status",params,undefined,false); 
 			copyArg(msg,"exitCode",params,undefined,false); 
 			copyArg(msg,"reason",params,undefined,false); 
@@ -542,13 +783,73 @@ module.exports = function(RED) {
 			copyArg(msg,"status",params,undefined,false); 
 			copyArg(msg,"reason",params,undefined,false); 
 			copyArg(msg,"containers",params,undefined,false); 
-			copyArg(msg,"attachments",params,undefined,false); 
+			copyArg(msg,"attachments",params,undefined,true); 
 			copyArg(msg,"pullStartedAt",params,undefined,false); 
 			copyArg(msg,"pullStoppedAt",params,undefined,false); 
 			copyArg(msg,"executionStoppedAt",params,undefined,false); 
 			
 
 			svc.submitTaskStateChange(params,cb);
+		}
+
+		
+		service.TagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"resourceArn",params,undefined,false); 
+			copyArg(n,"tags",params,undefined,true); 
+			
+			copyArg(msg,"resourceArn",params,undefined,false); 
+			copyArg(msg,"tags",params,undefined,true); 
+			
+
+			svc.tagResource(params,cb);
+		}
+
+		
+		service.UntagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"resourceArn",params,undefined,false); 
+			copyArg(n,"tagKeys",params,undefined,false); 
+			
+			copyArg(msg,"resourceArn",params,undefined,false); 
+			copyArg(msg,"tagKeys",params,undefined,false); 
+			
+
+			svc.untagResource(params,cb);
+		}
+
+		
+		service.UpdateCapacityProvider=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"name",params,undefined,false); 
+			copyArg(n,"autoScalingGroupProvider",params,undefined,false); 
+			
+			copyArg(msg,"name",params,undefined,false); 
+			copyArg(msg,"autoScalingGroupProvider",params,undefined,false); 
+			
+
+			svc.updateCapacityProvider(params,cb);
+		}
+
+		
+		service.UpdateClusterSettings=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"settings",params,undefined,true); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"settings",params,undefined,true); 
+			
+
+			svc.updateClusterSettings(params,cb);
 		}
 
 		
@@ -592,14 +893,53 @@ module.exports = function(RED) {
 			copyArg(msg,"service",params,undefined,false); 
 			copyArg(msg,"desiredCount",params,undefined,false); 
 			copyArg(msg,"taskDefinition",params,undefined,false); 
+			copyArg(msg,"capacityProviderStrategy",params,undefined,true); 
 			copyArg(msg,"deploymentConfiguration",params,undefined,true); 
 			copyArg(msg,"networkConfiguration",params,undefined,true); 
+			copyArg(msg,"placementConstraints",params,undefined,true); 
+			copyArg(msg,"placementStrategy",params,undefined,true); 
 			copyArg(msg,"platformVersion",params,undefined,false); 
 			copyArg(msg,"forceNewDeployment",params,undefined,false); 
 			copyArg(msg,"healthCheckGracePeriodSeconds",params,undefined,false); 
 			
 
 			svc.updateService(params,cb);
+		}
+
+		
+		service.UpdateServicePrimaryTaskSet=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"service",params,undefined,false); 
+			copyArg(n,"primaryTaskSet",params,undefined,false); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"service",params,undefined,false); 
+			copyArg(msg,"primaryTaskSet",params,undefined,false); 
+			
+
+			svc.updateServicePrimaryTaskSet(params,cb);
+		}
+
+		
+		service.UpdateTaskSet=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			copyArg(n,"service",params,undefined,false); 
+			copyArg(n,"taskSet",params,undefined,false); 
+			copyArg(n,"scale",params,undefined,true); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"service",params,undefined,false); 
+			copyArg(msg,"taskSet",params,undefined,false); 
+			copyArg(msg,"scale",params,undefined,true); 
+			
+
+			svc.updateTaskSet(params,cb);
 		}
 
 			

@@ -66,6 +66,8 @@
 		
 			<option value="ListSubscriptionsByTopic">ListSubscriptionsByTopic</option>
 		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
 			<option value="ListTopics">ListTopics</option>
 		
 			<option value="OptInPhoneNumber">OptInPhoneNumber</option>
@@ -86,7 +88,11 @@
 		
 			<option value="Subscribe">Subscribe</option>
 		
+			<option value="TagResource">TagResource</option>
+		
 			<option value="Unsubscribe">Unsubscribe</option>
+		
+			<option value="UntagResource">UntagResource</option>
 		;
 		</select>
 	</div>
@@ -145,6 +151,10 @@
 		<label for="node-input-SubscriptionArn"><i class="fa fa-tag"></i>SubscriptionArn</label>
 		<input type="text" id="node-input-SubscriptionArn" placeholder="SubscriptionArn"></input>
 	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
 	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
 		<label for="node-input-Message"><i class="fa fa-tag"></i>Message</label>
 		<input type="text" id="node-input-Message" placeholder="Message"></input>
@@ -160,6 +170,14 @@
 	<div class="form-row" id='ProtocolAttr' class='hiddenAttrs'>
 		<label for="node-input-Protocol"><i class="fa fa-tag"></i>Protocol</label>
 		<input type="text" id="node-input-Protocol" placeholder="Protocol"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
 	</div> 
 	</div>
 
@@ -223,6 +241,9 @@
 				ListSubscriptionsByTopic:[
 					'#TopicArnAttr'
 					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
 				ListTopics:[
 					
 					],
@@ -253,8 +274,14 @@
 				Subscribe:[
 					'#TopicArnAttr','#ProtocolAttr'
 					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
 				Unsubscribe:[
 					'#SubscriptionArnAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -299,10 +326,13 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				PlatformApplicationArn: { value: ""} ,
 				EndpointArn: { value: ""} ,
 				SubscriptionArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
 				Message: { value: ""} ,
 				attributes: { value: ""} ,
 				AttributeName: { value: ""} ,
 				Protocol: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

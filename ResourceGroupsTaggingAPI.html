@@ -28,11 +28,17 @@
 		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
 		<select type="text" id="node-input-operation">
 		
+			<option value="DescribeReportCreation">DescribeReportCreation</option>
+		
+			<option value="GetComplianceSummary">GetComplianceSummary</option>
+		
 			<option value="GetResources">GetResources</option>
 		
 			<option value="GetTagKeys">GetTagKeys</option>
 		
 			<option value="GetTagValues">GetTagValues</option>
+		
+			<option value="StartReportCreation">StartReportCreation</option>
 		
 			<option value="TagResources">TagResources</option>
 		
@@ -51,6 +57,10 @@
 		<label for="node-input-Key"><i class="fa fa-tag"></i>Key</label>
 		<input type="text" id="node-input-Key" placeholder="Key"></input>
 	</div> 
+	<div class="form-row" id='S3BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Bucket"><i class="fa fa-tag"></i>S3Bucket</label>
+		<input type="text" id="node-input-S3Bucket" placeholder="S3Bucket"></input>
+	</div> 
 	<div class="form-row" id='ResourceARNListAttr' class='hiddenAttrs'>
 		<label for="node-input-ResourceARNList"><i class="fa fa-tag"></i>ResourceARNList</label>
 		<input type="text" id="node-input-ResourceARNList" placeholder="ResourceARNList"></input>
@@ -68,6 +78,12 @@
  <script>
 	  var nodeOps={
 			
+				DescribeReportCreation:[
+					
+					],
+				GetComplianceSummary:[
+					
+					],
 				GetResources:[
 					
 					],
@@ -76,6 +92,9 @@
 					],
 				GetTagValues:[
 					'#KeyAttr'
+					],
+				StartReportCreation:[
+					'#S3BucketAttr'
 					],
 				TagResources:[
 					'#ResourceARNListAttr','#TagsAttr'
@@ -112,9 +131,10 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		color:"#C0DEED",
 		defaults: {
 			aws: {type:"amazon config",required:true},
-			operation: { value: 'GetResources' },
+			operation: { value: 'DescribeReportCreation' },
 			
 				Key: { value: ""} ,
+				S3Bucket: { value: ""} ,
 				ResourceARNList: { value: ""} ,
 				Tags: { value: ""} ,
 				TagKeys: { value: ""} ,

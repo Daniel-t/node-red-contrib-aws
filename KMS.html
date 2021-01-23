@@ -30,7 +30,11 @@
 		
 			<option value="CancelKeyDeletion">CancelKeyDeletion</option>
 		
+			<option value="ConnectCustomKeyStore">ConnectCustomKeyStore</option>
+		
 			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateCustomKeyStore">CreateCustomKeyStore</option>
 		
 			<option value="CreateGrant">CreateGrant</option>
 		
@@ -40,13 +44,19 @@
 		
 			<option value="DeleteAlias">DeleteAlias</option>
 		
+			<option value="DeleteCustomKeyStore">DeleteCustomKeyStore</option>
+		
 			<option value="DeleteImportedKeyMaterial">DeleteImportedKeyMaterial</option>
+		
+			<option value="DescribeCustomKeyStores">DescribeCustomKeyStores</option>
 		
 			<option value="DescribeKey">DescribeKey</option>
 		
 			<option value="DisableKey">DisableKey</option>
 		
 			<option value="DisableKeyRotation">DisableKeyRotation</option>
+		
+			<option value="DisconnectCustomKeyStore">DisconnectCustomKeyStore</option>
 		
 			<option value="EnableKey">EnableKey</option>
 		
@@ -55,6 +65,10 @@
 			<option value="Encrypt">Encrypt</option>
 		
 			<option value="GenerateDataKey">GenerateDataKey</option>
+		
+			<option value="GenerateDataKeyPair">GenerateDataKeyPair</option>
+		
+			<option value="GenerateDataKeyPairWithoutPlaintext">GenerateDataKeyPairWithoutPlaintext</option>
 		
 			<option value="GenerateDataKeyWithoutPlaintext">GenerateDataKeyWithoutPlaintext</option>
 		
@@ -65,6 +79,8 @@
 			<option value="GetKeyRotationStatus">GetKeyRotationStatus</option>
 		
 			<option value="GetParametersForImport">GetParametersForImport</option>
+		
+			<option value="GetPublicKey">GetPublicKey</option>
 		
 			<option value="ImportKeyMaterial">ImportKeyMaterial</option>
 		
@@ -90,13 +106,19 @@
 		
 			<option value="ScheduleKeyDeletion">ScheduleKeyDeletion</option>
 		
+			<option value="Sign">Sign</option>
+		
 			<option value="TagResource">TagResource</option>
 		
 			<option value="UntagResource">UntagResource</option>
 		
 			<option value="UpdateAlias">UpdateAlias</option>
 		
+			<option value="UpdateCustomKeyStore">UpdateCustomKeyStore</option>
+		
 			<option value="UpdateKeyDescription">UpdateKeyDescription</option>
+		
+			<option value="Verify">Verify</option>
 		;
 		</select>
 	</div>
@@ -111,6 +133,10 @@
 		<label for="node-input-KeyId"><i class="fa fa-tag"></i>KeyId</label>
 		<input type="text" id="node-input-KeyId" placeholder="KeyId"></input>
 	</div> 
+	<div class="form-row" id='CustomKeyStoreIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomKeyStoreId"><i class="fa fa-tag"></i>CustomKeyStoreId</label>
+		<input type="text" id="node-input-CustomKeyStoreId" placeholder="CustomKeyStoreId"></input>
+	</div> 
 	<div class="form-row" id='AliasNameAttr' class='hiddenAttrs'>
 		<label for="node-input-AliasName"><i class="fa fa-tag"></i>AliasName</label>
 		<input type="text" id="node-input-AliasName" placeholder="AliasName"></input>
@@ -118,6 +144,22 @@
 	<div class="form-row" id='TargetKeyIdAttr' class='hiddenAttrs'>
 		<label for="node-input-TargetKeyId"><i class="fa fa-tag"></i>TargetKeyId</label>
 		<input type="text" id="node-input-TargetKeyId" placeholder="TargetKeyId"></input>
+	</div> 
+	<div class="form-row" id='CustomKeyStoreNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomKeyStoreName"><i class="fa fa-tag"></i>CustomKeyStoreName</label>
+		<input type="text" id="node-input-CustomKeyStoreName" placeholder="CustomKeyStoreName"></input>
+	</div> 
+	<div class="form-row" id='CloudHsmClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudHsmClusterId"><i class="fa fa-tag"></i>CloudHsmClusterId</label>
+		<input type="text" id="node-input-CloudHsmClusterId" placeholder="CloudHsmClusterId"></input>
+	</div> 
+	<div class="form-row" id='TrustAnchorCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustAnchorCertificate"><i class="fa fa-tag"></i>TrustAnchorCertificate</label>
+		<input type="text" id="node-input-TrustAnchorCertificate" placeholder="TrustAnchorCertificate"></input>
+	</div> 
+	<div class="form-row" id='KeyStorePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyStorePassword"><i class="fa fa-tag"></i>KeyStorePassword</label>
+		<input type="text" id="node-input-KeyStorePassword" placeholder="KeyStorePassword"></input>
 	</div> 
 	<div class="form-row" id='GranteePrincipalAttr' class='hiddenAttrs'>
 		<label for="node-input-GranteePrincipal"><i class="fa fa-tag"></i>GranteePrincipal</label>
@@ -134,6 +176,10 @@
 	<div class="form-row" id='PlaintextAttr' class='hiddenAttrs'>
 		<label for="node-input-Plaintext"><i class="fa fa-tag"></i>Plaintext</label>
 		<input type="text" id="node-input-Plaintext" placeholder="Plaintext"></input>
+	</div> 
+	<div class="form-row" id='KeyPairSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyPairSpec"><i class="fa fa-tag"></i>KeyPairSpec</label>
+		<input type="text" id="node-input-KeyPairSpec" placeholder="KeyPairSpec"></input>
 	</div> 
 	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
 		<label for="node-input-PolicyName"><i class="fa fa-tag"></i>PolicyName</label>
@@ -171,6 +217,14 @@
 		<label for="node-input-GrantId"><i class="fa fa-tag"></i>GrantId</label>
 		<input type="text" id="node-input-GrantId" placeholder="GrantId"></input>
 	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i>Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='SigningAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-SigningAlgorithm"><i class="fa fa-tag"></i>SigningAlgorithm</label>
+		<input type="text" id="node-input-SigningAlgorithm" placeholder="SigningAlgorithm"></input>
+	</div> 
 	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
 		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
 		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
@@ -183,6 +237,10 @@
 		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
 		<input type="text" id="node-input-Description" placeholder="Description"></input>
 	</div> 
+	<div class="form-row" id='SignatureAttr' class='hiddenAttrs'>
+		<label for="node-input-Signature"><i class="fa fa-tag"></i>Signature</label>
+		<input type="text" id="node-input-Signature" placeholder="Signature"></input>
+	</div> 
 	</div>
 
  <script>
@@ -191,8 +249,14 @@
 				CancelKeyDeletion:[
 					'#KeyIdAttr'
 					],
+				ConnectCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
 				CreateAlias:[
 					'#AliasNameAttr','#TargetKeyIdAttr'
+					],
+				CreateCustomKeyStore:[
+					'#CustomKeyStoreNameAttr','#CloudHsmClusterIdAttr','#TrustAnchorCertificateAttr','#KeyStorePasswordAttr'
 					],
 				CreateGrant:[
 					'#KeyIdAttr','#GranteePrincipalAttr','#OperationsAttr'
@@ -206,8 +270,14 @@
 				DeleteAlias:[
 					'#AliasNameAttr'
 					],
+				DeleteCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
 				DeleteImportedKeyMaterial:[
 					'#KeyIdAttr'
+					],
+				DescribeCustomKeyStores:[
+					
 					],
 				DescribeKey:[
 					'#KeyIdAttr'
@@ -217,6 +287,9 @@
 					],
 				DisableKeyRotation:[
 					'#KeyIdAttr'
+					],
+				DisconnectCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
 					],
 				EnableKey:[
 					'#KeyIdAttr'
@@ -229,6 +302,12 @@
 					],
 				GenerateDataKey:[
 					'#KeyIdAttr'
+					],
+				GenerateDataKeyPair:[
+					'#KeyIdAttr','#KeyPairSpecAttr'
+					],
+				GenerateDataKeyPairWithoutPlaintext:[
+					'#KeyIdAttr','#KeyPairSpecAttr'
 					],
 				GenerateDataKeyWithoutPlaintext:[
 					'#KeyIdAttr'
@@ -244,6 +323,9 @@
 					],
 				GetParametersForImport:[
 					'#KeyIdAttr','#WrappingAlgorithmAttr','#WrappingKeySpecAttr'
+					],
+				GetPublicKey:[
+					'#KeyIdAttr'
 					],
 				ImportKeyMaterial:[
 					'#KeyIdAttr','#ImportTokenAttr','#EncryptedKeyMaterialAttr'
@@ -281,6 +363,9 @@
 				ScheduleKeyDeletion:[
 					'#KeyIdAttr'
 					],
+				Sign:[
+					'#KeyIdAttr','#MessageAttr','#SigningAlgorithmAttr'
+					],
 				TagResource:[
 					'#KeyIdAttr','#TagsAttr'
 					],
@@ -290,8 +375,14 @@
 				UpdateAlias:[
 					'#AliasNameAttr','#TargetKeyIdAttr'
 					],
+				UpdateCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
 				UpdateKeyDescription:[
 					'#KeyIdAttr','#DescriptionAttr'
+					],
+				Verify:[
+					'#KeyIdAttr','#MessageAttr','#SignatureAttr','#SigningAlgorithmAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -325,12 +416,18 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 			operation: { value: 'CancelKeyDeletion' },
 			
 				KeyId: { value: ""} ,
+				CustomKeyStoreId: { value: ""} ,
 				AliasName: { value: ""} ,
 				TargetKeyId: { value: ""} ,
+				CustomKeyStoreName: { value: ""} ,
+				CloudHsmClusterId: { value: ""} ,
+				TrustAnchorCertificate: { value: ""} ,
+				KeyStorePassword: { value: ""} ,
 				GranteePrincipal: { value: ""} ,
 				Operations: { value: ""} ,
 				CiphertextBlob: { value: ""} ,
 				Plaintext: { value: ""} ,
+				KeyPairSpec: { value: ""} ,
 				PolicyName: { value: ""} ,
 				WrappingAlgorithm: { value: ""} ,
 				WrappingKeySpec: { value: ""} ,
@@ -340,9 +437,12 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				Policy: { value: ""} ,
 				DestinationKeyId: { value: ""} ,
 				GrantId: { value: ""} ,
+				Message: { value: ""} ,
+				SigningAlgorithm: { value: ""} ,
 				Tags: { value: ""} ,
 				TagKeys: { value: ""} ,
 				Description: { value: ""} ,
+				Signature: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

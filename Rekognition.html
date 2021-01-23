@@ -32,23 +32,39 @@
 		
 			<option value="CreateCollection">CreateCollection</option>
 		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateProjectVersion">CreateProjectVersion</option>
+		
 			<option value="CreateStreamProcessor">CreateStreamProcessor</option>
 		
 			<option value="DeleteCollection">DeleteCollection</option>
 		
 			<option value="DeleteFaces">DeleteFaces</option>
 		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteProjectVersion">DeleteProjectVersion</option>
+		
 			<option value="DeleteStreamProcessor">DeleteStreamProcessor</option>
 		
 			<option value="DescribeCollection">DescribeCollection</option>
 		
+			<option value="DescribeProjectVersions">DescribeProjectVersions</option>
+		
+			<option value="DescribeProjects">DescribeProjects</option>
+		
 			<option value="DescribeStreamProcessor">DescribeStreamProcessor</option>
+		
+			<option value="DetectCustomLabels">DetectCustomLabels</option>
 		
 			<option value="DetectFaces">DetectFaces</option>
 		
 			<option value="DetectLabels">DetectLabels</option>
 		
 			<option value="DetectModerationLabels">DetectModerationLabels</option>
+		
+			<option value="DetectProtectiveEquipment">DetectProtectiveEquipment</option>
 		
 			<option value="DetectText">DetectText</option>
 		
@@ -65,6 +81,10 @@
 			<option value="GetLabelDetection">GetLabelDetection</option>
 		
 			<option value="GetPersonTracking">GetPersonTracking</option>
+		
+			<option value="GetSegmentDetection">GetSegmentDetection</option>
+		
+			<option value="GetTextDetection">GetTextDetection</option>
 		
 			<option value="IndexFaces">IndexFaces</option>
 		
@@ -92,7 +112,15 @@
 		
 			<option value="StartPersonTracking">StartPersonTracking</option>
 		
+			<option value="StartProjectVersion">StartProjectVersion</option>
+		
+			<option value="StartSegmentDetection">StartSegmentDetection</option>
+		
 			<option value="StartStreamProcessor">StartStreamProcessor</option>
+		
+			<option value="StartTextDetection">StartTextDetection</option>
+		
+			<option value="StopProjectVersion">StopProjectVersion</option>
 		
 			<option value="StopStreamProcessor">StopStreamProcessor</option>
 		;
@@ -116,6 +144,30 @@
 	<div class="form-row" id='CollectionIdAttr' class='hiddenAttrs'>
 		<label for="node-input-CollectionId"><i class="fa fa-tag"></i>CollectionId</label>
 		<input type="text" id="node-input-CollectionId" placeholder="CollectionId"></input>
+	</div> 
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i>ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='ProjectArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectArn"><i class="fa fa-tag"></i>ProjectArn</label>
+		<input type="text" id="node-input-ProjectArn" placeholder="ProjectArn"></input>
+	</div> 
+	<div class="form-row" id='VersionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionName"><i class="fa fa-tag"></i>VersionName</label>
+		<input type="text" id="node-input-VersionName" placeholder="VersionName"></input>
+	</div> 
+	<div class="form-row" id='OutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputConfig"><i class="fa fa-tag"></i>OutputConfig</label>
+		<input type="text" id="node-input-OutputConfig" placeholder="OutputConfig"></input>
+	</div> 
+	<div class="form-row" id='TrainingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingData"><i class="fa fa-tag"></i>TrainingData</label>
+		<input type="text" id="node-input-TrainingData" placeholder="TrainingData"></input>
+	</div> 
+	<div class="form-row" id='TestingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TestingData"><i class="fa fa-tag"></i>TestingData</label>
+		<input type="text" id="node-input-TestingData" placeholder="TestingData"></input>
 	</div> 
 	<div class="form-row" id='InputAttr' class='hiddenAttrs'>
 		<label for="node-input-Input"><i class="fa fa-tag"></i>Input</label>
@@ -141,6 +193,10 @@
 		<label for="node-input-FaceIds"><i class="fa fa-tag"></i>FaceIds</label>
 		<input type="text" id="node-input-FaceIds" placeholder="FaceIds"></input>
 	</div> 
+	<div class="form-row" id='ProjectVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectVersionArn"><i class="fa fa-tag"></i>ProjectVersionArn</label>
+		<input type="text" id="node-input-ProjectVersionArn" placeholder="ProjectVersionArn"></input>
+	</div> 
 	<div class="form-row" id='ImageAttr' class='hiddenAttrs'>
 		<label for="node-input-Image"><i class="fa fa-tag"></i>Image</label>
 		<input type="text" id="node-input-Image" placeholder="Image"></input>
@@ -161,6 +217,14 @@
 		<label for="node-input-Video"><i class="fa fa-tag"></i>Video</label>
 		<input type="text" id="node-input-Video" placeholder="Video"></input>
 	</div> 
+	<div class="form-row" id='MinInferenceUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-MinInferenceUnits"><i class="fa fa-tag"></i>MinInferenceUnits</label>
+		<input type="text" id="node-input-MinInferenceUnits" placeholder="MinInferenceUnits"></input>
+	</div> 
+	<div class="form-row" id='SegmentTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-SegmentTypes"><i class="fa fa-tag"></i>SegmentTypes</label>
+		<input type="text" id="node-input-SegmentTypes" placeholder="SegmentTypes"></input>
+	</div> 
 	</div>
 
  <script>
@@ -172,6 +236,12 @@
 				CreateCollection:[
 					'#CollectionIdAttr'
 					],
+				CreateProject:[
+					'#ProjectNameAttr'
+					],
+				CreateProjectVersion:[
+					'#ProjectArnAttr','#VersionNameAttr','#OutputConfigAttr','#TrainingDataAttr','#TestingDataAttr'
+					],
 				CreateStreamProcessor:[
 					'#InputAttr','#OutputAttr','#NameAttr','#SettingsAttr','#RoleArnAttr'
 					],
@@ -181,14 +251,29 @@
 				DeleteFaces:[
 					'#CollectionIdAttr','#FaceIdsAttr'
 					],
+				DeleteProject:[
+					'#ProjectArnAttr'
+					],
+				DeleteProjectVersion:[
+					'#ProjectVersionArnAttr'
+					],
 				DeleteStreamProcessor:[
 					'#NameAttr'
 					],
 				DescribeCollection:[
 					'#CollectionIdAttr'
 					],
+				DescribeProjectVersions:[
+					'#ProjectArnAttr'
+					],
+				DescribeProjects:[
+					
+					],
 				DescribeStreamProcessor:[
 					'#NameAttr'
+					],
+				DetectCustomLabels:[
+					'#ProjectVersionArnAttr','#ImageAttr'
 					],
 				DetectFaces:[
 					'#ImageAttr'
@@ -197,6 +282,9 @@
 					'#ImageAttr'
 					],
 				DetectModerationLabels:[
+					'#ImageAttr'
+					],
+				DetectProtectiveEquipment:[
 					'#ImageAttr'
 					],
 				DetectText:[
@@ -221,6 +309,12 @@
 					'#JobIdAttr'
 					],
 				GetPersonTracking:[
+					'#JobIdAttr'
+					],
+				GetSegmentDetection:[
+					'#JobIdAttr'
+					],
+				GetTextDetection:[
 					'#JobIdAttr'
 					],
 				IndexFaces:[
@@ -262,8 +356,20 @@
 				StartPersonTracking:[
 					'#VideoAttr'
 					],
+				StartProjectVersion:[
+					'#ProjectVersionArnAttr','#MinInferenceUnitsAttr'
+					],
+				StartSegmentDetection:[
+					'#VideoAttr','#SegmentTypesAttr'
+					],
 				StartStreamProcessor:[
 					'#NameAttr'
+					],
+				StartTextDetection:[
+					'#VideoAttr'
+					],
+				StopProjectVersion:[
+					'#ProjectVersionArnAttr'
 					],
 				StopStreamProcessor:[
 					'#NameAttr'
@@ -302,17 +408,26 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				SourceImage: { value: ""} ,
 				TargetImage: { value: ""} ,
 				CollectionId: { value: ""} ,
+				ProjectName: { value: ""} ,
+				ProjectArn: { value: ""} ,
+				VersionName: { value: ""} ,
+				OutputConfig: { value: ""} ,
+				TrainingData: { value: ""} ,
+				TestingData: { value: ""} ,
 				Input: { value: ""} ,
 				Output: { value: ""} ,
 				Name: { value: ""} ,
 				Settings: { value: ""} ,
 				RoleArn: { value: ""} ,
 				FaceIds: { value: ""} ,
+				ProjectVersionArn: { value: ""} ,
 				Image: { value: ""} ,
 				Id: { value: ""} ,
 				JobId: { value: ""} ,
 				FaceId: { value: ""} ,
 				Video: { value: ""} ,
+				MinInferenceUnits: { value: ""} ,
+				SegmentTypes: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

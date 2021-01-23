@@ -104,9 +104,27 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"FeatureName",params,undefined,false); 
 			
 
 			svc.addRoleToDBCluster(params,cb);
+		}
+
+		
+		service.AddRoleToDBInstance=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBInstanceIdentifier",params,undefined,false); 
+			copyArg(n,"RoleArn",params,undefined,false); 
+			copyArg(n,"FeatureName",params,undefined,false); 
+			
+			copyArg(msg,"DBInstanceIdentifier",params,undefined,false); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"FeatureName",params,undefined,false); 
+			
+
+			svc.addRoleToDBInstance(params,cb);
 		}
 
 		
@@ -191,6 +209,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CancelExportTask=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ExportTaskIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ExportTaskIdentifier",params,undefined,false); 
+			
+
+			svc.cancelExportTask(params,cb);
+		}
+
+		
 		service.CopyDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -261,6 +292,7 @@ module.exports = function(RED) {
 			copyArg(msg,"CopyTags",params,undefined,false); 
 			copyArg(msg,"PreSignedUrl",params,undefined,false); 
 			copyArg(msg,"OptionGroupName",params,undefined,false); 
+			copyArg(msg,"TargetCustomAvailabilityZone",params,undefined,false); 
 			copyArg(msg,"SourceRegion",params,undefined,false); 
 			
 
@@ -283,6 +315,22 @@ module.exports = function(RED) {
 			
 
 			svc.copyOptionGroup(params,cb);
+		}
+
+		
+		service.CreateCustomAvailabilityZone=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CustomAvailabilityZoneName",params,undefined,false); 
+			
+			copyArg(msg,"CustomAvailabilityZoneName",params,undefined,false); 
+			copyArg(msg,"ExistingVpnId",params,undefined,false); 
+			copyArg(msg,"NewVpnTunnelName",params,undefined,false); 
+			copyArg(msg,"VpnTunnelOriginatorIP",params,undefined,false); 
+			
+
+			svc.createCustomAvailabilityZone(params,cb);
 		}
 
 		
@@ -320,10 +368,36 @@ module.exports = function(RED) {
 			copyArg(msg,"EngineMode",params,undefined,false); 
 			copyArg(msg,"ScalingConfiguration",params,undefined,true); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"EnableHttpEndpoint",params,undefined,false); 
+			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
+			copyArg(msg,"EnableGlobalWriteForwarding",params,undefined,false); 
 			copyArg(msg,"SourceRegion",params,undefined,false); 
 			
 
 			svc.createDBCluster(params,cb);
+		}
+
+		
+		service.CreateDBClusterEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBClusterIdentifier",params,undefined,false); 
+			copyArg(n,"DBClusterEndpointIdentifier",params,undefined,false); 
+			copyArg(n,"EndpointType",params,undefined,false); 
+			
+			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DBClusterEndpointIdentifier",params,undefined,false); 
+			copyArg(msg,"EndpointType",params,undefined,false); 
+			copyArg(msg,"StaticMembers",params,undefined,true); 
+			copyArg(msg,"ExcludedMembers",params,undefined,true); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.createDBClusterEndpoint(params,cb);
 		}
 
 		
@@ -392,6 +466,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Iops",params,undefined,false); 
 			copyArg(msg,"OptionGroupName",params,undefined,false); 
 			copyArg(msg,"CharacterSetName",params,undefined,false); 
+			copyArg(msg,"NcharCharacterSetName",params,undefined,false); 
 			copyArg(msg,"PubliclyAccessible",params,undefined,false); 
 			copyArg(msg,"Tags",params,undefined,true); 
 			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
@@ -414,6 +489,8 @@ module.exports = function(RED) {
 			copyArg(msg,"EnableCloudwatchLogsExports",params,undefined,true); 
 			copyArg(msg,"ProcessorFeatures",params,undefined,true); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"MaxAllocatedStorage",params,undefined,false); 
+			copyArg(msg,"EnableCustomerOwnedIp",params,undefined,false); 
 			
 
 			svc.createDBInstance(params,cb);
@@ -436,9 +513,11 @@ module.exports = function(RED) {
 			copyArg(msg,"AutoMinorVersionUpgrade",params,undefined,false); 
 			copyArg(msg,"Iops",params,undefined,false); 
 			copyArg(msg,"OptionGroupName",params,undefined,false); 
+			copyArg(msg,"DBParameterGroupName",params,undefined,false); 
 			copyArg(msg,"PubliclyAccessible",params,undefined,false); 
 			copyArg(msg,"Tags",params,undefined,true); 
 			copyArg(msg,"DBSubnetGroupName",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArg(msg,"StorageType",params,undefined,false); 
 			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
 			copyArg(msg,"MonitoringInterval",params,undefined,false); 
@@ -453,6 +532,10 @@ module.exports = function(RED) {
 			copyArg(msg,"ProcessorFeatures",params,undefined,true); 
 			copyArg(msg,"UseDefaultProcessorFeatures",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
+			copyArg(msg,"ReplicaMode",params,undefined,false); 
+			copyArg(msg,"MaxAllocatedStorage",params,undefined,false); 
 			copyArg(msg,"SourceRegion",params,undefined,false); 
 			
 
@@ -475,6 +558,32 @@ module.exports = function(RED) {
 			
 
 			svc.createDBParameterGroup(params,cb);
+		}
+
+		
+		service.CreateDBProxy=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			copyArg(n,"EngineFamily",params,undefined,false); 
+			copyArg(n,"Auth",params,undefined,true); 
+			copyArg(n,"RoleArn",params,undefined,false); 
+			copyArg(n,"VpcSubnetIds",params,undefined,true); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"EngineFamily",params,undefined,false); 
+			copyArg(msg,"Auth",params,undefined,true); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"VpcSubnetIds",params,undefined,true); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
+			copyArg(msg,"RequireTLS",params,undefined,false); 
+			copyArg(msg,"IdleClientTimeout",params,undefined,false); 
+			copyArg(msg,"DebugLogging",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.createDBProxy(params,cb);
 		}
 
 		
@@ -548,6 +657,24 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateGlobalCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"SourceDBClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"Engine",params,undefined,false); 
+			copyArg(msg,"EngineVersion",params,undefined,false); 
+			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"DatabaseName",params,undefined,false); 
+			copyArg(msg,"StorageEncrypted",params,undefined,false); 
+			
+
+			svc.createGlobalCluster(params,cb);
+		}
+
+		
 		service.CreateOptionGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -568,6 +695,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteCustomAvailabilityZone=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CustomAvailabilityZoneId",params,undefined,false); 
+			
+			copyArg(msg,"CustomAvailabilityZoneId",params,undefined,false); 
+			
+
+			svc.deleteCustomAvailabilityZone(params,cb);
+		}
+
+		
 		service.DeleteDBCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -580,6 +720,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteDBCluster(params,cb);
+		}
+
+		
+		service.DeleteDBClusterEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBClusterEndpointIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"DBClusterEndpointIdentifier",params,undefined,false); 
+			
+
+			svc.deleteDBClusterEndpoint(params,cb);
 		}
 
 		
@@ -618,9 +771,23 @@ module.exports = function(RED) {
 			copyArg(msg,"DBInstanceIdentifier",params,undefined,false); 
 			copyArg(msg,"SkipFinalSnapshot",params,undefined,false); 
 			copyArg(msg,"FinalDBSnapshotIdentifier",params,undefined,false); 
+			copyArg(msg,"DeleteAutomatedBackups",params,undefined,false); 
 			
 
 			svc.deleteDBInstance(params,cb);
+		}
+
+		
+		service.DeleteDBInstanceAutomatedBackup=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DbiResourceId",params,undefined,false); 
+			copyArg(msg,"DBInstanceAutomatedBackupsArn",params,undefined,false); 
+			
+
+			svc.deleteDBInstanceAutomatedBackup(params,cb);
 		}
 
 		
@@ -634,6 +801,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteDBParameterGroup(params,cb);
+		}
+
+		
+		service.DeleteDBProxy=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			
+
+			svc.deleteDBProxy(params,cb);
 		}
 
 		
@@ -689,6 +869,32 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteGlobalCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"GlobalClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			
+
+			svc.deleteGlobalCluster(params,cb);
+		}
+
+		
+		service.DeleteInstallationMedia=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstallationMediaId",params,undefined,false); 
+			
+			copyArg(msg,"InstallationMediaId",params,undefined,false); 
+			
+
+			svc.deleteInstallationMedia(params,cb);
+		}
+
+		
 		service.DeleteOptionGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -699,6 +905,22 @@ module.exports = function(RED) {
 			
 
 			svc.deleteOptionGroup(params,cb);
+		}
+
+		
+		service.DeregisterDBProxyTargets=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"TargetGroupName",params,undefined,false); 
+			copyArg(msg,"DBInstanceIdentifiers",params,undefined,true); 
+			copyArg(msg,"DBClusterIdentifiers",params,undefined,true); 
+			
+
+			svc.deregisterDBProxyTargets(params,cb);
 		}
 
 		
@@ -728,6 +950,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeCustomAvailabilityZones=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CustomAvailabilityZoneId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeCustomAvailabilityZones(params,cb);
+		}
+
+		
 		service.DescribeDBClusterBacktracks=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -742,6 +979,22 @@ module.exports = function(RED) {
 			
 
 			svc.describeDBClusterBacktracks(params,cb);
+		}
+
+		
+		service.DescribeDBClusterEndpoints=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DBClusterEndpointIdentifier",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeDBClusterEndpoints(params,cb);
 		}
 
 		
@@ -818,6 +1071,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"MaxRecords",params,undefined,false); 
 			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"IncludeShared",params,undefined,false); 
 			
 
 			svc.describeDBClusters(params,cb);
@@ -838,9 +1092,27 @@ module.exports = function(RED) {
 			copyArg(msg,"DefaultOnly",params,undefined,false); 
 			copyArg(msg,"ListSupportedCharacterSets",params,undefined,false); 
 			copyArg(msg,"ListSupportedTimezones",params,undefined,false); 
+			copyArg(msg,"IncludeAll",params,undefined,false); 
 			
 
 			svc.describeDBEngineVersions(params,cb);
+		}
+
+		
+		service.DescribeDBInstanceAutomatedBackups=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DbiResourceId",params,undefined,false); 
+			copyArg(msg,"DBInstanceIdentifier",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"DBInstanceAutomatedBackupsArn",params,undefined,false); 
+			
+
+			svc.describeDBInstanceAutomatedBackups(params,cb);
 		}
 
 		
@@ -910,6 +1182,55 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeDBProxies=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeDBProxies(params,cb);
+		}
+
+		
+		service.DescribeDBProxyTargetGroups=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"TargetGroupName",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeDBProxyTargetGroups(params,cb);
+		}
+
+		
+		service.DescribeDBProxyTargets=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"TargetGroupName",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeDBProxyTargets(params,cb);
+		}
+
+		
 		service.DescribeDBSecurityGroups=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -951,6 +1272,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Marker",params,undefined,false); 
 			copyArg(msg,"IncludeShared",params,undefined,false); 
 			copyArg(msg,"IncludePublic",params,undefined,false); 
+			copyArg(msg,"DbiResourceId",params,undefined,false); 
 			
 
 			svc.describeDBSnapshots(params,cb);
@@ -1052,6 +1374,52 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeExportTasks=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ExportTaskIdentifier",params,undefined,false); 
+			copyArg(msg,"SourceArn",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeExportTasks(params,cb);
+		}
+
+		
+		service.DescribeGlobalClusters=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeGlobalClusters(params,cb);
+		}
+
+		
+		service.DescribeInstallationMedia=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"InstallationMediaId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeInstallationMedia(params,cb);
+		}
+
+		
 		service.DescribeOptionGroupOptions=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1096,6 +1464,7 @@ module.exports = function(RED) {
 			copyArg(msg,"EngineVersion",params,undefined,false); 
 			copyArg(msg,"DBInstanceClass",params,undefined,false); 
 			copyArg(msg,"LicenseModel",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneGroup",params,undefined,false); 
 			copyArg(msg,"Vpc",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"MaxRecords",params,undefined,false); 
@@ -1133,6 +1502,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ProductDescription",params,undefined,false); 
 			copyArg(msg,"OfferingType",params,undefined,false); 
 			copyArg(msg,"MultiAZ",params,undefined,false); 
+			copyArg(msg,"LeaseId",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"MaxRecords",params,undefined,false); 
 			copyArg(msg,"Marker",params,undefined,false); 
@@ -1211,12 +1581,34 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
+			copyArg(n,"DBClusterIdentifier",params,undefined,false); 
 			
 			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"TargetDBInstanceIdentifier",params,undefined,false); 
 			
 
 			svc.failoverDBCluster(params,cb);
+		}
+
+		
+		service.ImportInstallationMedia=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CustomAvailabilityZoneId",params,undefined,false); 
+			copyArg(n,"Engine",params,undefined,false); 
+			copyArg(n,"EngineVersion",params,undefined,false); 
+			copyArg(n,"EngineInstallationMediaPath",params,undefined,false); 
+			copyArg(n,"OSInstallationMediaPath",params,undefined,false); 
+			
+			copyArg(msg,"CustomAvailabilityZoneId",params,undefined,false); 
+			copyArg(msg,"Engine",params,undefined,false); 
+			copyArg(msg,"EngineVersion",params,undefined,false); 
+			copyArg(msg,"EngineInstallationMediaPath",params,undefined,false); 
+			copyArg(msg,"OSInstallationMediaPath",params,undefined,false); 
+			
+
+			svc.importInstallationMedia(params,cb);
 		}
 
 		
@@ -1231,6 +1623,19 @@ module.exports = function(RED) {
 			
 
 			svc.listTagsForResource(params,cb);
+		}
+
+		
+		service.ModifyCertificates=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CertificateIdentifier",params,undefined,false); 
+			copyArg(msg,"RemoveCustomerOverride",params,undefined,false); 
+			
+
+			svc.modifyCertificates(params,cb);
 		}
 
 		
@@ -1271,11 +1676,34 @@ module.exports = function(RED) {
 			copyArg(msg,"BacktrackWindow",params,undefined,false); 
 			copyArg(msg,"CloudwatchLogsExportConfiguration",params,undefined,true); 
 			copyArg(msg,"EngineVersion",params,undefined,false); 
+			copyArg(msg,"AllowMajorVersionUpgrade",params,undefined,false); 
+			copyArg(msg,"DBInstanceParameterGroupName",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
 			copyArg(msg,"ScalingConfiguration",params,undefined,true); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"EnableHttpEndpoint",params,undefined,false); 
+			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArg(msg,"EnableGlobalWriteForwarding",params,undefined,false); 
 			
 
 			svc.modifyDBCluster(params,cb);
+		}
+
+		
+		service.ModifyDBClusterEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBClusterEndpointIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"DBClusterEndpointIdentifier",params,undefined,false); 
+			copyArg(msg,"EndpointType",params,undefined,false); 
+			copyArg(msg,"StaticMembers",params,undefined,true); 
+			copyArg(msg,"ExcludedMembers",params,undefined,true); 
+			
+
+			svc.modifyDBClusterEndpoint(params,cb);
 		}
 
 		
@@ -1357,6 +1785,10 @@ module.exports = function(RED) {
 			copyArg(msg,"ProcessorFeatures",params,undefined,true); 
 			copyArg(msg,"UseDefaultProcessorFeatures",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"MaxAllocatedStorage",params,undefined,false); 
+			copyArg(msg,"CertificateRotationRestart",params,undefined,false); 
+			copyArg(msg,"ReplicaMode",params,undefined,false); 
+			copyArg(msg,"EnableCustomerOwnedIp",params,undefined,false); 
 			
 
 			svc.modifyDBInstance(params,cb);
@@ -1375,6 +1807,43 @@ module.exports = function(RED) {
 			
 
 			svc.modifyDBParameterGroup(params,cb);
+		}
+
+		
+		service.ModifyDBProxy=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"NewDBProxyName",params,undefined,false); 
+			copyArg(msg,"Auth",params,undefined,true); 
+			copyArg(msg,"RequireTLS",params,undefined,false); 
+			copyArg(msg,"IdleClientTimeout",params,undefined,false); 
+			copyArg(msg,"DebugLogging",params,undefined,false); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"SecurityGroups",params,undefined,true); 
+			
+
+			svc.modifyDBProxy(params,cb);
+		}
+
+		
+		service.ModifyDBProxyTargetGroup=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TargetGroupName",params,undefined,false); 
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"TargetGroupName",params,undefined,false); 
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"ConnectionPoolConfig",params,undefined,false); 
+			copyArg(msg,"NewName",params,undefined,false); 
+			
+
+			svc.modifyDBProxyTargetGroup(params,cb);
 		}
 
 		
@@ -1440,6 +1909,22 @@ module.exports = function(RED) {
 			
 
 			svc.modifyEventSubscription(params,cb);
+		}
+
+		
+		service.ModifyGlobalCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"NewGlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"EngineVersion",params,undefined,false); 
+			copyArg(msg,"AllowMajorVersionUpgrade",params,undefined,false); 
+			
+
+			svc.modifyGlobalCluster(params,cb);
 		}
 
 		
@@ -1517,6 +2002,35 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RegisterDBProxyTargets=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"TargetGroupName",params,undefined,false); 
+			copyArg(msg,"DBInstanceIdentifiers",params,undefined,true); 
+			copyArg(msg,"DBClusterIdentifiers",params,undefined,true); 
+			
+
+			svc.registerDBProxyTargets(params,cb);
+		}
+
+		
+		service.RemoveFromGlobalCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DbClusterIdentifier",params,undefined,false); 
+			
+
+			svc.removeFromGlobalCluster(params,cb);
+		}
+
+		
 		service.RemoveRoleFromDBCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1526,9 +2040,27 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"FeatureName",params,undefined,false); 
 			
 
 			svc.removeRoleFromDBCluster(params,cb);
+		}
+
+		
+		service.RemoveRoleFromDBInstance=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBInstanceIdentifier",params,undefined,false); 
+			copyArg(n,"RoleArn",params,undefined,false); 
+			copyArg(n,"FeatureName",params,undefined,false); 
+			
+			copyArg(msg,"DBInstanceIdentifier",params,undefined,false); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"FeatureName",params,undefined,false); 
+			
+
+			svc.removeRoleFromDBInstance(params,cb);
 		}
 
 		
@@ -1633,6 +2165,9 @@ module.exports = function(RED) {
 			copyArg(msg,"BacktrackWindow",params,undefined,false); 
 			copyArg(msg,"EnableCloudwatchLogsExports",params,undefined,true); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
 			
 
 			svc.restoreDBClusterFromS3(params,cb);
@@ -1666,6 +2201,9 @@ module.exports = function(RED) {
 			copyArg(msg,"ScalingConfiguration",params,undefined,true); 
 			copyArg(msg,"DBClusterParameterGroupName",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
 			
 
 			svc.restoreDBClusterFromSnapshot(params,cb);
@@ -1695,6 +2233,9 @@ module.exports = function(RED) {
 			copyArg(msg,"EnableCloudwatchLogsExports",params,undefined,true); 
 			copyArg(msg,"DBClusterParameterGroupName",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArg(msg,"Domain",params,undefined,false); 
+			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
 			
 
 			svc.restoreDBClusterToPointInTime(params,cb);
@@ -1726,6 +2267,7 @@ module.exports = function(RED) {
 			copyArg(msg,"StorageType",params,undefined,false); 
 			copyArg(msg,"TdeCredentialArn",params,undefined,false); 
 			copyArg(msg,"TdeCredentialPassword",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArg(msg,"Domain",params,undefined,false); 
 			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
 			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
@@ -1735,6 +2277,7 @@ module.exports = function(RED) {
 			copyArg(msg,"UseDefaultProcessorFeatures",params,undefined,false); 
 			copyArg(msg,"DBParameterGroupName",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"EnableCustomerOwnedIp",params,undefined,false); 
 			
 
 			svc.restoreDBInstanceFromDBSnapshot(params,cb);
@@ -1796,6 +2339,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ProcessorFeatures",params,undefined,true); 
 			copyArg(msg,"UseDefaultProcessorFeatures",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"MaxAllocatedStorage",params,undefined,false); 
 			
 
 			svc.restoreDBInstanceFromS3(params,cb);
@@ -1806,7 +2350,6 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"SourceDBInstanceIdentifier",params,undefined,false); 
 			copyArg(n,"TargetDBInstanceIdentifier",params,undefined,false); 
 			
 			copyArg(msg,"SourceDBInstanceIdentifier",params,undefined,false); 
@@ -1830,6 +2373,7 @@ module.exports = function(RED) {
 			copyArg(msg,"StorageType",params,undefined,false); 
 			copyArg(msg,"TdeCredentialArn",params,undefined,false); 
 			copyArg(msg,"TdeCredentialPassword",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArg(msg,"Domain",params,undefined,false); 
 			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
 			copyArg(msg,"EnableIAMDatabaseAuthentication",params,undefined,false); 
@@ -1838,6 +2382,10 @@ module.exports = function(RED) {
 			copyArg(msg,"UseDefaultProcessorFeatures",params,undefined,false); 
 			copyArg(msg,"DBParameterGroupName",params,undefined,false); 
 			copyArg(msg,"DeletionProtection",params,undefined,false); 
+			copyArg(msg,"SourceDbiResourceId",params,undefined,false); 
+			copyArg(msg,"MaxAllocatedStorage",params,undefined,false); 
+			copyArg(msg,"SourceDBInstanceAutomatedBackupsArn",params,undefined,false); 
+			copyArg(msg,"EnableCustomerOwnedIp",params,undefined,false); 
 			
 
 			svc.restoreDBInstanceToPointInTime(params,cb);
@@ -1858,6 +2406,24 @@ module.exports = function(RED) {
 			
 
 			svc.revokeDBSecurityGroupIngress(params,cb);
+		}
+
+		
+		service.StartActivityStream=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			copyArg(n,"Mode",params,undefined,false); 
+			copyArg(n,"KmsKeyId",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"Mode",params,undefined,false); 
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"ApplyImmediately",params,undefined,false); 
+			
+
+			svc.startActivityStream(params,cb);
 		}
 
 		
@@ -1887,6 +2453,59 @@ module.exports = function(RED) {
 		}
 
 		
+		service.StartDBInstanceAutomatedBackupsReplication=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"SourceDBInstanceArn",params,undefined,false); 
+			
+			copyArg(msg,"SourceDBInstanceArn",params,undefined,false); 
+			copyArg(msg,"BackupRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"PreSignedUrl",params,undefined,false); 
+			
+
+			svc.startDBInstanceAutomatedBackupsReplication(params,cb);
+		}
+
+		
+		service.StartExportTask=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ExportTaskIdentifier",params,undefined,false); 
+			copyArg(n,"SourceArn",params,undefined,false); 
+			copyArg(n,"S3BucketName",params,undefined,false); 
+			copyArg(n,"IamRoleArn",params,undefined,false); 
+			copyArg(n,"KmsKeyId",params,undefined,false); 
+			
+			copyArg(msg,"ExportTaskIdentifier",params,undefined,false); 
+			copyArg(msg,"SourceArn",params,undefined,false); 
+			copyArg(msg,"S3BucketName",params,undefined,false); 
+			copyArg(msg,"IamRoleArn",params,undefined,false); 
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"S3Prefix",params,undefined,false); 
+			copyArg(msg,"ExportOnly",params,undefined,true); 
+			
+
+			svc.startExportTask(params,cb);
+		}
+
+		
+		service.StopActivityStream=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"ApplyImmediately",params,undefined,false); 
+			
+
+			svc.stopActivityStream(params,cb);
+		}
+
+		
 		service.StopDBCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1911,6 +2530,19 @@ module.exports = function(RED) {
 			
 
 			svc.stopDBInstance(params,cb);
+		}
+
+		
+		service.StopDBInstanceAutomatedBackupsReplication=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"SourceDBInstanceArn",params,undefined,false); 
+			
+			copyArg(msg,"SourceDBInstanceArn",params,undefined,false); 
+			
+
+			svc.stopDBInstanceAutomatedBackupsReplication(params,cb);
 		}
 
 			

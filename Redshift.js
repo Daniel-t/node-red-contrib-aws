@@ -142,6 +142,47 @@ module.exports = function(RED) {
 		}
 
 		
+		service.BatchDeleteClusterSnapshots=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Identifiers",params,undefined,false); 
+			
+			copyArg(msg,"Identifiers",params,undefined,false); 
+			
+
+			svc.batchDeleteClusterSnapshots(params,cb);
+		}
+
+		
+		service.BatchModifyClusterSnapshots=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"SnapshotIdentifierList",params,undefined,true); 
+			
+			copyArg(msg,"SnapshotIdentifierList",params,undefined,true); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"Force",params,undefined,false); 
+			
+
+			svc.batchModifyClusterSnapshots(params,cb);
+		}
+
+		
+		service.CancelResize=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			
+
+			svc.cancelResize(params,cb);
+		}
+
+		
 		service.CopyClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -152,6 +193,7 @@ module.exports = function(RED) {
 			copyArg(msg,"SourceSnapshotIdentifier",params,undefined,false); 
 			copyArg(msg,"SourceSnapshotClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"TargetSnapshotIdentifier",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			
 
 			svc.copyClusterSnapshot(params,cb);
@@ -180,6 +222,7 @@ module.exports = function(RED) {
 			copyArg(msg,"PreferredMaintenanceWindow",params,undefined,false); 
 			copyArg(msg,"ClusterParameterGroupName",params,undefined,false); 
 			copyArg(msg,"AutomatedSnapshotRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			copyArg(msg,"Port",params,undefined,false); 
 			copyArg(msg,"ClusterVersion",params,undefined,false); 
 			copyArg(msg,"AllowVersionUpgrade",params,undefined,false); 
@@ -195,6 +238,8 @@ module.exports = function(RED) {
 			copyArg(msg,"AdditionalInfo",params,undefined,false); 
 			copyArg(msg,"IamRoles",params,undefined,true); 
 			copyArg(msg,"MaintenanceTrackName",params,undefined,false); 
+			copyArg(msg,"SnapshotScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneRelocation",params,undefined,false); 
 			
 
 			svc.createCluster(params,cb);
@@ -244,6 +289,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"SnapshotIdentifier",params,undefined,false); 
 			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			copyArg(msg,"Tags",params,undefined,true); 
 			
 
@@ -328,6 +374,29 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateScheduledAction=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ScheduledActionName",params,undefined,false); 
+			copyArg(n,"TargetAction",params,undefined,true); 
+			copyArg(n,"Schedule",params,undefined,false); 
+			copyArg(n,"IamRole",params,undefined,false); 
+			
+			copyArg(msg,"ScheduledActionName",params,undefined,false); 
+			copyArg(msg,"TargetAction",params,undefined,true); 
+			copyArg(msg,"Schedule",params,undefined,false); 
+			copyArg(msg,"IamRole",params,undefined,false); 
+			copyArg(msg,"ScheduledActionDescription",params,undefined,false); 
+			copyArg(msg,"StartTime",params,undefined,false); 
+			copyArg(msg,"EndTime",params,undefined,false); 
+			copyArg(msg,"Enable",params,undefined,false); 
+			
+
+			svc.createScheduledAction(params,cb);
+		}
+
+		
 		service.CreateSnapshotCopyGrant=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -340,6 +409,23 @@ module.exports = function(RED) {
 			
 
 			svc.createSnapshotCopyGrant(params,cb);
+		}
+
+		
+		service.CreateSnapshotSchedule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ScheduleDefinitions",params,undefined,true); 
+			copyArg(msg,"ScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"ScheduleDescription",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextInvocations",params,undefined,false); 
+			
+
+			svc.createSnapshotSchedule(params,cb);
 		}
 
 		
@@ -358,6 +444,28 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateUsageLimit=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			copyArg(n,"FeatureType",params,undefined,false); 
+			copyArg(n,"LimitType",params,undefined,false); 
+			copyArg(n,"Amount",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"FeatureType",params,undefined,false); 
+			copyArg(msg,"LimitType",params,undefined,false); 
+			copyArg(msg,"Amount",params,undefined,false); 
+			copyArg(msg,"Period",params,undefined,false); 
+			copyArg(msg,"BreachAction",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.createUsageLimit(params,cb);
+		}
+
+		
 		service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -367,6 +475,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"SkipFinalClusterSnapshot",params,undefined,false); 
 			copyArg(msg,"FinalClusterSnapshotIdentifier",params,undefined,false); 
+			copyArg(msg,"FinalClusterSnapshotRetentionPeriod",params,undefined,false); 
 			
 
 			svc.deleteCluster(params,cb);
@@ -403,11 +512,10 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"SnapshotIdentifier",params,undefined,false); 
 			
-			copyArg(msg,"SnapshotIdentifier",params,undefined,false); 
-			copyArg(msg,"SnapshotClusterIdentifier",params,undefined,false); 
 			
+			copyArg(msg,"SnapshotIdentifier",params,undefined,true); 
+			copyArg(msg,"SnapshotClusterIdentifier",params,undefined,true); 
 
 			svc.deleteClusterSnapshot(params,cb);
 		}
@@ -465,6 +573,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteScheduledAction=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ScheduledActionName",params,undefined,false); 
+			
+			copyArg(msg,"ScheduledActionName",params,undefined,false); 
+			
+
+			svc.deleteScheduledAction(params,cb);
+		}
+
+		
 		service.DeleteSnapshotCopyGrant=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -475,6 +596,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteSnapshotCopyGrant(params,cb);
+		}
+
+		
+		service.DeleteSnapshotSchedule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ScheduleIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ScheduleIdentifier",params,undefined,false); 
+			
+
+			svc.deleteSnapshotSchedule(params,cb);
 		}
 
 		
@@ -490,6 +624,31 @@ module.exports = function(RED) {
 			
 
 			svc.deleteTags(params,cb);
+		}
+
+		
+		service.DeleteUsageLimit=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"UsageLimitId",params,undefined,false); 
+			
+			copyArg(msg,"UsageLimitId",params,undefined,false); 
+			
+
+			svc.deleteUsageLimit(params,cb);
+		}
+
+		
+		service.DescribeAccountAttributes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"AttributeNames",params,undefined,false); 
+			
+
+			svc.describeAccountAttributes(params,cb);
 		}
 
 		
@@ -571,6 +730,7 @@ module.exports = function(RED) {
 			copyArg(msg,"TagKeys",params,undefined,true); 
 			copyArg(msg,"TagValues",params,undefined,true); 
 			copyArg(msg,"ClusterExists",params,undefined,false); 
+			copyArg(msg,"SortingEntities",params,undefined,false); 
 			
 
 			svc.describeClusterSnapshots(params,cb);
@@ -744,6 +904,25 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeNodeConfigurationOptions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ActionType",params,undefined,false); 
+			
+			copyArg(msg,"ActionType",params,undefined,false); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"SnapshotIdentifier",params,undefined,false); 
+			copyArg(msg,"OwnerAccount",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeNodeConfigurationOptions(params,cb);
+		}
+
+		
 		service.DescribeOrderableClusterOptions=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -800,6 +979,25 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeScheduledActions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ScheduledActionName",params,undefined,false); 
+			copyArg(msg,"TargetActionType",params,undefined,false); 
+			copyArg(msg,"StartTime",params,undefined,false); 
+			copyArg(msg,"EndTime",params,undefined,false); 
+			copyArg(msg,"Active",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeScheduledActions(params,cb);
+		}
+
+		
 		service.DescribeSnapshotCopyGrants=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -813,6 +1011,34 @@ module.exports = function(RED) {
 			
 
 			svc.describeSnapshotCopyGrants(params,cb);
+		}
+
+		
+		service.DescribeSnapshotSchedules=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"ScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"TagKeys",params,undefined,true); 
+			copyArg(msg,"TagValues",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeSnapshotSchedules(params,cb);
+		}
+
+		
+		service.DescribeStorage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			
+
+			svc.describeStorage(params,cb);
 		}
 
 		
@@ -845,6 +1071,24 @@ module.exports = function(RED) {
 			
 
 			svc.describeTags(params,cb);
+		}
+
+		
+		service.DescribeUsageLimits=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"UsageLimitId",params,undefined,false); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"FeatureType",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"TagKeys",params,undefined,true); 
+			copyArg(msg,"TagValues",params,undefined,true); 
+			
+
+			svc.describeUsageLimits(params,cb);
 		}
 
 		
@@ -901,6 +1145,7 @@ module.exports = function(RED) {
 			copyArg(msg,"DestinationRegion",params,undefined,false); 
 			copyArg(msg,"RetentionPeriod",params,undefined,false); 
 			copyArg(msg,"SnapshotCopyGrantName",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			
 
 			svc.enableSnapshotCopy(params,cb);
@@ -956,6 +1201,7 @@ module.exports = function(RED) {
 			copyArg(msg,"MasterUserPassword",params,undefined,false); 
 			copyArg(msg,"ClusterParameterGroupName",params,undefined,false); 
 			copyArg(msg,"AutomatedSnapshotRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			copyArg(msg,"PreferredMaintenanceWindow",params,undefined,false); 
 			copyArg(msg,"ClusterVersion",params,undefined,false); 
 			copyArg(msg,"AllowVersionUpgrade",params,undefined,false); 
@@ -968,6 +1214,9 @@ module.exports = function(RED) {
 			copyArg(msg,"MaintenanceTrackName",params,undefined,false); 
 			copyArg(msg,"Encrypted",params,undefined,false); 
 			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneRelocation",params,undefined,false); 
+			copyArg(msg,"AvailabilityZone",params,undefined,false); 
+			copyArg(msg,"Port",params,undefined,false); 
 			
 
 			svc.modifyCluster(params,cb);
@@ -1004,6 +1253,24 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyClusterMaintenance=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DeferMaintenance",params,undefined,false); 
+			copyArg(msg,"DeferMaintenanceIdentifier",params,undefined,false); 
+			copyArg(msg,"DeferMaintenanceStartTime",params,undefined,false); 
+			copyArg(msg,"DeferMaintenanceEndTime",params,undefined,false); 
+			copyArg(msg,"DeferMaintenanceDuration",params,undefined,false); 
+			
+
+			svc.modifyClusterMaintenance(params,cb);
+		}
+
+		
 		service.ModifyClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1016,6 +1283,36 @@ module.exports = function(RED) {
 			
 
 			svc.modifyClusterParameterGroup(params,cb);
+		}
+
+		
+		service.ModifyClusterSnapshot=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"SnapshotIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"SnapshotIdentifier",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"Force",params,undefined,false); 
+			
+
+			svc.modifyClusterSnapshot(params,cb);
+		}
+
+		
+		service.ModifyClusterSnapshotSchedule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"ScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"DisassociateSchedule",params,undefined,false); 
+			
+
+			svc.modifyClusterSnapshotSchedule(params,cb);
 		}
 
 		
@@ -1054,6 +1351,26 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyScheduledAction=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ScheduledActionName",params,undefined,false); 
+			
+			copyArg(msg,"ScheduledActionName",params,undefined,false); 
+			copyArg(msg,"TargetAction",params,undefined,true); 
+			copyArg(msg,"Schedule",params,undefined,false); 
+			copyArg(msg,"IamRole",params,undefined,false); 
+			copyArg(msg,"ScheduledActionDescription",params,undefined,false); 
+			copyArg(msg,"StartTime",params,undefined,false); 
+			copyArg(msg,"EndTime",params,undefined,false); 
+			copyArg(msg,"Enable",params,undefined,false); 
+			
+
+			svc.modifyScheduledAction(params,cb);
+		}
+
+		
 		service.ModifySnapshotCopyRetentionPeriod=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1063,9 +1380,52 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
 			copyArg(msg,"RetentionPeriod",params,undefined,false); 
+			copyArg(msg,"Manual",params,undefined,false); 
 			
 
 			svc.modifySnapshotCopyRetentionPeriod(params,cb);
+		}
+
+		
+		service.ModifySnapshotSchedule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ScheduleIdentifier",params,undefined,false); 
+			copyArg(n,"ScheduleDefinitions",params,undefined,true); 
+			
+			copyArg(msg,"ScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"ScheduleDefinitions",params,undefined,true); 
+			
+
+			svc.modifySnapshotSchedule(params,cb);
+		}
+
+		
+		service.ModifyUsageLimit=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"UsageLimitId",params,undefined,false); 
+			
+			copyArg(msg,"UsageLimitId",params,undefined,false); 
+			copyArg(msg,"Amount",params,undefined,false); 
+			copyArg(msg,"BreachAction",params,undefined,false); 
+			
+
+			svc.modifyUsageLimit(params,cb);
+		}
+
+		
+		service.PauseCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,true); 
+
+			svc.pauseCluster(params,cb);
 		}
 
 		
@@ -1115,15 +1475,13 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"ClusterIdentifier",params,undefined,false); 
-			copyArg(n,"NumberOfNodes",params,undefined,false); 
 			
-			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
-			copyArg(msg,"ClusterType",params,undefined,false); 
-			copyArg(msg,"NodeType",params,undefined,false); 
-			copyArg(msg,"NumberOfNodes",params,undefined,false); 
-			copyArg(msg,"Classic",params,undefined,false); 
 			
+			copyArg(msg,"ClusterIdentifier",params,undefined,true); 
+			copyArg(msg,"ClusterType",params,undefined,true); 
+			copyArg(msg,"NodeType",params,undefined,true); 
+			copyArg(msg,"NumberOfNodes",params,undefined,true); 
+			copyArg(msg,"Classic",params,undefined,true); 
 
 			svc.resizeCluster(params,cb);
 		}
@@ -1153,12 +1511,16 @@ module.exports = function(RED) {
 			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArg(msg,"PreferredMaintenanceWindow",params,undefined,false); 
 			copyArg(msg,"AutomatedSnapshotRetentionPeriod",params,undefined,false); 
+			copyArg(msg,"ManualSnapshotRetentionPeriod",params,undefined,false); 
 			copyArg(msg,"KmsKeyId",params,undefined,false); 
 			copyArg(msg,"NodeType",params,undefined,false); 
 			copyArg(msg,"EnhancedVpcRouting",params,undefined,false); 
 			copyArg(msg,"AdditionalInfo",params,undefined,false); 
 			copyArg(msg,"IamRoles",params,undefined,true); 
 			copyArg(msg,"MaintenanceTrackName",params,undefined,false); 
+			copyArg(msg,"SnapshotScheduleIdentifier",params,undefined,false); 
+			copyArg(msg,"NumberOfNodes",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneRelocation",params,undefined,false); 
 			
 
 			svc.restoreFromClusterSnapshot(params,cb);
@@ -1186,6 +1548,18 @@ module.exports = function(RED) {
 			
 
 			svc.restoreTableFromClusterSnapshot(params,cb);
+		}
+
+		
+		service.ResumeCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,true); 
+
+			svc.resumeCluster(params,cb);
 		}
 
 		

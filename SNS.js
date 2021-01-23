@@ -184,6 +184,8 @@ module.exports = function(RED) {
 			copyArg(n,"Name",params,undefined,false); 
 			
 			copyArg(msg,"Name",params,undefined,false); 
+			copyArg(msg,"Attributes",params,undefined,true); 
+			copyArg(msg,"Tags",params,undefined,true); 
 			
 
 			svc.createTopic(params,cb);
@@ -357,6 +359,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListTagsForResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			
+
+			svc.listTagsForResource(params,cb);
+		}
+
+		
 		service.ListTopics=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -395,6 +410,8 @@ module.exports = function(RED) {
 			copyArg(msg,"Subject",params,undefined,false); 
 			copyArg(msg,"MessageStructure",params,undefined,false); 
 			copyArg(msg,"MessageAttributes",params,undefined,false); 
+			copyArg(msg,"MessageDeduplicationId",params,undefined,false); 
+			copyArg(msg,"MessageGroupId",params,undefined,false); 
 			
 
 			svc.publish(params,cb);
@@ -509,6 +526,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.TagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			copyArg(n,"Tags",params,undefined,true); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.tagResource(params,cb);
+		}
+
+		
 		service.Unsubscribe=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -519,6 +551,21 @@ module.exports = function(RED) {
 			
 
 			svc.unsubscribe(params,cb);
+		}
+
+		
+		service.UntagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			copyArg(n,"TagKeys",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"TagKeys",params,undefined,false); 
+			
+
+			svc.untagResource(params,cb);
 		}
 
 			

@@ -154,6 +154,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"QueueName",params,undefined,false); 
 			copyArg(msg,"Attributes",params,undefined,true); 
+			copyArg(msg,"tags",params,undefined,true); 
 			
 
 			svc.createQueue(params,cb);
@@ -238,6 +239,8 @@ module.exports = function(RED) {
 			copyArg(n,"QueueUrl",params,undefined,false); 
 			
 			copyArg(msg,"QueueUrl",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.listDeadLetterSourceQueues(params,cb);
@@ -263,6 +266,8 @@ module.exports = function(RED) {
 			
 			
 			copyArg(msg,"QueueNamePrefix",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.listQueues(params,cb);
@@ -327,6 +332,7 @@ module.exports = function(RED) {
 			copyArg(msg,"MessageBody",params,undefined,false); 
 			copyArg(msg,"DelaySeconds",params,undefined,false); 
 			copyArg(msg,"MessageAttributes",params,undefined,true); 
+			copyArg(msg,"MessageSystemAttributes",params,undefined,true); 
 			copyArg(msg,"MessageDeduplicationId",params,undefined,false); 
 			copyArg(msg,"MessageGroupId",params,undefined,false); 
 			

@@ -309,6 +309,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ExclusiveStartShardId",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			copyArg(msg,"StreamCreationTimestamp",params,undefined,false); 
+			copyArg(msg,"ShardFilter",params,undefined,false); 
 			
 
 			svc.listShards(params,cb);

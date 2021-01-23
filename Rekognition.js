@@ -105,6 +105,7 @@ module.exports = function(RED) {
 			copyArg(msg,"SourceImage",params,undefined,true); 
 			copyArg(msg,"TargetImage",params,undefined,true); 
 			copyArg(msg,"SimilarityThreshold",params,undefined,false); 
+			copyArg(msg,"QualityFilter",params,undefined,false); 
 			
 
 			svc.compareFaces(params,cb);
@@ -121,6 +122,40 @@ module.exports = function(RED) {
 			
 
 			svc.createCollection(params,cb);
+		}
+
+		
+		service.CreateProject=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectName",params,undefined,false); 
+			
+			copyArg(msg,"ProjectName",params,undefined,false); 
+			
+
+			svc.createProject(params,cb);
+		}
+
+		
+		service.CreateProjectVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectArn",params,undefined,false); 
+			copyArg(n,"VersionName",params,undefined,false); 
+			copyArg(n,"OutputConfig",params,undefined,true); 
+			copyArg(n,"TrainingData",params,undefined,true); 
+			copyArg(n,"TestingData",params,undefined,true); 
+			
+			copyArg(msg,"ProjectArn",params,undefined,false); 
+			copyArg(msg,"VersionName",params,undefined,false); 
+			copyArg(msg,"OutputConfig",params,undefined,true); 
+			copyArg(msg,"TrainingData",params,undefined,true); 
+			copyArg(msg,"TestingData",params,undefined,true); 
+			
+
+			svc.createProjectVersion(params,cb);
 		}
 
 		
@@ -173,6 +208,32 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteProject=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectArn",params,undefined,false); 
+			
+			copyArg(msg,"ProjectArn",params,undefined,false); 
+			
+
+			svc.deleteProject(params,cb);
+		}
+
+		
+		service.DeleteProjectVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectVersionArn",params,undefined,false); 
+			
+			copyArg(msg,"ProjectVersionArn",params,undefined,false); 
+			
+
+			svc.deleteProjectVersion(params,cb);
+		}
+
+		
 		service.DeleteStreamProcessor=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -199,6 +260,35 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeProjectVersions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectArn",params,undefined,false); 
+			
+			copyArg(msg,"ProjectArn",params,undefined,false); 
+			copyArg(msg,"VersionNames",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.describeProjectVersions(params,cb);
+		}
+
+		
+		service.DescribeProjects=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.describeProjects(params,cb);
+		}
+
+		
 		service.DescribeStreamProcessor=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -209,6 +299,23 @@ module.exports = function(RED) {
 			
 
 			svc.describeStreamProcessor(params,cb);
+		}
+
+		
+		service.DetectCustomLabels=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectVersionArn",params,undefined,false); 
+			copyArg(n,"Image",params,undefined,true); 
+			
+			copyArg(msg,"ProjectVersionArn",params,undefined,false); 
+			copyArg(msg,"Image",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"MinConfidence",params,undefined,false); 
+			
+
+			svc.detectCustomLabels(params,cb);
 		}
 
 		
@@ -249,9 +356,24 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Image",params,undefined,true); 
 			copyArg(msg,"MinConfidence",params,undefined,false); 
+			copyArg(msg,"HumanLoopConfig",params,undefined,false); 
 			
 
 			svc.detectModerationLabels(params,cb);
+		}
+
+		
+		service.DetectProtectiveEquipment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Image",params,undefined,true); 
+			
+			copyArg(msg,"Image",params,undefined,true); 
+			copyArg(msg,"SummarizationAttributes",params,undefined,false); 
+			
+
+			svc.detectProtectiveEquipment(params,cb);
 		}
 
 		
@@ -262,6 +384,7 @@ module.exports = function(RED) {
 			copyArg(n,"Image",params,undefined,true); 
 			
 			copyArg(msg,"Image",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,false); 
 			
 
 			svc.detectText(params,cb);
@@ -376,6 +499,36 @@ module.exports = function(RED) {
 		}
 
 		
+		service.GetSegmentDetection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.getSegmentDetection(params,cb);
+		}
+
+		
+		service.GetTextDetection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.getTextDetection(params,cb);
+		}
+
+		
 		service.IndexFaces=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -477,6 +630,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Image",params,undefined,true); 
 			copyArg(msg,"MaxFaces",params,undefined,false); 
 			copyArg(msg,"FaceMatchThreshold",params,undefined,false); 
+			copyArg(msg,"QualityFilter",params,undefined,false); 
 			
 
 			svc.searchFacesByImage(params,cb);
@@ -585,6 +739,40 @@ module.exports = function(RED) {
 		}
 
 		
+		service.StartProjectVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectVersionArn",params,undefined,false); 
+			copyArg(n,"MinInferenceUnits",params,undefined,false); 
+			
+			copyArg(msg,"ProjectVersionArn",params,undefined,false); 
+			copyArg(msg,"MinInferenceUnits",params,undefined,false); 
+			
+
+			svc.startProjectVersion(params,cb);
+		}
+
+		
+		service.StartSegmentDetection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Video",params,undefined,true); 
+			copyArg(n,"SegmentTypes",params,undefined,false); 
+			
+			copyArg(msg,"Video",params,undefined,true); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"NotificationChannel",params,undefined,true); 
+			copyArg(msg,"JobTag",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,false); 
+			copyArg(msg,"SegmentTypes",params,undefined,false); 
+			
+
+			svc.startSegmentDetection(params,cb);
+		}
+
+		
 		service.StartStreamProcessor=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -595,6 +783,36 @@ module.exports = function(RED) {
 			
 
 			svc.startStreamProcessor(params,cb);
+		}
+
+		
+		service.StartTextDetection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Video",params,undefined,true); 
+			
+			copyArg(msg,"Video",params,undefined,true); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"NotificationChannel",params,undefined,true); 
+			copyArg(msg,"JobTag",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,false); 
+			
+
+			svc.startTextDetection(params,cb);
+		}
+
+		
+		service.StopProjectVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ProjectVersionArn",params,undefined,false); 
+			
+			copyArg(msg,"ProjectVersionArn",params,undefined,false); 
+			
+
+			svc.stopProjectVersion(params,cb);
 		}
 
 		

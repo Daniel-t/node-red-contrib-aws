@@ -28,9 +28,13 @@
 		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
 		<select type="text" id="node-input-operation">
 		
+			<option value="AddLayerVersionPermission">AddLayerVersionPermission</option>
+		
 			<option value="AddPermission">AddPermission</option>
 		
 			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateCodeSigningConfig">CreateCodeSigningConfig</option>
 		
 			<option value="CreateEventSourceMapping">CreateEventSourceMapping</option>
 		
@@ -38,23 +42,49 @@
 		
 			<option value="DeleteAlias">DeleteAlias</option>
 		
+			<option value="DeleteCodeSigningConfig">DeleteCodeSigningConfig</option>
+		
 			<option value="DeleteEventSourceMapping">DeleteEventSourceMapping</option>
 		
 			<option value="DeleteFunction">DeleteFunction</option>
 		
+			<option value="DeleteFunctionCodeSigningConfig">DeleteFunctionCodeSigningConfig</option>
+		
 			<option value="DeleteFunctionConcurrency">DeleteFunctionConcurrency</option>
+		
+			<option value="DeleteFunctionEventInvokeConfig">DeleteFunctionEventInvokeConfig</option>
+		
+			<option value="DeleteLayerVersion">DeleteLayerVersion</option>
+		
+			<option value="DeleteProvisionedConcurrencyConfig">DeleteProvisionedConcurrencyConfig</option>
 		
 			<option value="GetAccountSettings">GetAccountSettings</option>
 		
 			<option value="GetAlias">GetAlias</option>
 		
+			<option value="GetCodeSigningConfig">GetCodeSigningConfig</option>
+		
 			<option value="GetEventSourceMapping">GetEventSourceMapping</option>
 		
 			<option value="GetFunction">GetFunction</option>
 		
+			<option value="GetFunctionCodeSigningConfig">GetFunctionCodeSigningConfig</option>
+		
+			<option value="GetFunctionConcurrency">GetFunctionConcurrency</option>
+		
 			<option value="GetFunctionConfiguration">GetFunctionConfiguration</option>
 		
+			<option value="GetFunctionEventInvokeConfig">GetFunctionEventInvokeConfig</option>
+		
+			<option value="GetLayerVersion">GetLayerVersion</option>
+		
+			<option value="GetLayerVersionByArn">GetLayerVersionByArn</option>
+		
+			<option value="GetLayerVersionPolicy">GetLayerVersionPolicy</option>
+		
 			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="GetProvisionedConcurrencyConfig">GetProvisionedConcurrencyConfig</option>
 		
 			<option value="Invoke">Invoke</option>
 		
@@ -62,17 +92,39 @@
 		
 			<option value="ListAliases">ListAliases</option>
 		
+			<option value="ListCodeSigningConfigs">ListCodeSigningConfigs</option>
+		
 			<option value="ListEventSourceMappings">ListEventSourceMappings</option>
 		
+			<option value="ListFunctionEventInvokeConfigs">ListFunctionEventInvokeConfigs</option>
+		
 			<option value="ListFunctions">ListFunctions</option>
+		
+			<option value="ListFunctionsByCodeSigningConfig">ListFunctionsByCodeSigningConfig</option>
+		
+			<option value="ListLayerVersions">ListLayerVersions</option>
+		
+			<option value="ListLayers">ListLayers</option>
+		
+			<option value="ListProvisionedConcurrencyConfigs">ListProvisionedConcurrencyConfigs</option>
 		
 			<option value="ListTags">ListTags</option>
 		
 			<option value="ListVersionsByFunction">ListVersionsByFunction</option>
 		
+			<option value="PublishLayerVersion">PublishLayerVersion</option>
+		
 			<option value="PublishVersion">PublishVersion</option>
 		
+			<option value="PutFunctionCodeSigningConfig">PutFunctionCodeSigningConfig</option>
+		
 			<option value="PutFunctionConcurrency">PutFunctionConcurrency</option>
+		
+			<option value="PutFunctionEventInvokeConfig">PutFunctionEventInvokeConfig</option>
+		
+			<option value="PutProvisionedConcurrencyConfig">PutProvisionedConcurrencyConfig</option>
+		
+			<option value="RemoveLayerVersionPermission">RemoveLayerVersionPermission</option>
 		
 			<option value="RemovePermission">RemovePermission</option>
 		
@@ -82,11 +134,15 @@
 		
 			<option value="UpdateAlias">UpdateAlias</option>
 		
+			<option value="UpdateCodeSigningConfig">UpdateCodeSigningConfig</option>
+		
 			<option value="UpdateEventSourceMapping">UpdateEventSourceMapping</option>
 		
 			<option value="UpdateFunctionCode">UpdateFunctionCode</option>
 		
 			<option value="UpdateFunctionConfiguration">UpdateFunctionConfiguration</option>
+		
+			<option value="UpdateFunctionEventInvokeConfig">UpdateFunctionEventInvokeConfig</option>
 		;
 		</select>
 	</div>
@@ -97,9 +153,13 @@
 	<hr/>	
 	<div id="AttrHolder">
 	      
-	<div class="form-row" id='FunctionNameAttr' class='hiddenAttrs'>
-		<label for="node-input-FunctionName"><i class="fa fa-tag"></i>FunctionName</label>
-		<input type="text" id="node-input-FunctionName" placeholder="FunctionName"></input>
+	<div class="form-row" id='LayerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LayerName"><i class="fa fa-tag"></i>LayerName</label>
+		<input type="text" id="node-input-LayerName" placeholder="LayerName"></input>
+	</div> 
+	<div class="form-row" id='VersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionNumber"><i class="fa fa-tag"></i>VersionNumber</label>
+		<input type="text" id="node-input-VersionNumber" placeholder="VersionNumber"></input>
 	</div> 
 	<div class="form-row" id='StatementIdAttr' class='hiddenAttrs'>
 		<label for="node-input-StatementId"><i class="fa fa-tag"></i>StatementId</label>
@@ -113,6 +173,10 @@
 		<label for="node-input-Principal"><i class="fa fa-tag"></i>Principal</label>
 		<input type="text" id="node-input-Principal" placeholder="Principal"></input>
 	</div> 
+	<div class="form-row" id='FunctionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionName"><i class="fa fa-tag"></i>FunctionName</label>
+		<input type="text" id="node-input-FunctionName" placeholder="FunctionName"></input>
+	</div> 
 	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
 		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
 		<input type="text" id="node-input-Name" placeholder="Name"></input>
@@ -121,29 +185,33 @@
 		<label for="node-input-FunctionVersion"><i class="fa fa-tag"></i>FunctionVersion</label>
 		<input type="text" id="node-input-FunctionVersion" placeholder="FunctionVersion"></input>
 	</div> 
-	<div class="form-row" id='EventSourceArnAttr' class='hiddenAttrs'>
-		<label for="node-input-EventSourceArn"><i class="fa fa-tag"></i>EventSourceArn</label>
-		<input type="text" id="node-input-EventSourceArn" placeholder="EventSourceArn"></input>
-	</div> 
-	<div class="form-row" id='RuntimeAttr' class='hiddenAttrs'>
-		<label for="node-input-Runtime"><i class="fa fa-tag"></i>Runtime</label>
-		<input type="text" id="node-input-Runtime" placeholder="Runtime"></input>
+	<div class="form-row" id='AllowedPublishersAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowedPublishers"><i class="fa fa-tag"></i>AllowedPublishers</label>
+		<input type="text" id="node-input-AllowedPublishers" placeholder="AllowedPublishers"></input>
 	</div> 
 	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
 		<label for="node-input-Role"><i class="fa fa-tag"></i>Role</label>
 		<input type="text" id="node-input-Role" placeholder="Role"></input>
 	</div> 
-	<div class="form-row" id='HandlerAttr' class='hiddenAttrs'>
-		<label for="node-input-Handler"><i class="fa fa-tag"></i>Handler</label>
-		<input type="text" id="node-input-Handler" placeholder="Handler"></input>
-	</div> 
 	<div class="form-row" id='CodeAttr' class='hiddenAttrs'>
 		<label for="node-input-Code"><i class="fa fa-tag"></i>Code</label>
 		<input type="text" id="node-input-Code" placeholder="Code"></input>
 	</div> 
+	<div class="form-row" id='CodeSigningConfigArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CodeSigningConfigArn"><i class="fa fa-tag"></i>CodeSigningConfigArn</label>
+		<input type="text" id="node-input-CodeSigningConfigArn" placeholder="CodeSigningConfigArn"></input>
+	</div> 
 	<div class="form-row" id='UUIDAttr' class='hiddenAttrs'>
 		<label for="node-input-UUID"><i class="fa fa-tag"></i>UUID</label>
 		<input type="text" id="node-input-UUID" placeholder="UUID"></input>
+	</div> 
+	<div class="form-row" id='QualifierAttr' class='hiddenAttrs'>
+		<label for="node-input-Qualifier"><i class="fa fa-tag"></i>Qualifier</label>
+		<input type="text" id="node-input-Qualifier" placeholder="Qualifier"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i>Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
 	</div> 
 	<div class="form-row" id='InvokeArgsAttr' class='hiddenAttrs'>
 		<label for="node-input-InvokeArgs"><i class="fa fa-tag"></i>InvokeArgs</label>
@@ -153,9 +221,17 @@
 		<label for="node-input-Resource"><i class="fa fa-tag"></i>Resource</label>
 		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
 	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
 	<div class="form-row" id='ReservedConcurrentExecutionsAttr' class='hiddenAttrs'>
 		<label for="node-input-ReservedConcurrentExecutions"><i class="fa fa-tag"></i>ReservedConcurrentExecutions</label>
 		<input type="text" id="node-input-ReservedConcurrentExecutions" placeholder="ReservedConcurrentExecutions"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedConcurrentExecutionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedConcurrentExecutions"><i class="fa fa-tag"></i>ProvisionedConcurrentExecutions</label>
+		<input type="text" id="node-input-ProvisionedConcurrentExecutions" placeholder="ProvisionedConcurrentExecutions"></input>
 	</div> 
 	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
 		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
@@ -170,20 +246,29 @@
  <script>
 	  var nodeOps={
 			
+				AddLayerVersionPermission:[
+					'#LayerNameAttr','#VersionNumberAttr','#StatementIdAttr','#ActionAttr','#PrincipalAttr'
+					],
 				AddPermission:[
 					'#FunctionNameAttr','#StatementIdAttr','#ActionAttr','#PrincipalAttr'
 					],
 				CreateAlias:[
 					'#FunctionNameAttr','#NameAttr','#FunctionVersionAttr'
 					],
+				CreateCodeSigningConfig:[
+					'#AllowedPublishersAttr'
+					],
 				CreateEventSourceMapping:[
-					'#EventSourceArnAttr','#FunctionNameAttr'
+					'#FunctionNameAttr'
 					],
 				CreateFunction:[
-					'#FunctionNameAttr','#RuntimeAttr','#RoleAttr','#HandlerAttr','#CodeAttr'
+					'#FunctionNameAttr','#RoleAttr','#CodeAttr'
 					],
 				DeleteAlias:[
 					'#FunctionNameAttr','#NameAttr'
+					],
+				DeleteCodeSigningConfig:[
+					'#CodeSigningConfigArnAttr'
 					],
 				DeleteEventSourceMapping:[
 					'#UUIDAttr'
@@ -191,8 +276,20 @@
 				DeleteFunction:[
 					'#FunctionNameAttr'
 					],
+				DeleteFunctionCodeSigningConfig:[
+					'#FunctionNameAttr'
+					],
 				DeleteFunctionConcurrency:[
 					'#FunctionNameAttr'
+					],
+				DeleteFunctionEventInvokeConfig:[
+					'#FunctionNameAttr'
+					],
+				DeleteLayerVersion:[
+					'#LayerNameAttr','#VersionNumberAttr'
+					],
+				DeleteProvisionedConcurrencyConfig:[
+					'#FunctionNameAttr','#QualifierAttr'
 					],
 				GetAccountSettings:[
 					
@@ -200,17 +297,41 @@
 				GetAlias:[
 					'#FunctionNameAttr','#NameAttr'
 					],
+				GetCodeSigningConfig:[
+					'#CodeSigningConfigArnAttr'
+					],
 				GetEventSourceMapping:[
 					'#UUIDAttr'
 					],
 				GetFunction:[
 					'#FunctionNameAttr'
 					],
+				GetFunctionCodeSigningConfig:[
+					'#FunctionNameAttr'
+					],
+				GetFunctionConcurrency:[
+					'#FunctionNameAttr'
+					],
 				GetFunctionConfiguration:[
 					'#FunctionNameAttr'
 					],
+				GetFunctionEventInvokeConfig:[
+					'#FunctionNameAttr'
+					],
+				GetLayerVersion:[
+					'#LayerNameAttr','#VersionNumberAttr'
+					],
+				GetLayerVersionByArn:[
+					'#ArnAttr'
+					],
+				GetLayerVersionPolicy:[
+					'#LayerNameAttr','#VersionNumberAttr'
+					],
 				GetPolicy:[
 					'#FunctionNameAttr'
+					],
+				GetProvisionedConcurrencyConfig:[
+					'#FunctionNameAttr','#QualifierAttr'
 					],
 				Invoke:[
 					'#FunctionNameAttr'
@@ -221,11 +342,29 @@
 				ListAliases:[
 					'#FunctionNameAttr'
 					],
+				ListCodeSigningConfigs:[
+					
+					],
 				ListEventSourceMappings:[
 					
 					],
+				ListFunctionEventInvokeConfigs:[
+					'#FunctionNameAttr'
+					],
 				ListFunctions:[
 					
+					],
+				ListFunctionsByCodeSigningConfig:[
+					'#CodeSigningConfigArnAttr'
+					],
+				ListLayerVersions:[
+					'#LayerNameAttr'
+					],
+				ListLayers:[
+					
+					],
+				ListProvisionedConcurrencyConfigs:[
+					'#FunctionNameAttr'
 					],
 				ListTags:[
 					'#ResourceAttr'
@@ -233,11 +372,26 @@
 				ListVersionsByFunction:[
 					'#FunctionNameAttr'
 					],
+				PublishLayerVersion:[
+					'#LayerNameAttr','#ContentAttr'
+					],
 				PublishVersion:[
 					'#FunctionNameAttr'
 					],
+				PutFunctionCodeSigningConfig:[
+					'#CodeSigningConfigArnAttr','#FunctionNameAttr'
+					],
 				PutFunctionConcurrency:[
 					'#FunctionNameAttr','#ReservedConcurrentExecutionsAttr'
+					],
+				PutFunctionEventInvokeConfig:[
+					'#FunctionNameAttr'
+					],
+				PutProvisionedConcurrencyConfig:[
+					'#FunctionNameAttr','#QualifierAttr','#ProvisionedConcurrentExecutionsAttr'
+					],
+				RemoveLayerVersionPermission:[
+					'#LayerNameAttr','#VersionNumberAttr','#StatementIdAttr'
 					],
 				RemovePermission:[
 					'#FunctionNameAttr','#StatementIdAttr'
@@ -251,6 +405,9 @@
 				UpdateAlias:[
 					'#FunctionNameAttr','#NameAttr'
 					],
+				UpdateCodeSigningConfig:[
+					'#CodeSigningConfigArnAttr'
+					],
 				UpdateEventSourceMapping:[
 					'#UUIDAttr'
 					],
@@ -258,6 +415,9 @@
 					'#FunctionNameAttr'
 					],
 				UpdateFunctionConfiguration:[
+					'#FunctionNameAttr'
+					],
+				UpdateFunctionEventInvokeConfig:[
 					'#FunctionNameAttr'
 					]
 		};
@@ -289,23 +449,28 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		color:"#C0DEED",
 		defaults: {
 			aws: {type:"amazon config",required:true},
-			operation: { value: 'AddPermission' },
+			operation: { value: 'AddLayerVersionPermission' },
 			
-				FunctionName: { value: ""} ,
+				LayerName: { value: ""} ,
+				VersionNumber: { value: ""} ,
 				StatementId: { value: ""} ,
 				Action: { value: ""} ,
 				Principal: { value: ""} ,
+				FunctionName: { value: ""} ,
 				Name: { value: ""} ,
 				FunctionVersion: { value: ""} ,
-				EventSourceArn: { value: ""} ,
-				Runtime: { value: ""} ,
+				AllowedPublishers: { value: ""} ,
 				Role: { value: ""} ,
-				Handler: { value: ""} ,
 				Code: { value: ""} ,
+				CodeSigningConfigArn: { value: ""} ,
 				UUID: { value: ""} ,
+				Qualifier: { value: ""} ,
+				Arn: { value: ""} ,
 				InvokeArgs: { value: ""} ,
 				Resource: { value: ""} ,
+				Content: { value: ""} ,
 				ReservedConcurrentExecutions: { value: ""} ,
+				ProvisionedConcurrentExecutions: { value: ""} ,
 				Tags: { value: ""} ,
 				TagKeys: { value: ""} ,
 			name: { value: "" }

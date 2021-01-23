@@ -110,6 +110,49 @@ module.exports = function(RED) {
 		}
 
 		
+		service.AcceptTransitGatewayMulticastDomainAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"SubnetIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.acceptTransitGatewayMulticastDomainAssociations(params,cb);
+		}
+
+		
+		service.AcceptTransitGatewayPeeringAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.acceptTransitGatewayPeeringAttachment(params,cb);
+		}
+
+		
+		service.AcceptTransitGatewayVpcAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.acceptTransitGatewayVpcAttachment(params,cb);
+		}
+
+		
 		service.AcceptVpcEndpointConnections=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -161,7 +204,10 @@ module.exports = function(RED) {
 			copyArg(msg,"Domain",params,undefined,false); 
 			copyArg(msg,"Address",params,undefined,false); 
 			copyArg(msg,"PublicIpv4Pool",params,undefined,false); 
+			copyArg(msg,"NetworkBorderGroup",params,undefined,false); 
+			copyArg(msg,"CustomerOwnedIpv4Pool",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.allocateAddress(params,cb);
@@ -173,18 +219,37 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			copyArg(n,"AvailabilityZone",params,undefined,false); 
-			copyArg(n,"InstanceType",params,undefined,false); 
 			copyArg(n,"Quantity",params,undefined,false); 
 			
 			copyArg(msg,"AutoPlacement",params,undefined,false); 
 			copyArg(msg,"AvailabilityZone",params,undefined,false); 
 			copyArg(msg,"ClientToken",params,undefined,false); 
 			copyArg(msg,"InstanceType",params,undefined,false); 
+			copyArg(msg,"InstanceFamily",params,undefined,false); 
 			copyArg(msg,"Quantity",params,undefined,false); 
 			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"HostRecovery",params,undefined,false); 
 			
 
 			svc.allocateHosts(params,cb);
+		}
+
+		
+		service.ApplySecurityGroupsToClientVpnTargetNetwork=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"VpcId",params,undefined,false); 
+			copyArg(n,"SecurityGroupIds",params,undefined,true); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"SecurityGroupIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.applySecurityGroupsToClientVpnTargetNetwork(params,cb);
 		}
 
 		
@@ -237,6 +302,23 @@ module.exports = function(RED) {
 		}
 
 		
+		service.AssociateClientVpnTargetNetwork=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"SubnetId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"SubnetId",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.associateClientVpnTargetNetwork(params,cb);
+		}
+
+		
 		service.AssociateDhcpOptions=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -250,6 +332,20 @@ module.exports = function(RED) {
 			
 
 			svc.associateDhcpOptions(params,cb);
+		}
+
+		
+		service.AssociateEnclaveCertificateIamRole=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CertificateArn",params,undefined,false); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.associateEnclaveCertificateIamRole(params,cb);
 		}
 
 		
@@ -273,11 +369,11 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			copyArg(n,"RouteTableId",params,undefined,false); 
-			copyArg(n,"SubnetId",params,undefined,false); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
 			copyArg(msg,"SubnetId",params,undefined,false); 
+			copyArg(msg,"GatewayId",params,undefined,false); 
 			
 
 			svc.associateRouteTable(params,cb);
@@ -299,6 +395,37 @@ module.exports = function(RED) {
 		}
 
 		
+		service.AssociateTransitGatewayMulticastDomain=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"SubnetIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.associateTransitGatewayMulticastDomain(params,cb);
+		}
+
+		
+		service.AssociateTransitGatewayRouteTable=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.associateTransitGatewayRouteTable(params,cb);
+		}
+
+		
 		service.AssociateVpcCidrBlock=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -308,6 +435,9 @@ module.exports = function(RED) {
 			copyArg(msg,"AmazonProvidedIpv6CidrBlock",params,undefined,false); 
 			copyArg(msg,"CidrBlock",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"Ipv6CidrBlockNetworkBorderGroup",params,undefined,false); 
+			copyArg(msg,"Ipv6Pool",params,undefined,false); 
+			copyArg(msg,"Ipv6CidrBlock",params,undefined,false); 
 			
 
 			svc.associateVpcCidrBlock(params,cb);
@@ -360,6 +490,7 @@ module.exports = function(RED) {
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"InstanceId",params,undefined,false); 
 			copyArg(msg,"NetworkInterfaceId",params,undefined,false); 
+			copyArg(msg,"NetworkCardIndex",params,undefined,false); 
 			
 
 			svc.attachNetworkInterface(params,cb);
@@ -397,6 +528,26 @@ module.exports = function(RED) {
 			
 
 			svc.attachVpnGateway(params,cb);
+		}
+
+		
+		service.AuthorizeClientVpnIngress=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"TargetNetworkCidr",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"TargetNetworkCidr",params,undefined,false); 
+			copyArg(msg,"AccessGroupId",params,undefined,false); 
+			copyArg(msg,"AuthorizeAllGroups",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.authorizeClientVpnIngress(params,cb);
 		}
 
 		
@@ -642,6 +793,7 @@ module.exports = function(RED) {
 			copyArg(msg,"PresignedUrl",params,undefined,false); 
 			copyArg(msg,"SourceRegion",params,undefined,false); 
 			copyArg(msg,"SourceSnapshotId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -655,13 +807,13 @@ module.exports = function(RED) {
 			
 			copyArg(n,"InstanceType",params,undefined,false); 
 			copyArg(n,"InstancePlatform",params,undefined,false); 
-			copyArg(n,"AvailabilityZone",params,undefined,false); 
 			copyArg(n,"InstanceCount",params,undefined,false); 
 			
 			copyArg(msg,"ClientToken",params,undefined,false); 
 			copyArg(msg,"InstanceType",params,undefined,false); 
 			copyArg(msg,"InstancePlatform",params,undefined,false); 
 			copyArg(msg,"AvailabilityZone",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneId",params,undefined,false); 
 			copyArg(msg,"Tenancy",params,undefined,false); 
 			copyArg(msg,"InstanceCount",params,undefined,false); 
 			copyArg(msg,"EbsOptimized",params,undefined,false); 
@@ -677,17 +829,86 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateCarrierGateway=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"VpcId",params,undefined,false); 
+			
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createCarrierGateway(params,cb);
+		}
+
+		
+		service.CreateClientVpnEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientCidrBlock",params,undefined,false); 
+			copyArg(n,"ServerCertificateArn",params,undefined,false); 
+			copyArg(n,"AuthenticationOptions",params,undefined,false); 
+			copyArg(n,"ConnectionLogOptions",params,undefined,true); 
+			
+			copyArg(msg,"ClientCidrBlock",params,undefined,false); 
+			copyArg(msg,"ServerCertificateArn",params,undefined,false); 
+			copyArg(msg,"AuthenticationOptions",params,undefined,false); 
+			copyArg(msg,"ConnectionLogOptions",params,undefined,true); 
+			copyArg(msg,"DnsServers",params,undefined,true); 
+			copyArg(msg,"TransportProtocol",params,undefined,false); 
+			copyArg(msg,"VpnPort",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"SplitTunnel",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"SecurityGroupIds",params,undefined,true); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"SelfServicePortal",params,undefined,false); 
+			copyArg(msg,"ClientConnectOptions",params,undefined,true); 
+			
+
+			svc.createClientVpnEndpoint(params,cb);
+		}
+
+		
+		service.CreateClientVpnRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"TargetVpcSubnetId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"TargetVpcSubnetId",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createClientVpnRoute(params,cb);
+		}
+
+		
 		service.CreateCustomerGateway=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			copyArg(n,"BgpAsn",params,undefined,false); 
-			copyArg(n,"PublicIp",params,undefined,false); 
 			copyArg(n,"Type",params,undefined,false); 
 			
 			copyArg(msg,"BgpAsn",params,undefined,false); 
 			copyArg(msg,"PublicIp",params,undefined,false); 
+			copyArg(msg,"CertificateArn",params,undefined,false); 
 			copyArg(msg,"Type",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DeviceName",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -728,6 +949,7 @@ module.exports = function(RED) {
 			copyArg(n,"DhcpConfigurations",params,undefined,false); 
 			
 			copyArg(msg,"DhcpConfigurations",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -744,6 +966,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ClientToken",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createEgressOnlyInternetGateway(params,cb);
@@ -754,7 +977,7 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"LaunchTemplateConfigs",params,undefined,false); 
+			copyArg(n,"LaunchTemplateConfigs",params,undefined,true); 
 			copyArg(n,"TargetCapacitySpecification",params,undefined,true); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
@@ -762,7 +985,7 @@ module.exports = function(RED) {
 			copyArg(msg,"SpotOptions",params,undefined,false); 
 			copyArg(msg,"OnDemandOptions",params,undefined,false); 
 			copyArg(msg,"ExcessCapacityTerminationPolicy",params,undefined,false); 
-			copyArg(msg,"LaunchTemplateConfigs",params,undefined,false); 
+			copyArg(msg,"LaunchTemplateConfigs",params,undefined,true); 
 			copyArg(msg,"TargetCapacitySpecification",params,undefined,true); 
 			copyArg(msg,"TerminateInstancesWithExpiration",params,undefined,false); 
 			copyArg(msg,"Type",params,undefined,false); 
@@ -780,7 +1003,7 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"ResourceIds",params,undefined,true); 
+			copyArg(n,"ResourceIds",params,undefined,false); 
 			copyArg(n,"ResourceType",params,undefined,false); 
 			copyArg(n,"TrafficType",params,undefined,false); 
 			
@@ -788,11 +1011,14 @@ module.exports = function(RED) {
 			copyArg(msg,"ClientToken",params,undefined,false); 
 			copyArg(msg,"DeliverLogsPermissionArn",params,undefined,false); 
 			copyArg(msg,"LogGroupName",params,undefined,false); 
-			copyArg(msg,"ResourceIds",params,undefined,true); 
+			copyArg(msg,"ResourceIds",params,undefined,false); 
 			copyArg(msg,"ResourceType",params,undefined,false); 
 			copyArg(msg,"TrafficType",params,undefined,false); 
 			copyArg(msg,"LogDestinationType",params,undefined,false); 
 			copyArg(msg,"LogDestination",params,undefined,false); 
+			copyArg(msg,"LogFormat",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"MaxAggregationInterval",params,undefined,false); 
 			
 
 			svc.createFlowLogs(params,cb);
@@ -811,6 +1037,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"Name",params,undefined,false); 
 			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createFpgaImage(params,cb);
@@ -830,6 +1057,7 @@ module.exports = function(RED) {
 			copyArg(msg,"InstanceId",params,undefined,false); 
 			copyArg(msg,"Name",params,undefined,false); 
 			copyArg(msg,"NoReboot",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createImage(params,cb);
@@ -840,12 +1068,15 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
+			copyArg(n,"ExportToS3Task",params,undefined,false); 
 			copyArg(n,"InstanceId",params,undefined,false); 
+			copyArg(n,"TargetEnvironment",params,undefined,false); 
 			
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"ExportToS3Task",params,undefined,false); 
 			copyArg(msg,"InstanceId",params,undefined,false); 
 			copyArg(msg,"TargetEnvironment",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createInstanceExportTask(params,cb);
@@ -857,6 +1088,7 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -872,6 +1104,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"KeyName",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createKeyPair(params,cb);
@@ -890,6 +1123,7 @@ module.exports = function(RED) {
 			copyArg(msg,"LaunchTemplateName",params,undefined,false); 
 			copyArg(msg,"VersionDescription",params,undefined,false); 
 			copyArg(msg,"LaunchTemplateData",params,undefined,true); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createLaunchTemplate(params,cb);
@@ -915,6 +1149,62 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateLocalGatewayRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"LocalGatewayVirtualInterfaceGroupId",params,undefined,false); 
+			
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"LocalGatewayVirtualInterfaceGroupId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createLocalGatewayRoute(params,cb);
+		}
+
+		
+		service.CreateLocalGatewayRouteTableVpcAssociation=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"VpcId",params,undefined,false); 
+			
+			copyArg(msg,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createLocalGatewayRouteTableVpcAssociation(params,cb);
+		}
+
+		
+		service.CreateManagedPrefixList=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListName",params,undefined,false); 
+			copyArg(n,"MaxEntries",params,undefined,false); 
+			copyArg(n,"AddressFamily",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListName",params,undefined,false); 
+			copyArg(msg,"Entries",params,undefined,true); 
+			copyArg(msg,"MaxEntries",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"AddressFamily",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createManagedPrefixList(params,cb);
+		}
+
+		
 		service.CreateNatGateway=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -924,7 +1214,9 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"AllocationId",params,undefined,false); 
 			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"SubnetId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createNatGateway(params,cb);
@@ -939,6 +1231,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createNetworkAcl(params,cb);
@@ -971,6 +1264,30 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateNetworkInsightsPath=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Source",params,undefined,false); 
+			copyArg(n,"Destination",params,undefined,false); 
+			copyArg(n,"Protocol",params,undefined,false); 
+			copyArg(n,"ClientToken",params,undefined,false); 
+			
+			copyArg(msg,"SourceIp",params,undefined,false); 
+			copyArg(msg,"DestinationIp",params,undefined,false); 
+			copyArg(msg,"Source",params,undefined,false); 
+			copyArg(msg,"Destination",params,undefined,false); 
+			copyArg(msg,"Protocol",params,undefined,false); 
+			copyArg(msg,"DestinationPort",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createNetworkInsightsPath(params,cb);
+		}
+
+		
 		service.CreateNetworkInterface=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -985,7 +1302,9 @@ module.exports = function(RED) {
 			copyArg(msg,"PrivateIpAddress",params,undefined,false); 
 			copyArg(msg,"PrivateIpAddresses",params,undefined,true); 
 			copyArg(msg,"SecondaryPrivateIpAddressCount",params,undefined,false); 
+			copyArg(msg,"InterfaceType",params,undefined,false); 
 			copyArg(msg,"SubnetId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createNetworkInterface(params,cb);
@@ -1014,12 +1333,12 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"GroupName",params,undefined,false); 
-			copyArg(n,"Strategy",params,undefined,false); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"GroupName",params,undefined,false); 
 			copyArg(msg,"Strategy",params,undefined,false); 
+			copyArg(msg,"PartitionCount",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createPlacementGroup(params,cb);
@@ -1053,11 +1372,16 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
 			copyArg(msg,"DestinationIpv6CidrBlock",params,undefined,false); 
+			copyArg(msg,"DestinationPrefixListId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"VpcEndpointId",params,undefined,false); 
 			copyArg(msg,"EgressOnlyInternetGatewayId",params,undefined,false); 
 			copyArg(msg,"GatewayId",params,undefined,false); 
 			copyArg(msg,"InstanceId",params,undefined,false); 
 			copyArg(msg,"NatGatewayId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"LocalGatewayId",params,undefined,false); 
+			copyArg(msg,"CarrierGatewayId",params,undefined,false); 
 			copyArg(msg,"NetworkInterfaceId",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
 			copyArg(msg,"VpcPeeringConnectionId",params,undefined,false); 
@@ -1075,6 +1399,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createRouteTable(params,cb);
@@ -1091,6 +1416,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"GroupName",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -1111,6 +1437,23 @@ module.exports = function(RED) {
 			
 
 			svc.createSnapshot(params,cb);
+		}
+
+		
+		service.CreateSnapshots=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceSpecification",params,undefined,false); 
+			
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"InstanceSpecification",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"CopyTagsFromSource",params,undefined,false); 
+			
+
+			svc.createSnapshots(params,cb);
 		}
 
 		
@@ -1136,9 +1479,12 @@ module.exports = function(RED) {
 			copyArg(n,"CidrBlock",params,undefined,false); 
 			copyArg(n,"VpcId",params,undefined,false); 
 			
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"AvailabilityZone",params,undefined,false); 
+			copyArg(msg,"AvailabilityZoneId",params,undefined,false); 
 			copyArg(msg,"CidrBlock",params,undefined,false); 
 			copyArg(msg,"Ipv6CidrBlock",params,undefined,false); 
+			copyArg(msg,"OutpostArn",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
@@ -1163,6 +1509,253 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateTrafficMirrorFilter=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createTrafficMirrorFilter(params,cb);
+		}
+
+		
+		service.CreateTrafficMirrorFilterRule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(n,"TrafficDirection",params,undefined,false); 
+			copyArg(n,"RuleNumber",params,undefined,false); 
+			copyArg(n,"RuleAction",params,undefined,false); 
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"SourceCidrBlock",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(msg,"TrafficDirection",params,undefined,false); 
+			copyArg(msg,"RuleNumber",params,undefined,false); 
+			copyArg(msg,"RuleAction",params,undefined,false); 
+			copyArg(msg,"DestinationPortRange",params,undefined,true); 
+			copyArg(msg,"SourcePortRange",params,undefined,true); 
+			copyArg(msg,"Protocol",params,undefined,false); 
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"SourceCidrBlock",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createTrafficMirrorFilterRule(params,cb);
+		}
+
+		
+		service.CreateTrafficMirrorSession=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"NetworkInterfaceId",params,undefined,false); 
+			copyArg(n,"TrafficMirrorTargetId",params,undefined,false); 
+			copyArg(n,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(n,"SessionNumber",params,undefined,false); 
+			
+			copyArg(msg,"NetworkInterfaceId",params,undefined,false); 
+			copyArg(msg,"TrafficMirrorTargetId",params,undefined,false); 
+			copyArg(msg,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(msg,"PacketLength",params,undefined,false); 
+			copyArg(msg,"SessionNumber",params,undefined,false); 
+			copyArg(msg,"VirtualNetworkId",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createTrafficMirrorSession(params,cb);
+		}
+
+		
+		service.CreateTrafficMirrorTarget=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"NetworkInterfaceId",params,undefined,false); 
+			copyArg(msg,"NetworkLoadBalancerArn",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.createTrafficMirrorTarget(params,cb);
+		}
+
+		
+		service.CreateTransitGateway=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGateway(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayConnect=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransportTransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(n,"Options",params,undefined,false); 
+			
+			copyArg(msg,"TransportTransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayConnect(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayConnectPeer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(n,"PeerAddress",params,undefined,false); 
+			copyArg(n,"InsideCidrBlocks",params,undefined,true); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAddress",params,undefined,false); 
+			copyArg(msg,"PeerAddress",params,undefined,false); 
+			copyArg(msg,"BgpOptions",params,undefined,false); 
+			copyArg(msg,"InsideCidrBlocks",params,undefined,true); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayConnectPeer(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayMulticastDomain=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayMulticastDomain(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayPeeringAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			copyArg(n,"PeerTransitGatewayId",params,undefined,false); 
+			copyArg(n,"PeerAccountId",params,undefined,false); 
+			copyArg(n,"PeerRegion",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"PeerTransitGatewayId",params,undefined,false); 
+			copyArg(msg,"PeerAccountId",params,undefined,false); 
+			copyArg(msg,"PeerRegion",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayPeeringAttachment(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayPrefixListReference=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Blackhole",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayPrefixListReference(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Blackhole",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayRoute(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayRouteTable=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayRouteTable(params,cb);
+		}
+
+		
+		service.CreateTransitGatewayVpcAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			copyArg(n,"VpcId",params,undefined,false); 
+			copyArg(n,"SubnetIds",params,undefined,true); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"SubnetIds",params,undefined,true); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.createTransitGatewayVpcAttachment(params,cb);
+		}
+
+		
 		service.CreateVolume=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1173,11 +1766,14 @@ module.exports = function(RED) {
 			copyArg(msg,"Encrypted",params,undefined,false); 
 			copyArg(msg,"Iops",params,undefined,false); 
 			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"OutpostArn",params,undefined,false); 
 			copyArg(msg,"Size",params,undefined,false); 
 			copyArg(msg,"SnapshotId",params,undefined,false); 
 			copyArg(msg,"VolumeType",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"MultiAttachEnabled",params,undefined,false); 
+			copyArg(msg,"Throughput",params,undefined,false); 
 			
 
 			svc.createVolume(params,cb);
@@ -1192,8 +1788,12 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"CidrBlock",params,undefined,false); 
 			copyArg(msg,"AmazonProvidedIpv6CidrBlock",params,undefined,false); 
+			copyArg(msg,"Ipv6Pool",params,undefined,false); 
+			copyArg(msg,"Ipv6CidrBlock",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"InstanceTenancy",params,undefined,false); 
+			copyArg(msg,"Ipv6CidrBlockNetworkBorderGroup",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createVpc(params,cb);
@@ -1217,6 +1817,7 @@ module.exports = function(RED) {
 			copyArg(msg,"SecurityGroupIds",params,undefined,true); 
 			copyArg(msg,"ClientToken",params,undefined,false); 
 			copyArg(msg,"PrivateDnsEnabled",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createVpcEndpoint(params,cb);
@@ -1246,12 +1847,14 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"NetworkLoadBalancerArns",params,undefined,true); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"AcceptanceRequired",params,undefined,false); 
+			copyArg(msg,"PrivateDnsName",params,undefined,false); 
 			copyArg(msg,"NetworkLoadBalancerArns",params,undefined,true); 
+			copyArg(msg,"GatewayLoadBalancerArns",params,undefined,true); 
 			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createVpcEndpointServiceConfiguration(params,cb);
@@ -1268,6 +1871,7 @@ module.exports = function(RED) {
 			copyArg(msg,"PeerVpcId",params,undefined,false); 
 			copyArg(msg,"VpcId",params,undefined,false); 
 			copyArg(msg,"PeerRegion",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createVpcPeeringConnection(params,cb);
@@ -1280,13 +1884,14 @@ module.exports = function(RED) {
 			
 			copyArg(n,"CustomerGatewayId",params,undefined,false); 
 			copyArg(n,"Type",params,undefined,false); 
-			copyArg(n,"VpnGatewayId",params,undefined,false); 
 			
 			copyArg(msg,"CustomerGatewayId",params,undefined,false); 
 			copyArg(msg,"Type",params,undefined,false); 
 			copyArg(msg,"VpnGatewayId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.createVpnConnection(params,cb);
@@ -1316,11 +1921,57 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"AvailabilityZone",params,undefined,false); 
 			copyArg(msg,"Type",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"AmazonSideAsn",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
 			svc.createVpnGateway(params,cb);
+		}
+
+		
+		service.DeleteCarrierGateway=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CarrierGatewayId",params,undefined,false); 
+			
+			copyArg(msg,"CarrierGatewayId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteCarrierGateway(params,cb);
+		}
+
+		
+		service.DeleteClientVpnEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteClientVpnEndpoint(params,cb);
+		}
+
+		
+		service.DeleteClientVpnRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"TargetVpcSubnetId",params,undefined,false); 
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteClientVpnRoute(params,cb);
 		}
 
 		
@@ -1428,9 +2079,9 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"KeyName",params,undefined,false); 
 			
 			copyArg(msg,"KeyName",params,undefined,false); 
+			copyArg(msg,"KeyPairId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -1468,12 +2119,57 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteLocalGatewayRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"LocalGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteLocalGatewayRoute(params,cb);
+		}
+
+		
+		service.DeleteLocalGatewayRouteTableVpcAssociation=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LocalGatewayRouteTableVpcAssociationId",params,undefined,false); 
+			
+			copyArg(msg,"LocalGatewayRouteTableVpcAssociationId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteLocalGatewayRouteTableVpcAssociation(params,cb);
+		}
+
+		
+		service.DeleteManagedPrefixList=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			
+
+			svc.deleteManagedPrefixList(params,cb);
+		}
+
+		
 		service.DeleteNatGateway=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			copyArg(n,"NatGatewayId",params,undefined,false); 
 			
+			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"NatGatewayId",params,undefined,false); 
 			
 
@@ -1510,6 +2206,34 @@ module.exports = function(RED) {
 			
 
 			svc.deleteNetworkAclEntry(params,cb);
+		}
+
+		
+		service.DeleteNetworkInsightsAnalysis=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"NetworkInsightsAnalysisId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NetworkInsightsAnalysisId",params,undefined,false); 
+			
+
+			svc.deleteNetworkInsightsAnalysis(params,cb);
+		}
+
+		
+		service.DeleteNetworkInsightsPath=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"NetworkInsightsPathId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NetworkInsightsPathId",params,undefined,false); 
+			
+
+			svc.deleteNetworkInsightsPath(params,cb);
 		}
 
 		
@@ -1556,6 +2280,20 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteQueuedReservedInstances=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ReservedInstancesIds",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ReservedInstancesIds",params,undefined,false); 
+			
+
+			svc.deleteQueuedReservedInstances(params,cb);
+		}
+
+		
 		service.DeleteRoute=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1564,6 +2302,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
 			copyArg(msg,"DestinationIpv6CidrBlock",params,undefined,false); 
+			copyArg(msg,"DestinationPrefixListId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
 			
@@ -1655,6 +2394,192 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteTrafficMirrorFilter=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorFilterId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTrafficMirrorFilter(params,cb);
+		}
+
+		
+		service.DeleteTrafficMirrorFilterRule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorFilterRuleId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorFilterRuleId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTrafficMirrorFilterRule(params,cb);
+		}
+
+		
+		service.DeleteTrafficMirrorSession=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorSessionId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorSessionId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTrafficMirrorSession(params,cb);
+		}
+
+		
+		service.DeleteTrafficMirrorTarget=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorTargetId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorTargetId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTrafficMirrorTarget(params,cb);
+		}
+
+		
+		service.DeleteTransitGateway=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGateway(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayConnect=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayConnect(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayConnectPeer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayConnectPeerId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayConnectPeerId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayConnectPeer(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayMulticastDomain=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayMulticastDomain(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayPeeringAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayPeeringAttachment(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayPrefixListReference=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayPrefixListReference(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayRoute(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayRouteTable=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayRouteTable(params,cb);
+		}
+
+		
+		service.DeleteTransitGatewayVpcAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deleteTransitGatewayVpcAttachment(params,cb);
+		}
+
+		
 		service.DeleteVolume=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1687,10 +2612,10 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"ConnectionNotificationIds",params,undefined,true); 
+			copyArg(n,"ConnectionNotificationIds",params,undefined,false); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"ConnectionNotificationIds",params,undefined,true); 
+			copyArg(msg,"ConnectionNotificationIds",params,undefined,false); 
 			
 
 			svc.deleteVpcEndpointConnectionNotifications(params,cb);
@@ -1810,6 +2735,49 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeregisterInstanceEventNotificationAttributes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceTagAttribute",params,undefined,false); 
+			
+
+			svc.deregisterInstanceEventNotificationAttributes(params,cb);
+		}
+
+		
+		service.DeregisterTransitGatewayMulticastGroupMembers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"GroupIpAddress",params,undefined,false); 
+			copyArg(msg,"NetworkInterfaceIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deregisterTransitGatewayMulticastGroupMembers(params,cb);
+		}
+
+		
+		service.DeregisterTransitGatewayMulticastGroupSources=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"GroupIpAddress",params,undefined,false); 
+			copyArg(msg,"NetworkInterfaceIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.deregisterTransitGatewayMulticastGroupSources(params,cb);
+		}
+
+		
 		service.DescribeAccountAttributes=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1857,6 +2825,8 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"ZoneNames",params,undefined,false); 
+			copyArg(msg,"ZoneIds",params,undefined,false); 
+			copyArg(msg,"AllAvailabilityZones",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -1909,6 +2879,22 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeCarrierGateways=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CarrierGatewayIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeCarrierGateways(params,cb);
+		}
+
+		
 		service.DescribeClassicLinkInstances=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1922,6 +2908,107 @@ module.exports = function(RED) {
 			
 
 			svc.describeClassicLinkInstances(params,cb);
+		}
+
+		
+		service.DescribeClientVpnAuthorizationRules=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.describeClientVpnAuthorizationRules(params,cb);
+		}
+
+		
+		service.DescribeClientVpnConnections=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeClientVpnConnections(params,cb);
+		}
+
+		
+		service.DescribeClientVpnEndpoints=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ClientVpnEndpointIds",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeClientVpnEndpoints(params,cb);
+		}
+
+		
+		service.DescribeClientVpnRoutes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeClientVpnRoutes(params,cb);
+		}
+
+		
+		service.DescribeClientVpnTargetNetworks=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"AssociationIds",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeClientVpnTargetNetworks(params,cb);
+		}
+
+		
+		service.DescribeCoipPools=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"PoolIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeCoipPools(params,cb);
 		}
 
 		
@@ -1960,6 +3047,8 @@ module.exports = function(RED) {
 			copyArg(msg,"DhcpOptionsIds",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeDhcpOptions(params,cb);
@@ -1975,6 +3064,7 @@ module.exports = function(RED) {
 			copyArg(msg,"EgressOnlyInternetGatewayIds",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
 			
 
 			svc.describeEgressOnlyInternetGateways(params,cb);
@@ -1997,15 +3087,47 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeExportImageTasks=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"ExportImageTaskIds",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeExportImageTasks(params,cb);
+		}
+
+		
 		service.DescribeExportTasks=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			
 			copyArg(msg,"ExportTaskIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
 			
 
 			svc.describeExportTasks(params,cb);
+		}
+
+		
+		service.DescribeFastSnapshotRestores=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeFastSnapshotRestores(params,cb);
 		}
 
 		
@@ -2237,7 +3359,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
-			copyArg(msg,"ImportTaskIds",params,undefined,true); 
+			copyArg(msg,"ImportTaskIds",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
 			
@@ -2253,7 +3375,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
-			copyArg(msg,"ImportTaskIds",params,undefined,true); 
+			copyArg(msg,"ImportTaskIds",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
 			
@@ -2294,6 +3416,18 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeInstanceEventNotificationAttributes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeInstanceEventNotificationAttributes(params,cb);
+		}
+
+		
 		service.DescribeInstanceStatus=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -2308,6 +3442,38 @@ module.exports = function(RED) {
 			
 
 			svc.describeInstanceStatus(params,cb);
+		}
+
+		
+		service.DescribeInstanceTypeOfferings=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"LocationType",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeInstanceTypeOfferings(params,cb);
+		}
+
+		
+		service.DescribeInstanceTypes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceTypes",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeInstanceTypes(params,cb);
 		}
 
 		
@@ -2334,10 +3500,28 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"InternetGatewayIds",params,undefined,true); 
+			copyArg(msg,"InternetGatewayIds",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeInternetGateways(params,cb);
+		}
+
+		
+		service.DescribeIpv6Pools=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"PoolIds",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			
+
+			svc.describeIpv6Pools(params,cb);
 		}
 
 		
@@ -2348,6 +3532,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"KeyNames",params,undefined,false); 
+			copyArg(msg,"KeyPairIds",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -2381,7 +3566,7 @@ module.exports = function(RED) {
 			
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"LaunchTemplateIds",params,undefined,true); 
+			copyArg(msg,"LaunchTemplateIds",params,undefined,false); 
 			copyArg(msg,"LaunchTemplateNames",params,undefined,false); 
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"NextToken",params,undefined,false); 
@@ -2389,6 +3574,118 @@ module.exports = function(RED) {
 			
 
 			svc.describeLaunchTemplates(params,cb);
+		}
+
+		
+		service.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(params,cb);
+		}
+
+		
+		service.DescribeLocalGatewayRouteTableVpcAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayRouteTableVpcAssociationIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGatewayRouteTableVpcAssociations(params,cb);
+		}
+
+		
+		service.DescribeLocalGatewayRouteTables=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayRouteTableIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGatewayRouteTables(params,cb);
+		}
+
+		
+		service.DescribeLocalGatewayVirtualInterfaceGroups=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayVirtualInterfaceGroupIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGatewayVirtualInterfaceGroups(params,cb);
+		}
+
+		
+		service.DescribeLocalGatewayVirtualInterfaces=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayVirtualInterfaceIds",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGatewayVirtualInterfaces(params,cb);
+		}
+
+		
+		service.DescribeLocalGateways=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"LocalGatewayIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeLocalGateways(params,cb);
+		}
+
+		
+		service.DescribeManagedPrefixLists=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"PrefixListIds",params,undefined,true); 
+			
+
+			svc.describeManagedPrefixLists(params,cb);
 		}
 
 		
@@ -2413,9 +3710,10 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			
+			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"Filter",params,undefined,true); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
-			copyArg(msg,"NatGatewayIds",params,undefined,true); 
+			copyArg(msg,"NatGatewayIds",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
 			
 
@@ -2430,10 +3728,47 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"NetworkAclIds",params,undefined,true); 
+			copyArg(msg,"NetworkAclIds",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeNetworkAcls(params,cb);
+		}
+
+		
+		service.DescribeNetworkInsightsAnalyses=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"NetworkInsightsAnalysisIds",params,undefined,false); 
+			copyArg(msg,"NetworkInsightsPathId",params,undefined,false); 
+			copyArg(msg,"AnalysisStartTime",params,undefined,false); 
+			copyArg(msg,"AnalysisEndTime",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeNetworkInsightsAnalyses(params,cb);
+		}
+
+		
+		service.DescribeNetworkInsightsPaths=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"NetworkInsightsPathIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeNetworkInsightsPaths(params,cb);
 		}
 
 		
@@ -2491,6 +3826,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"GroupNames",params,undefined,false); 
+			copyArg(msg,"GroupIds",params,undefined,false); 
 			
 
 			svc.describePlacementGroups(params,cb);
@@ -2506,7 +3842,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
-			copyArg(msg,"PrefixListIds",params,undefined,true); 
+			copyArg(msg,"PrefixListIds",params,undefined,false); 
 			
 
 			svc.describePrefixLists(params,cb);
@@ -2533,9 +3869,10 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			
-			copyArg(msg,"PoolIds",params,undefined,true); 
+			copyArg(msg,"PoolIds",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
 			
 
 			svc.describePublicIpv4Pools(params,cb);
@@ -2550,6 +3887,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"RegionNames",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"AllRegions",params,undefined,false); 
 			
 
 			svc.describeRegions(params,cb);
@@ -2633,7 +3971,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"RouteTableIds",params,undefined,true); 
+			copyArg(msg,"RouteTableIds",params,undefined,false); 
 			copyArg(msg,"NextToken",params,undefined,false); 
 			copyArg(msg,"MaxResults",params,undefined,false); 
 			
@@ -2737,7 +4075,7 @@ module.exports = function(RED) {
 			copyArg(msg,"NextToken",params,undefined,false); 
 			copyArg(msg,"OwnerIds",params,undefined,true); 
 			copyArg(msg,"RestorableByUserIds",params,undefined,false); 
-			copyArg(msg,"SnapshotIds",params,undefined,false); 
+			copyArg(msg,"SnapshotIds",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -2815,6 +4153,8 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"SpotInstanceRequestIds",params,undefined,true); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeSpotInstanceRequests(params,cb);
@@ -2865,6 +4205,8 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"SubnetIds",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeSubnets(params,cb);
@@ -2883,6 +4225,182 @@ module.exports = function(RED) {
 			
 
 			svc.describeTags(params,cb);
+		}
+
+		
+		service.DescribeTrafficMirrorFilters=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TrafficMirrorFilterIds",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeTrafficMirrorFilters(params,cb);
+		}
+
+		
+		service.DescribeTrafficMirrorSessions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TrafficMirrorSessionIds",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeTrafficMirrorSessions(params,cb);
+		}
+
+		
+		service.DescribeTrafficMirrorTargets=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TrafficMirrorTargetIds",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.describeTrafficMirrorTargets(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayAttachments=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayAttachmentIds",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayAttachments(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayConnectPeers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayConnectPeerIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayConnectPeers(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayConnects=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayAttachmentIds",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayConnects(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayMulticastDomains=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayMulticastDomains(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayPeeringAttachments=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayAttachmentIds",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayPeeringAttachments(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayRouteTables=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayRouteTableIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayRouteTables(params,cb);
+		}
+
+		
+		service.DescribeTransitGatewayVpcAttachments=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayAttachmentIds",params,undefined,true); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGatewayVpcAttachments(params,cb);
+		}
+
+		
+		service.DescribeTransitGateways=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayIds",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.describeTransitGateways(params,cb);
 		}
 
 		
@@ -3097,7 +4615,9 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"DryRun",params,undefined,false); 
-			copyArg(msg,"VpcPeeringConnectionIds",params,undefined,true); 
+			copyArg(msg,"VpcPeeringConnectionIds",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeVpcPeeringConnections(params,cb);
@@ -3112,6 +4632,8 @@ module.exports = function(RED) {
 			copyArg(msg,"Filters",params,undefined,true); 
 			copyArg(msg,"VpcIds",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
 			
 
 			svc.describeVpcs(params,cb);
@@ -3226,6 +4748,50 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DisableEbsEncryptionByDefault=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disableEbsEncryptionByDefault(params,cb);
+		}
+
+		
+		service.DisableFastSnapshotRestores=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AvailabilityZones",params,undefined,true); 
+			copyArg(n,"SourceSnapshotIds",params,undefined,true); 
+			
+			copyArg(msg,"AvailabilityZones",params,undefined,true); 
+			copyArg(msg,"SourceSnapshotIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disableFastSnapshotRestores(params,cb);
+		}
+
+		
+		service.DisableTransitGatewayRouteTablePropagation=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disableTransitGatewayRouteTablePropagation(params,cb);
+		}
+
+		
 		service.DisableVgwRoutePropagation=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3235,6 +4801,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"GatewayId",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
 			svc.disableVgwRoutePropagation(params,cb);
@@ -3281,6 +4848,36 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DisassociateClientVpnTargetNetwork=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"AssociationId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"AssociationId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disassociateClientVpnTargetNetwork(params,cb);
+		}
+
+		
+		service.DisassociateEnclaveCertificateIamRole=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CertificateArn",params,undefined,false); 
+			copyArg(msg,"RoleArn",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disassociateEnclaveCertificateIamRole(params,cb);
+		}
+
+		
 		service.DisassociateIamInstanceProfile=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3321,6 +4918,37 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DisassociateTransitGatewayMulticastDomain=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"SubnetIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disassociateTransitGatewayMulticastDomain(params,cb);
+		}
+
+		
+		service.DisassociateTransitGatewayRouteTable=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.disassociateTransitGatewayRouteTable(params,cb);
+		}
+
+		
 		service.DisassociateVpcCidrBlock=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3334,6 +4962,50 @@ module.exports = function(RED) {
 		}
 
 		
+		service.EnableEbsEncryptionByDefault=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.enableEbsEncryptionByDefault(params,cb);
+		}
+
+		
+		service.EnableFastSnapshotRestores=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AvailabilityZones",params,undefined,true); 
+			copyArg(n,"SourceSnapshotIds",params,undefined,true); 
+			
+			copyArg(msg,"AvailabilityZones",params,undefined,true); 
+			copyArg(msg,"SourceSnapshotIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.enableFastSnapshotRestores(params,cb);
+		}
+
+		
+		service.EnableTransitGatewayRouteTablePropagation=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.enableTransitGatewayRouteTablePropagation(params,cb);
+		}
+
+		
 		service.EnableVgwRoutePropagation=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3343,6 +5015,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"GatewayId",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
 			svc.enableVgwRoutePropagation(params,cb);
@@ -3389,6 +5062,135 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ExportClientVpnClientCertificateRevocationList=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.exportClientVpnClientCertificateRevocationList(params,cb);
+		}
+
+		
+		service.ExportClientVpnClientConfiguration=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.exportClientVpnClientConfiguration(params,cb);
+		}
+
+		
+		service.ExportImage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DiskImageFormat",params,undefined,false); 
+			copyArg(n,"ImageId",params,undefined,false); 
+			copyArg(n,"S3ExportLocation",params,undefined,false); 
+			
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"DiskImageFormat",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ImageId",params,undefined,false); 
+			copyArg(msg,"S3ExportLocation",params,undefined,false); 
+			copyArg(msg,"RoleName",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			
+
+			svc.exportImage(params,cb);
+		}
+
+		
+		service.ExportTransitGatewayRoutes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"S3Bucket",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"S3Bucket",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.exportTransitGatewayRoutes(params,cb);
+		}
+
+		
+		service.GetAssociatedEnclaveCertificateIamRoles=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CertificateArn",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getAssociatedEnclaveCertificateIamRoles(params,cb);
+		}
+
+		
+		service.GetAssociatedIpv6PoolCidrs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PoolId",params,undefined,false); 
+			
+			copyArg(msg,"PoolId",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getAssociatedIpv6PoolCidrs(params,cb);
+		}
+
+		
+		service.GetCapacityReservationUsage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CapacityReservationId",params,undefined,false); 
+			
+			copyArg(msg,"CapacityReservationId",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getCapacityReservationUsage(params,cb);
+		}
+
+		
+		service.GetCoipPoolUsage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PoolId",params,undefined,false); 
+			
+			copyArg(msg,"PoolId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getCoipPoolUsage(params,cb);
+		}
+
+		
 		service.GetConsoleOutput=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3416,6 +5218,60 @@ module.exports = function(RED) {
 			
 
 			svc.getConsoleScreenshot(params,cb);
+		}
+
+		
+		service.GetDefaultCreditSpecification=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceFamily",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceFamily",params,undefined,false); 
+			
+
+			svc.getDefaultCreditSpecification(params,cb);
+		}
+
+		
+		service.GetEbsDefaultKmsKeyId=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getEbsDefaultKmsKeyId(params,cb);
+		}
+
+		
+		service.GetEbsEncryptionByDefault=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getEbsEncryptionByDefault(params,cb);
+		}
+
+		
+		service.GetGroupsForCapacityReservation=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CapacityReservationId",params,undefined,false); 
+			
+			copyArg(msg,"CapacityReservationId",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getGroupsForCapacityReservation(params,cb);
 		}
 
 		
@@ -3448,6 +5304,39 @@ module.exports = function(RED) {
 		}
 
 		
+		service.GetManagedPrefixListAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.getManagedPrefixListAssociations(params,cb);
+		}
+
+		
+		service.GetManagedPrefixListEntries=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"TargetVersion",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			
+
+			svc.getManagedPrefixListEntries(params,cb);
+		}
+
+		
 		service.GetPasswordData=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3477,6 +5366,106 @@ module.exports = function(RED) {
 		}
 
 		
+		service.GetTransitGatewayAttachmentPropagations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getTransitGatewayAttachmentPropagations(params,cb);
+		}
+
+		
+		service.GetTransitGatewayMulticastDomainAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getTransitGatewayMulticastDomainAssociations(params,cb);
+		}
+
+		
+		service.GetTransitGatewayPrefixListReferences=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getTransitGatewayPrefixListReferences(params,cb);
+		}
+
+		
+		service.GetTransitGatewayRouteTableAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getTransitGatewayRouteTableAssociations(params,cb);
+		}
+
+		
+		service.GetTransitGatewayRouteTablePropagations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.getTransitGatewayRouteTablePropagations(params,cb);
+		}
+
+		
+		service.ImportClientVpnClientCertificateRevocationList=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"CertificateRevocationList",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"CertificateRevocationList",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.importClientVpnClientCertificateRevocationList(params,cb);
+		}
+
+		
 		service.ImportImage=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3488,10 +5477,14 @@ module.exports = function(RED) {
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"DiskContainers",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Encrypted",params,undefined,false); 
 			copyArg(msg,"Hypervisor",params,undefined,false); 
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
 			copyArg(msg,"LicenseType",params,undefined,false); 
 			copyArg(msg,"Platform",params,undefined,false); 
 			copyArg(msg,"RoleName",params,undefined,false); 
+			copyArg(msg,"LicenseSpecifications",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.importImage(params,cb);
@@ -3525,6 +5518,7 @@ module.exports = function(RED) {
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"KeyName",params,undefined,false); 
 			copyArg(msg,"PublicKeyMaterial",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.importKeyPair(params,cb);
@@ -3541,7 +5535,10 @@ module.exports = function(RED) {
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"DiskContainer",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"Encrypted",params,undefined,false); 
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
 			copyArg(msg,"RoleName",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.importSnapshot(params,cb);
@@ -3567,6 +5564,22 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyAvailabilityZoneGroup=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"GroupName",params,undefined,false); 
+			copyArg(n,"OptInStatus",params,undefined,false); 
+			
+			copyArg(msg,"GroupName",params,undefined,false); 
+			copyArg(msg,"OptInStatus",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyAvailabilityZoneGroup(params,cb);
+		}
+
+		
 		service.ModifyCapacityReservation=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3584,15 +5597,69 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyClientVpnEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"ServerCertificateArn",params,undefined,false); 
+			copyArg(msg,"ConnectionLogOptions",params,undefined,true); 
+			copyArg(msg,"DnsServers",params,undefined,false); 
+			copyArg(msg,"VpnPort",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"SplitTunnel",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"SecurityGroupIds",params,undefined,true); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"SelfServicePortal",params,undefined,false); 
+			copyArg(msg,"ClientConnectOptions",params,undefined,true); 
+			
+
+			svc.modifyClientVpnEndpoint(params,cb);
+		}
+
+		
+		service.ModifyDefaultCreditSpecification=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceFamily",params,undefined,false); 
+			copyArg(n,"CpuCredits",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceFamily",params,undefined,false); 
+			copyArg(msg,"CpuCredits",params,undefined,false); 
+			
+
+			svc.modifyDefaultCreditSpecification(params,cb);
+		}
+
+		
+		service.ModifyEbsDefaultKmsKeyId=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"KmsKeyId",params,undefined,false); 
+			
+			copyArg(msg,"KmsKeyId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyEbsDefaultKmsKeyId(params,cb);
+		}
+
+		
 		service.ModifyFleet=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
 			copyArg(n,"FleetId",params,undefined,false); 
-			copyArg(n,"TargetCapacitySpecification",params,undefined,true); 
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"ExcessCapacityTerminationPolicy",params,undefined,false); 
+			copyArg(msg,"LaunchTemplateConfigs",params,undefined,true); 
 			copyArg(msg,"FleetId",params,undefined,false); 
 			copyArg(msg,"TargetCapacitySpecification",params,undefined,true); 
 			
@@ -3627,11 +5694,13 @@ module.exports = function(RED) {
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"AutoPlacement",params,undefined,false); 
 			copyArg(n,"HostIds",params,undefined,true); 
 			
 			copyArg(msg,"AutoPlacement",params,undefined,false); 
 			copyArg(msg,"HostIds",params,undefined,true); 
+			copyArg(msg,"HostRecovery",params,undefined,false); 
+			copyArg(msg,"InstanceType",params,undefined,false); 
+			copyArg(msg,"InstanceFamily",params,undefined,false); 
 			
 
 			svc.modifyHosts(params,cb);
@@ -3751,6 +5820,41 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyInstanceEventStartTime=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceId",params,undefined,false); 
+			copyArg(n,"InstanceEventId",params,undefined,false); 
+			copyArg(n,"NotBefore",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceId",params,undefined,false); 
+			copyArg(msg,"InstanceEventId",params,undefined,false); 
+			copyArg(msg,"NotBefore",params,undefined,false); 
+			
+
+			svc.modifyInstanceEventStartTime(params,cb);
+		}
+
+		
+		service.ModifyInstanceMetadataOptions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceId",params,undefined,false); 
+			
+			copyArg(msg,"InstanceId",params,undefined,false); 
+			copyArg(msg,"HttpTokens",params,undefined,false); 
+			copyArg(msg,"HttpPutResponseHopLimit",params,undefined,false); 
+			copyArg(msg,"HttpEndpoint",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyInstanceMetadataOptions(params,cb);
+		}
+
+		
 		service.ModifyInstancePlacement=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -3762,6 +5866,8 @@ module.exports = function(RED) {
 			copyArg(msg,"HostId",params,undefined,false); 
 			copyArg(msg,"InstanceId",params,undefined,false); 
 			copyArg(msg,"Tenancy",params,undefined,false); 
+			copyArg(msg,"PartitionNumber",params,undefined,false); 
+			copyArg(msg,"HostResourceGroupArn",params,undefined,false); 
 			
 
 			svc.modifyInstancePlacement(params,cb);
@@ -3781,6 +5887,24 @@ module.exports = function(RED) {
 			
 
 			svc.modifyLaunchTemplate(params,cb);
+		}
+
+		
+		service.ModifyManagedPrefixList=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"CurrentVersion",params,undefined,false); 
+			copyArg(msg,"PrefixListName",params,undefined,false); 
+			copyArg(msg,"AddEntries",params,undefined,true); 
+			copyArg(msg,"RemoveEntries",params,undefined,false); 
+			
+
+			svc.modifyManagedPrefixList(params,cb);
 		}
 
 		
@@ -3844,8 +5968,10 @@ module.exports = function(RED) {
 			copyArg(n,"SpotFleetRequestId",params,undefined,false); 
 			
 			copyArg(msg,"ExcessCapacityTerminationPolicy",params,undefined,false); 
+			copyArg(msg,"LaunchTemplateConfigs",params,undefined,true); 
 			copyArg(msg,"SpotFleetRequestId",params,undefined,false); 
 			copyArg(msg,"TargetCapacity",params,undefined,false); 
+			copyArg(msg,"OnDemandTargetCapacity",params,undefined,false); 
 			
 
 			svc.modifySpotFleetRequest(params,cb);
@@ -3861,9 +5987,123 @@ module.exports = function(RED) {
 			copyArg(msg,"AssignIpv6AddressOnCreation",params,undefined,true); 
 			copyArg(msg,"MapPublicIpOnLaunch",params,undefined,true); 
 			copyArg(msg,"SubnetId",params,undefined,false); 
+			copyArg(msg,"MapCustomerOwnedIpOnLaunch",params,undefined,true); 
+			copyArg(msg,"CustomerOwnedIpv4Pool",params,undefined,false); 
 			
 
 			svc.modifySubnetAttribute(params,cb);
+		}
+
+		
+		service.ModifyTrafficMirrorFilterNetworkServices=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorFilterId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(msg,"AddNetworkServices",params,undefined,true); 
+			copyArg(msg,"RemoveNetworkServices",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTrafficMirrorFilterNetworkServices(params,cb);
+		}
+
+		
+		service.ModifyTrafficMirrorFilterRule=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorFilterRuleId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorFilterRuleId",params,undefined,false); 
+			copyArg(msg,"TrafficDirection",params,undefined,false); 
+			copyArg(msg,"RuleNumber",params,undefined,false); 
+			copyArg(msg,"RuleAction",params,undefined,false); 
+			copyArg(msg,"DestinationPortRange",params,undefined,true); 
+			copyArg(msg,"SourcePortRange",params,undefined,true); 
+			copyArg(msg,"Protocol",params,undefined,false); 
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"SourceCidrBlock",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"RemoveFields",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTrafficMirrorFilterRule(params,cb);
+		}
+
+		
+		service.ModifyTrafficMirrorSession=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TrafficMirrorSessionId",params,undefined,false); 
+			
+			copyArg(msg,"TrafficMirrorSessionId",params,undefined,false); 
+			copyArg(msg,"TrafficMirrorTargetId",params,undefined,false); 
+			copyArg(msg,"TrafficMirrorFilterId",params,undefined,false); 
+			copyArg(msg,"PacketLength",params,undefined,false); 
+			copyArg(msg,"SessionNumber",params,undefined,false); 
+			copyArg(msg,"VirtualNetworkId",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"RemoveFields",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTrafficMirrorSession(params,cb);
+		}
+
+		
+		service.ModifyTransitGateway=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTransitGateway(params,cb);
+		}
+
+		
+		service.ModifyTransitGatewayPrefixListReference=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Blackhole",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTransitGatewayPrefixListReference(params,cb);
+		}
+
+		
+		service.ModifyTransitGatewayVpcAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"AddSubnetIds",params,undefined,true); 
+			copyArg(msg,"RemoveSubnetIds",params,undefined,true); 
+			copyArg(msg,"Options",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyTransitGatewayVpcAttachment(params,cb);
 		}
 
 		
@@ -3878,6 +6118,8 @@ module.exports = function(RED) {
 			copyArg(msg,"Size",params,undefined,false); 
 			copyArg(msg,"VolumeType",params,undefined,false); 
 			copyArg(msg,"Iops",params,undefined,false); 
+			copyArg(msg,"Throughput",params,undefined,false); 
+			copyArg(msg,"MultiAttachEnabled",params,undefined,false); 
 			
 
 			svc.modifyVolume(params,cb);
@@ -3961,9 +6203,13 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"ServiceId",params,undefined,false); 
+			copyArg(msg,"PrivateDnsName",params,undefined,false); 
+			copyArg(msg,"RemovePrivateDnsName",params,undefined,false); 
 			copyArg(msg,"AcceptanceRequired",params,undefined,false); 
 			copyArg(msg,"AddNetworkLoadBalancerArns",params,undefined,true); 
 			copyArg(msg,"RemoveNetworkLoadBalancerArns",params,undefined,true); 
+			copyArg(msg,"AddGatewayLoadBalancerArns",params,undefined,true); 
+			copyArg(msg,"RemoveGatewayLoadBalancerArns",params,undefined,true); 
 			
 
 			svc.modifyVpcEndpointServiceConfiguration(params,cb);
@@ -4018,6 +6264,75 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyVpnConnection=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"VpnConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"VpnConnectionId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"CustomerGatewayId",params,undefined,false); 
+			copyArg(msg,"VpnGatewayId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyVpnConnection(params,cb);
+		}
+
+		
+		service.ModifyVpnConnectionOptions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"VpnConnectionId",params,undefined,false); 
+			
+			copyArg(msg,"VpnConnectionId",params,undefined,false); 
+			copyArg(msg,"LocalIpv4NetworkCidr",params,undefined,false); 
+			copyArg(msg,"RemoteIpv4NetworkCidr",params,undefined,false); 
+			copyArg(msg,"LocalIpv6NetworkCidr",params,undefined,false); 
+			copyArg(msg,"RemoteIpv6NetworkCidr",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyVpnConnectionOptions(params,cb);
+		}
+
+		
+		service.ModifyVpnTunnelCertificate=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"VpnConnectionId",params,undefined,false); 
+			copyArg(n,"VpnTunnelOutsideIpAddress",params,undefined,false); 
+			
+			copyArg(msg,"VpnConnectionId",params,undefined,false); 
+			copyArg(msg,"VpnTunnelOutsideIpAddress",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyVpnTunnelCertificate(params,cb);
+		}
+
+		
+		service.ModifyVpnTunnelOptions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"VpnConnectionId",params,undefined,false); 
+			copyArg(n,"VpnTunnelOutsideIpAddress",params,undefined,false); 
+			copyArg(n,"TunnelOptions",params,undefined,false); 
+			
+			copyArg(msg,"VpnConnectionId",params,undefined,false); 
+			copyArg(msg,"VpnTunnelOutsideIpAddress",params,undefined,false); 
+			copyArg(msg,"TunnelOptions",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.modifyVpnTunnelOptions(params,cb);
+		}
+
+		
 		service.MonitorInstances=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -4054,8 +6369,10 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"Cidr",params,undefined,false); 
 			copyArg(msg,"CidrAuthorizationContext",params,undefined,false); 
+			copyArg(msg,"PubliclyAdvertisable",params,undefined,false); 
 			copyArg(msg,"Description",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PoolTagSpecifications",params,undefined,true); 
 			
 
 			svc.provisionByoipCidr(params,cb);
@@ -4074,6 +6391,7 @@ module.exports = function(RED) {
 			copyArg(msg,"HostIdSet",params,undefined,true); 
 			copyArg(msg,"LimitPrice",params,undefined,false); 
 			copyArg(msg,"OfferingId",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			
 
 			svc.purchaseHostReservation(params,cb);
@@ -4091,6 +6409,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ReservedInstancesOfferingId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"LimitPrice",params,undefined,false); 
+			copyArg(msg,"PurchaseTime",params,undefined,false); 
 			
 
 			svc.purchaseReservedInstancesOffering(params,cb);
@@ -4151,6 +6470,92 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RegisterInstanceEventNotificationAttributes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"InstanceTagAttribute",params,undefined,false); 
+			
+
+			svc.registerInstanceEventNotificationAttributes(params,cb);
+		}
+
+		
+		service.RegisterTransitGatewayMulticastGroupMembers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"GroupIpAddress",params,undefined,false); 
+			copyArg(msg,"NetworkInterfaceIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.registerTransitGatewayMulticastGroupMembers(params,cb);
+		}
+
+		
+		service.RegisterTransitGatewayMulticastGroupSources=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"GroupIpAddress",params,undefined,false); 
+			copyArg(msg,"NetworkInterfaceIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.registerTransitGatewayMulticastGroupSources(params,cb);
+		}
+
+		
+		service.RejectTransitGatewayMulticastDomainAssociations=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"SubnetIds",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.rejectTransitGatewayMulticastDomainAssociations(params,cb);
+		}
+
+		
+		service.RejectTransitGatewayPeeringAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.rejectTransitGatewayPeeringAttachment(params,cb);
+		}
+
+		
+		service.RejectTransitGatewayVpcAttachment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayAttachmentId",params,undefined,false); 
+			
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.rejectTransitGatewayVpcAttachment(params,cb);
+		}
+
+		
 		service.RejectVpcEndpointConnections=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -4188,6 +6593,7 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"AllocationId",params,undefined,false); 
 			copyArg(msg,"PublicIp",params,undefined,false); 
+			copyArg(msg,"NetworkBorderGroup",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			
 
@@ -4273,11 +6679,17 @@ module.exports = function(RED) {
 			
 			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
 			copyArg(msg,"DestinationIpv6CidrBlock",params,undefined,false); 
+			copyArg(msg,"DestinationPrefixListId",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"VpcEndpointId",params,undefined,false); 
 			copyArg(msg,"EgressOnlyInternetGatewayId",params,undefined,false); 
 			copyArg(msg,"GatewayId",params,undefined,false); 
 			copyArg(msg,"InstanceId",params,undefined,false); 
+			copyArg(msg,"LocalTarget",params,undefined,false); 
 			copyArg(msg,"NatGatewayId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayId",params,undefined,false); 
+			copyArg(msg,"LocalGatewayId",params,undefined,false); 
+			copyArg(msg,"CarrierGatewayId",params,undefined,false); 
 			copyArg(msg,"NetworkInterfaceId",params,undefined,false); 
 			copyArg(msg,"RouteTableId",params,undefined,false); 
 			copyArg(msg,"VpcPeeringConnectionId",params,undefined,false); 
@@ -4300,6 +6712,24 @@ module.exports = function(RED) {
 			
 
 			svc.replaceRouteTableAssociation(params,cb);
+		}
+
+		
+		service.ReplaceTransitGatewayRoute=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			
+			copyArg(msg,"DestinationCidrBlock",params,undefined,false); 
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"TransitGatewayAttachmentId",params,undefined,false); 
+			copyArg(msg,"Blackhole",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.replaceTransitGatewayRoute(params,cb);
 		}
 
 		
@@ -4354,10 +6784,23 @@ module.exports = function(RED) {
 			copyArg(msg,"Type",params,undefined,false); 
 			copyArg(msg,"ValidFrom",params,undefined,false); 
 			copyArg(msg,"ValidUntil",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"InstanceInterruptionBehavior",params,undefined,false); 
 			
 
 			svc.requestSpotInstances(params,cb);
+		}
+
+		
+		service.ResetEbsDefaultKmsKeyId=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.resetEbsDefaultKmsKeyId(params,cb);
 		}
 
 		
@@ -4453,6 +6896,42 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RestoreManagedPrefixListVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"PrefixListId",params,undefined,false); 
+			copyArg(n,"PreviousVersion",params,undefined,false); 
+			copyArg(n,"CurrentVersion",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"PrefixListId",params,undefined,false); 
+			copyArg(msg,"PreviousVersion",params,undefined,false); 
+			copyArg(msg,"CurrentVersion",params,undefined,false); 
+			
+
+			svc.restoreManagedPrefixListVersion(params,cb);
+		}
+
+		
+		service.RevokeClientVpnIngress=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(n,"TargetNetworkCidr",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"TargetNetworkCidr",params,undefined,false); 
+			copyArg(msg,"AccessGroupId",params,undefined,false); 
+			copyArg(msg,"RevokeAllGroups",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.revokeClientVpnIngress(params,cb);
+		}
+
+		
 		service.RevokeSecurityGroupEgress=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -4528,12 +7007,17 @@ module.exports = function(RED) {
 			copyArg(msg,"NetworkInterfaces",params,undefined,true); 
 			copyArg(msg,"PrivateIpAddress",params,undefined,false); 
 			copyArg(msg,"ElasticGpuSpecification",params,undefined,false); 
+			copyArg(msg,"ElasticInferenceAccelerators",params,undefined,false); 
 			copyArg(msg,"TagSpecifications",params,undefined,true); 
 			copyArg(msg,"LaunchTemplate",params,undefined,false); 
 			copyArg(msg,"InstanceMarketOptions",params,undefined,false); 
 			copyArg(msg,"CreditSpecification",params,undefined,true); 
 			copyArg(msg,"CpuOptions",params,undefined,false); 
 			copyArg(msg,"CapacityReservationSpecification",params,undefined,true); 
+			copyArg(msg,"HibernationOptions",params,undefined,false); 
+			copyArg(msg,"LicenseSpecifications",params,undefined,false); 
+			copyArg(msg,"MetadataOptions",params,undefined,false); 
+			copyArg(msg,"EnclaveOptions",params,undefined,false); 
 			
 
 			svc.runInstances(params,cb);
@@ -4558,6 +7042,71 @@ module.exports = function(RED) {
 		}
 
 		
+		service.SearchLocalGatewayRoutes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"Filters",params,undefined,true); 
+			
+			copyArg(msg,"LocalGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.searchLocalGatewayRoutes(params,cb);
+		}
+
+		
+		service.SearchTransitGatewayMulticastGroups=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"TransitGatewayMulticastDomainId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.searchTransitGatewayMulticastGroups(params,cb);
+		}
+
+		
+		service.SearchTransitGatewayRoutes=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(n,"Filters",params,undefined,true); 
+			
+			copyArg(msg,"TransitGatewayRouteTableId",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.searchTransitGatewayRoutes(params,cb);
+		}
+
+		
+		service.SendDiagnosticInterrupt=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InstanceId",params,undefined,false); 
+			
+			copyArg(msg,"InstanceId",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.sendDiagnosticInterrupt(params,cb);
+		}
+
+		
 		service.StartInstances=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -4573,6 +7122,38 @@ module.exports = function(RED) {
 		}
 
 		
+		service.StartNetworkInsightsAnalysis=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"NetworkInsightsPathId",params,undefined,false); 
+			copyArg(n,"ClientToken",params,undefined,false); 
+			
+			copyArg(msg,"NetworkInsightsPathId",params,undefined,false); 
+			copyArg(msg,"FilterInArns",params,undefined,true); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"TagSpecifications",params,undefined,true); 
+			copyArg(msg,"ClientToken",params,undefined,false); 
+			
+
+			svc.startNetworkInsightsAnalysis(params,cb);
+		}
+
+		
+		service.StartVpcEndpointServicePrivateDnsVerification=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ServiceId",params,undefined,false); 
+			
+			copyArg(msg,"DryRun",params,undefined,false); 
+			copyArg(msg,"ServiceId",params,undefined,false); 
+			
+
+			svc.startVpcEndpointServicePrivateDnsVerification(params,cb);
+		}
+
+		
 		service.StopInstances=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -4580,11 +7161,28 @@ module.exports = function(RED) {
 			copyArg(n,"InstanceIds",params,undefined,true); 
 			
 			copyArg(msg,"InstanceIds",params,undefined,true); 
+			copyArg(msg,"Hibernate",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"Force",params,undefined,false); 
 			
 
 			svc.stopInstances(params,cb);
+		}
+
+		
+		service.TerminateClientVpnConnections=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClientVpnEndpointId",params,undefined,false); 
+			
+			copyArg(msg,"ClientVpnEndpointId",params,undefined,false); 
+			copyArg(msg,"ConnectionId",params,undefined,false); 
+			copyArg(msg,"Username",params,undefined,false); 
+			copyArg(msg,"DryRun",params,undefined,false); 
+			
+
+			svc.terminateClientVpnConnections(params,cb);
 		}
 
 		

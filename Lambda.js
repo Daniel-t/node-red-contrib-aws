@@ -95,6 +95,29 @@ module.exports = function(RED) {
 		var service={};
 
 		
+		service.AddLayerVersionPermission=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"VersionNumber",params,undefined,false); 
+			copyArg(n,"StatementId",params,undefined,false); 
+			copyArg(n,"Action",params,undefined,false); 
+			copyArg(n,"Principal",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"VersionNumber",params,undefined,false); 
+			copyArg(msg,"StatementId",params,undefined,false); 
+			copyArg(msg,"Action",params,undefined,false); 
+			copyArg(msg,"Principal",params,undefined,false); 
+			copyArg(msg,"OrganizationId",params,undefined,false); 
+			copyArg(msg,"RevisionId",params,undefined,false); 
+			
+
+			svc.addLayerVersionPermission(params,cb);
+		}
+
+		
 		service.AddPermission=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -138,19 +161,45 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AllowedPublishers",params,undefined,true); 
+			
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"AllowedPublishers",params,undefined,true); 
+			copyArg(msg,"CodeSigningPolicies",params,undefined,true); 
+			
+
+			svc.createCodeSigningConfig(params,cb);
+		}
+
+		
 		service.CreateEventSourceMapping=function(svc,msg,cb){
 			var params={};
 			//copyArgs
 			
-			copyArg(n,"EventSourceArn",params,undefined,false); 
 			copyArg(n,"FunctionName",params,undefined,false); 
 			
 			copyArg(msg,"EventSourceArn",params,undefined,false); 
 			copyArg(msg,"FunctionName",params,undefined,false); 
 			copyArg(msg,"Enabled",params,undefined,false); 
 			copyArg(msg,"BatchSize",params,undefined,false); 
+			copyArg(msg,"MaximumBatchingWindowInSeconds",params,undefined,false); 
+			copyArg(msg,"ParallelizationFactor",params,undefined,false); 
 			copyArg(msg,"StartingPosition",params,undefined,false); 
 			copyArg(msg,"StartingPositionTimestamp",params,undefined,false); 
+			copyArg(msg,"DestinationConfig",params,undefined,true); 
+			copyArg(msg,"MaximumRecordAgeInSeconds",params,undefined,false); 
+			copyArg(msg,"BisectBatchOnFunctionError",params,undefined,false); 
+			copyArg(msg,"MaximumRetryAttempts",params,undefined,false); 
+			copyArg(msg,"TumblingWindowInSeconds",params,undefined,false); 
+			copyArg(msg,"Topics",params,undefined,true); 
+			copyArg(msg,"Queues",params,undefined,true); 
+			copyArg(msg,"SourceAccessConfigurations",params,undefined,true); 
+			copyArg(msg,"SelfManagedEventSource",params,undefined,true); 
+			copyArg(msg,"FunctionResponseTypes",params,undefined,true); 
 			
 
 			svc.createEventSourceMapping(params,cb);
@@ -162,9 +211,7 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			copyArg(n,"FunctionName",params,undefined,false); 
-			copyArg(n,"Runtime",params,undefined,false); 
 			copyArg(n,"Role",params,undefined,false); 
-			copyArg(n,"Handler",params,undefined,false); 
 			copyArg(n,"Code",params,undefined,false); 
 			
 			copyArg(msg,"FunctionName",params,undefined,false); 
@@ -177,11 +224,16 @@ module.exports = function(RED) {
 			copyArg(msg,"MemorySize",params,undefined,false); 
 			copyArg(msg,"Publish",params,undefined,false); 
 			copyArg(msg,"VpcConfig",params,undefined,true); 
+			copyArg(msg,"PackageType",params,undefined,false); 
 			copyArg(msg,"DeadLetterConfig",params,undefined,true); 
 			copyArg(msg,"Environment",params,undefined,true); 
 			copyArg(msg,"KMSKeyArn",params,undefined,false); 
 			copyArg(msg,"TracingConfig",params,undefined,true); 
 			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"Layers",params,undefined,true); 
+			copyArg(msg,"FileSystemConfigs",params,undefined,true); 
+			copyArg(msg,"ImageConfig",params,undefined,true); 
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
 			
 
 			svc.createFunction(params,cb);
@@ -200,6 +252,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteAlias(params,cb);
+		}
+
+		
+		service.DeleteCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CodeSigningConfigArn",params,undefined,false); 
+			
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
+			
+
+			svc.deleteCodeSigningConfig(params,cb);
 		}
 
 		
@@ -230,6 +295,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteFunctionCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			
+
+			svc.deleteFunctionCodeSigningConfig(params,cb);
+		}
+
+		
 		service.DeleteFunctionConcurrency=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -240,6 +318,50 @@ module.exports = function(RED) {
 			
 
 			svc.deleteFunctionConcurrency(params,cb);
+		}
+
+		
+		service.DeleteFunctionEventInvokeConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			
+
+			svc.deleteFunctionEventInvokeConfig(params,cb);
+		}
+
+		
+		service.DeleteLayerVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"VersionNumber",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"VersionNumber",params,undefined,false); 
+			
+
+			svc.deleteLayerVersion(params,cb);
+		}
+
+		
+		service.DeleteProvisionedConcurrencyConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			copyArg(n,"Qualifier",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			
+
+			svc.deleteProvisionedConcurrencyConfig(params,cb);
 		}
 
 		
@@ -266,6 +388,19 @@ module.exports = function(RED) {
 			
 
 			svc.getAlias(params,cb);
+		}
+
+		
+		service.GetCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CodeSigningConfigArn",params,undefined,false); 
+			
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
+			
+
+			svc.getCodeSigningConfig(params,cb);
 		}
 
 		
@@ -296,6 +431,32 @@ module.exports = function(RED) {
 		}
 
 		
+		service.GetFunctionCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			
+
+			svc.getFunctionCodeSigningConfig(params,cb);
+		}
+
+		
+		service.GetFunctionConcurrency=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			
+
+			svc.getFunctionConcurrency(params,cb);
+		}
+
+		
 		service.GetFunctionConfiguration=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -310,6 +471,63 @@ module.exports = function(RED) {
 		}
 
 		
+		service.GetFunctionEventInvokeConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			
+
+			svc.getFunctionEventInvokeConfig(params,cb);
+		}
+
+		
+		service.GetLayerVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"VersionNumber",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"VersionNumber",params,undefined,false); 
+			
+
+			svc.getLayerVersion(params,cb);
+		}
+
+		
+		service.GetLayerVersionByArn=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Arn",params,undefined,false); 
+			
+			copyArg(msg,"Arn",params,undefined,false); 
+			
+
+			svc.getLayerVersionByArn(params,cb);
+		}
+
+		
+		service.GetLayerVersionPolicy=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"VersionNumber",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"VersionNumber",params,undefined,false); 
+			
+
+			svc.getLayerVersionPolicy(params,cb);
+		}
+
+		
 		service.GetPolicy=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -321,6 +539,21 @@ module.exports = function(RED) {
 			
 
 			svc.getPolicy(params,cb);
+		}
+
+		
+		service.GetProvisionedConcurrencyConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			copyArg(n,"Qualifier",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			
+
+			svc.getProvisionedConcurrencyConfig(params,cb);
 		}
 
 		
@@ -373,6 +606,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListCodeSigningConfigs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listCodeSigningConfigs(params,cb);
+		}
+
+		
 		service.ListEventSourceMappings=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -388,6 +634,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListFunctionEventInvokeConfigs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listFunctionEventInvokeConfigs(params,cb);
+		}
+
+		
 		service.ListFunctions=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -400,6 +661,66 @@ module.exports = function(RED) {
 			
 
 			svc.listFunctions(params,cb);
+		}
+
+		
+		service.ListFunctionsByCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CodeSigningConfigArn",params,undefined,false); 
+			
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listFunctionsByCodeSigningConfig(params,cb);
+		}
+
+		
+		service.ListLayerVersions=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			
+			copyArg(msg,"CompatibleRuntime",params,undefined,false); 
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listLayerVersions(params,cb);
+		}
+
+		
+		service.ListLayers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"CompatibleRuntime",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listLayers(params,cb);
+		}
+
+		
+		service.ListProvisionedConcurrencyConfigs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxItems",params,undefined,false); 
+			
+
+			svc.listProvisionedConcurrencyConfigs(params,cb);
 		}
 
 		
@@ -431,6 +752,24 @@ module.exports = function(RED) {
 		}
 
 		
+		service.PublishLayerVersion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"Content",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"Content",params,undefined,false); 
+			copyArg(msg,"CompatibleRuntimes",params,undefined,true); 
+			copyArg(msg,"LicenseInfo",params,undefined,false); 
+			
+
+			svc.publishLayerVersion(params,cb);
+		}
+
+		
 		service.PublishVersion=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -447,6 +786,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.PutFunctionCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CodeSigningConfigArn",params,undefined,false); 
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			
+
+			svc.putFunctionCodeSigningConfig(params,cb);
+		}
+
+		
 		service.PutFunctionConcurrency=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -459,6 +813,58 @@ module.exports = function(RED) {
 			
 
 			svc.putFunctionConcurrency(params,cb);
+		}
+
+		
+		service.PutFunctionEventInvokeConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			copyArg(msg,"MaximumRetryAttempts",params,undefined,false); 
+			copyArg(msg,"MaximumEventAgeInSeconds",params,undefined,false); 
+			copyArg(msg,"DestinationConfig",params,undefined,true); 
+			
+
+			svc.putFunctionEventInvokeConfig(params,cb);
+		}
+
+		
+		service.PutProvisionedConcurrencyConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			copyArg(n,"Qualifier",params,undefined,false); 
+			copyArg(n,"ProvisionedConcurrentExecutions",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			copyArg(msg,"ProvisionedConcurrentExecutions",params,undefined,false); 
+			
+
+			svc.putProvisionedConcurrencyConfig(params,cb);
+		}
+
+		
+		service.RemoveLayerVersionPermission=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"LayerName",params,undefined,false); 
+			copyArg(n,"VersionNumber",params,undefined,false); 
+			copyArg(n,"StatementId",params,undefined,false); 
+			
+			copyArg(msg,"LayerName",params,undefined,false); 
+			copyArg(msg,"VersionNumber",params,undefined,false); 
+			copyArg(msg,"StatementId",params,undefined,false); 
+			copyArg(msg,"RevisionId",params,undefined,false); 
+			
+
+			svc.removeLayerVersionPermission(params,cb);
 		}
 
 		
@@ -528,6 +934,22 @@ module.exports = function(RED) {
 		}
 
 		
+		service.UpdateCodeSigningConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"CodeSigningConfigArn",params,undefined,false); 
+			
+			copyArg(msg,"CodeSigningConfigArn",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"AllowedPublishers",params,undefined,true); 
+			copyArg(msg,"CodeSigningPolicies",params,undefined,true); 
+			
+
+			svc.updateCodeSigningConfig(params,cb);
+		}
+
+		
 		service.UpdateEventSourceMapping=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -538,6 +960,15 @@ module.exports = function(RED) {
 			copyArg(msg,"FunctionName",params,undefined,false); 
 			copyArg(msg,"Enabled",params,undefined,false); 
 			copyArg(msg,"BatchSize",params,undefined,false); 
+			copyArg(msg,"MaximumBatchingWindowInSeconds",params,undefined,false); 
+			copyArg(msg,"DestinationConfig",params,undefined,true); 
+			copyArg(msg,"MaximumRecordAgeInSeconds",params,undefined,false); 
+			copyArg(msg,"BisectBatchOnFunctionError",params,undefined,false); 
+			copyArg(msg,"MaximumRetryAttempts",params,undefined,false); 
+			copyArg(msg,"ParallelizationFactor",params,undefined,false); 
+			copyArg(msg,"SourceAccessConfigurations",params,undefined,true); 
+			copyArg(msg,"TumblingWindowInSeconds",params,undefined,false); 
+			copyArg(msg,"FunctionResponseTypes",params,undefined,true); 
 			
 
 			svc.updateEventSourceMapping(params,cb);
@@ -555,6 +986,7 @@ module.exports = function(RED) {
 			copyArg(msg,"S3Bucket",params,undefined,false); 
 			copyArg(msg,"S3Key",params,undefined,false); 
 			copyArg(msg,"S3ObjectVersion",params,undefined,false); 
+			copyArg(msg,"ImageUri",params,undefined,false); 
 			copyArg(msg,"Publish",params,undefined,false); 
 			copyArg(msg,"DryRun",params,undefined,false); 
 			copyArg(msg,"RevisionId",params,undefined,false); 
@@ -583,9 +1015,29 @@ module.exports = function(RED) {
 			copyArg(msg,"KMSKeyArn",params,undefined,false); 
 			copyArg(msg,"TracingConfig",params,undefined,true); 
 			copyArg(msg,"RevisionId",params,undefined,false); 
+			copyArg(msg,"Layers",params,undefined,true); 
+			copyArg(msg,"FileSystemConfigs",params,undefined,true); 
+			copyArg(msg,"ImageConfig",params,undefined,true); 
 			
 
 			svc.updateFunctionConfiguration(params,cb);
+		}
+
+		
+		service.UpdateFunctionEventInvokeConfig=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"FunctionName",params,undefined,false); 
+			
+			copyArg(msg,"FunctionName",params,undefined,false); 
+			copyArg(msg,"Qualifier",params,undefined,false); 
+			copyArg(msg,"MaximumRetryAttempts",params,undefined,false); 
+			copyArg(msg,"MaximumEventAgeInSeconds",params,undefined,false); 
+			copyArg(msg,"DestinationConfig",params,undefined,true); 
+			
+
+			svc.updateFunctionEventInvokeConfig(params,cb);
 		}
 
 			

@@ -34,6 +34,12 @@
 		
 			<option value="AuthorizeSnapshotAccess">AuthorizeSnapshotAccess</option>
 		
+			<option value="BatchDeleteClusterSnapshots">BatchDeleteClusterSnapshots</option>
+		
+			<option value="BatchModifyClusterSnapshots">BatchModifyClusterSnapshots</option>
+		
+			<option value="CancelResize">CancelResize</option>
+		
 			<option value="CopyClusterSnapshot">CopyClusterSnapshot</option>
 		
 			<option value="CreateCluster">CreateCluster</option>
@@ -52,9 +58,15 @@
 		
 			<option value="CreateHsmConfiguration">CreateHsmConfiguration</option>
 		
+			<option value="CreateScheduledAction">CreateScheduledAction</option>
+		
 			<option value="CreateSnapshotCopyGrant">CreateSnapshotCopyGrant</option>
 		
+			<option value="CreateSnapshotSchedule">CreateSnapshotSchedule</option>
+		
 			<option value="CreateTags">CreateTags</option>
+		
+			<option value="CreateUsageLimit">CreateUsageLimit</option>
 		
 			<option value="DeleteCluster">DeleteCluster</option>
 		
@@ -72,9 +84,17 @@
 		
 			<option value="DeleteHsmConfiguration">DeleteHsmConfiguration</option>
 		
+			<option value="DeleteScheduledAction">DeleteScheduledAction</option>
+		
 			<option value="DeleteSnapshotCopyGrant">DeleteSnapshotCopyGrant</option>
 		
+			<option value="DeleteSnapshotSchedule">DeleteSnapshotSchedule</option>
+		
 			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DeleteUsageLimit">DeleteUsageLimit</option>
+		
+			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
 		
 			<option value="DescribeClusterDbRevisions">DescribeClusterDbRevisions</option>
 		
@@ -108,6 +128,8 @@
 		
 			<option value="DescribeLoggingStatus">DescribeLoggingStatus</option>
 		
+			<option value="DescribeNodeConfigurationOptions">DescribeNodeConfigurationOptions</option>
+		
 			<option value="DescribeOrderableClusterOptions">DescribeOrderableClusterOptions</option>
 		
 			<option value="DescribeReservedNodeOfferings">DescribeReservedNodeOfferings</option>
@@ -116,11 +138,19 @@
 		
 			<option value="DescribeResize">DescribeResize</option>
 		
+			<option value="DescribeScheduledActions">DescribeScheduledActions</option>
+		
 			<option value="DescribeSnapshotCopyGrants">DescribeSnapshotCopyGrants</option>
+		
+			<option value="DescribeSnapshotSchedules">DescribeSnapshotSchedules</option>
+		
+			<option value="DescribeStorage">DescribeStorage</option>
 		
 			<option value="DescribeTableRestoreStatus">DescribeTableRestoreStatus</option>
 		
 			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="DescribeUsageLimits">DescribeUsageLimits</option>
 		
 			<option value="DisableLogging">DisableLogging</option>
 		
@@ -140,13 +170,27 @@
 		
 			<option value="ModifyClusterIamRoles">ModifyClusterIamRoles</option>
 		
+			<option value="ModifyClusterMaintenance">ModifyClusterMaintenance</option>
+		
 			<option value="ModifyClusterParameterGroup">ModifyClusterParameterGroup</option>
+		
+			<option value="ModifyClusterSnapshot">ModifyClusterSnapshot</option>
+		
+			<option value="ModifyClusterSnapshotSchedule">ModifyClusterSnapshotSchedule</option>
 		
 			<option value="ModifyClusterSubnetGroup">ModifyClusterSubnetGroup</option>
 		
 			<option value="ModifyEventSubscription">ModifyEventSubscription</option>
 		
+			<option value="ModifyScheduledAction">ModifyScheduledAction</option>
+		
 			<option value="ModifySnapshotCopyRetentionPeriod">ModifySnapshotCopyRetentionPeriod</option>
+		
+			<option value="ModifySnapshotSchedule">ModifySnapshotSchedule</option>
+		
+			<option value="ModifyUsageLimit">ModifyUsageLimit</option>
+		
+			<option value="PauseCluster">PauseCluster</option>
 		
 			<option value="PurchaseReservedNodeOffering">PurchaseReservedNodeOffering</option>
 		
@@ -159,6 +203,8 @@
 			<option value="RestoreFromClusterSnapshot">RestoreFromClusterSnapshot</option>
 		
 			<option value="RestoreTableFromClusterSnapshot">RestoreTableFromClusterSnapshot</option>
+		
+			<option value="ResumeCluster">ResumeCluster</option>
 		
 			<option value="RevokeClusterSecurityGroupIngress">RevokeClusterSecurityGroupIngress</option>
 		
@@ -195,6 +241,18 @@
 		<label for="node-input-AccountWithRestoreAccess"><i class="fa fa-tag"></i>AccountWithRestoreAccess</label>
 		<input type="text" id="node-input-AccountWithRestoreAccess" placeholder="AccountWithRestoreAccess"></input>
 	</div> 
+	<div class="form-row" id='IdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-Identifiers"><i class="fa fa-tag"></i>Identifiers</label>
+		<input type="text" id="node-input-Identifiers" placeholder="Identifiers"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdentifierListAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotIdentifierList"><i class="fa fa-tag"></i>SnapshotIdentifierList</label>
+		<input type="text" id="node-input-SnapshotIdentifierList" placeholder="SnapshotIdentifierList"></input>
+	</div> 
+	<div class="form-row" id='ClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterIdentifier"><i class="fa fa-tag"></i>ClusterIdentifier</label>
+		<input type="text" id="node-input-ClusterIdentifier" placeholder="ClusterIdentifier"></input>
+	</div> 
 	<div class="form-row" id='SourceSnapshotIdentifierAttr' class='hiddenAttrs'>
 		<label for="node-input-SourceSnapshotIdentifier"><i class="fa fa-tag"></i>SourceSnapshotIdentifier</label>
 		<input type="text" id="node-input-SourceSnapshotIdentifier" placeholder="SourceSnapshotIdentifier"></input>
@@ -202,10 +260,6 @@
 	<div class="form-row" id='TargetSnapshotIdentifierAttr' class='hiddenAttrs'>
 		<label for="node-input-TargetSnapshotIdentifier"><i class="fa fa-tag"></i>TargetSnapshotIdentifier</label>
 		<input type="text" id="node-input-TargetSnapshotIdentifier" placeholder="TargetSnapshotIdentifier"></input>
-	</div> 
-	<div class="form-row" id='ClusterIdentifierAttr' class='hiddenAttrs'>
-		<label for="node-input-ClusterIdentifier"><i class="fa fa-tag"></i>ClusterIdentifier</label>
-		<input type="text" id="node-input-ClusterIdentifier" placeholder="ClusterIdentifier"></input>
 	</div> 
 	<div class="form-row" id='NodeTypeAttr' class='hiddenAttrs'>
 		<label for="node-input-NodeType"><i class="fa fa-tag"></i>NodeType</label>
@@ -271,6 +325,22 @@
 		<label for="node-input-HsmServerPublicCertificate"><i class="fa fa-tag"></i>HsmServerPublicCertificate</label>
 		<input type="text" id="node-input-HsmServerPublicCertificate" placeholder="HsmServerPublicCertificate"></input>
 	</div> 
+	<div class="form-row" id='ScheduledActionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledActionName"><i class="fa fa-tag"></i>ScheduledActionName</label>
+		<input type="text" id="node-input-ScheduledActionName" placeholder="ScheduledActionName"></input>
+	</div> 
+	<div class="form-row" id='TargetActionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetAction"><i class="fa fa-tag"></i>TargetAction</label>
+		<input type="text" id="node-input-TargetAction" placeholder="TargetAction"></input>
+	</div> 
+	<div class="form-row" id='ScheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-Schedule"><i class="fa fa-tag"></i>Schedule</label>
+		<input type="text" id="node-input-Schedule" placeholder="Schedule"></input>
+	</div> 
+	<div class="form-row" id='IamRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-IamRole"><i class="fa fa-tag"></i>IamRole</label>
+		<input type="text" id="node-input-IamRole" placeholder="IamRole"></input>
+	</div> 
 	<div class="form-row" id='SnapshotCopyGrantNameAttr' class='hiddenAttrs'>
 		<label for="node-input-SnapshotCopyGrantName"><i class="fa fa-tag"></i>SnapshotCopyGrantName</label>
 		<input type="text" id="node-input-SnapshotCopyGrantName" placeholder="SnapshotCopyGrantName"></input>
@@ -283,9 +353,33 @@
 		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
 		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
 	</div> 
+	<div class="form-row" id='FeatureTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-FeatureType"><i class="fa fa-tag"></i>FeatureType</label>
+		<input type="text" id="node-input-FeatureType" placeholder="FeatureType"></input>
+	</div> 
+	<div class="form-row" id='LimitTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-LimitType"><i class="fa fa-tag"></i>LimitType</label>
+		<input type="text" id="node-input-LimitType" placeholder="LimitType"></input>
+	</div> 
+	<div class="form-row" id='AmountAttr' class='hiddenAttrs'>
+		<label for="node-input-Amount"><i class="fa fa-tag"></i>Amount</label>
+		<input type="text" id="node-input-Amount" placeholder="Amount"></input>
+	</div> 
+	<div class="form-row" id='ScheduleIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleIdentifier"><i class="fa fa-tag"></i>ScheduleIdentifier</label>
+		<input type="text" id="node-input-ScheduleIdentifier" placeholder="ScheduleIdentifier"></input>
+	</div> 
 	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
 		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
 		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='UsageLimitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageLimitId"><i class="fa fa-tag"></i>UsageLimitId</label>
+		<input type="text" id="node-input-UsageLimitId" placeholder="UsageLimitId"></input>
+	</div> 
+	<div class="form-row" id='ActionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionType"><i class="fa fa-tag"></i>ActionType</label>
+		<input type="text" id="node-input-ActionType" placeholder="ActionType"></input>
 	</div> 
 	<div class="form-row" id='BucketNameAttr' class='hiddenAttrs'>
 		<label for="node-input-BucketName"><i class="fa fa-tag"></i>BucketName</label>
@@ -311,13 +405,13 @@
 		<label for="node-input-RetentionPeriod"><i class="fa fa-tag"></i>RetentionPeriod</label>
 		<input type="text" id="node-input-RetentionPeriod" placeholder="RetentionPeriod"></input>
 	</div> 
+	<div class="form-row" id='ScheduleDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleDefinitions"><i class="fa fa-tag"></i>ScheduleDefinitions</label>
+		<input type="text" id="node-input-ScheduleDefinitions" placeholder="ScheduleDefinitions"></input>
+	</div> 
 	<div class="form-row" id='ReservedNodeOfferingIdAttr' class='hiddenAttrs'>
 		<label for="node-input-ReservedNodeOfferingId"><i class="fa fa-tag"></i>ReservedNodeOfferingId</label>
 		<input type="text" id="node-input-ReservedNodeOfferingId" placeholder="ReservedNodeOfferingId"></input>
-	</div> 
-	<div class="form-row" id='NumberOfNodesAttr' class='hiddenAttrs'>
-		<label for="node-input-NumberOfNodes"><i class="fa fa-tag"></i>NumberOfNodes</label>
-		<input type="text" id="node-input-NumberOfNodes" placeholder="NumberOfNodes"></input>
 	</div> 
 	<div class="form-row" id='SourceDatabaseNameAttr' class='hiddenAttrs'>
 		<label for="node-input-SourceDatabaseName"><i class="fa fa-tag"></i>SourceDatabaseName</label>
@@ -344,6 +438,15 @@
 					],
 				AuthorizeSnapshotAccess:[
 					'#SnapshotIdentifierAttr','#AccountWithRestoreAccessAttr'
+					],
+				BatchDeleteClusterSnapshots:[
+					'#IdentifiersAttr'
+					],
+				BatchModifyClusterSnapshots:[
+					'#SnapshotIdentifierListAttr'
+					],
+				CancelResize:[
+					'#ClusterIdentifierAttr'
 					],
 				CopyClusterSnapshot:[
 					'#SourceSnapshotIdentifierAttr','#TargetSnapshotIdentifierAttr'
@@ -372,11 +475,20 @@
 				CreateHsmConfiguration:[
 					'#HsmConfigurationIdentifierAttr','#DescriptionAttr','#HsmIpAddressAttr','#HsmPartitionNameAttr','#HsmPartitionPasswordAttr','#HsmServerPublicCertificateAttr'
 					],
+				CreateScheduledAction:[
+					'#ScheduledActionNameAttr','#TargetActionAttr','#ScheduleAttr','#IamRoleAttr'
+					],
 				CreateSnapshotCopyGrant:[
 					'#SnapshotCopyGrantNameAttr'
 					],
+				CreateSnapshotSchedule:[
+					
+					],
 				CreateTags:[
 					'#ResourceNameAttr','#TagsAttr'
+					],
+				CreateUsageLimit:[
+					'#ClusterIdentifierAttr','#FeatureTypeAttr','#LimitTypeAttr','#AmountAttr'
 					],
 				DeleteCluster:[
 					'#ClusterIdentifierAttr'
@@ -388,7 +500,7 @@
 					'#ClusterSecurityGroupNameAttr'
 					],
 				DeleteClusterSnapshot:[
-					'#SnapshotIdentifierAttr'
+					
 					],
 				DeleteClusterSubnetGroup:[
 					'#ClusterSubnetGroupNameAttr'
@@ -402,11 +514,23 @@
 				DeleteHsmConfiguration:[
 					'#HsmConfigurationIdentifierAttr'
 					],
+				DeleteScheduledAction:[
+					'#ScheduledActionNameAttr'
+					],
 				DeleteSnapshotCopyGrant:[
 					'#SnapshotCopyGrantNameAttr'
 					],
+				DeleteSnapshotSchedule:[
+					'#ScheduleIdentifierAttr'
+					],
 				DeleteTags:[
 					'#ResourceNameAttr','#TagKeysAttr'
+					],
+				DeleteUsageLimit:[
+					'#UsageLimitIdAttr'
+					],
+				DescribeAccountAttributes:[
+					
 					],
 				DescribeClusterDbRevisions:[
 					
@@ -456,6 +580,9 @@
 				DescribeLoggingStatus:[
 					'#ClusterIdentifierAttr'
 					],
+				DescribeNodeConfigurationOptions:[
+					'#ActionTypeAttr'
+					],
 				DescribeOrderableClusterOptions:[
 					
 					],
@@ -468,13 +595,25 @@
 				DescribeResize:[
 					'#ClusterIdentifierAttr'
 					],
+				DescribeScheduledActions:[
+					
+					],
 				DescribeSnapshotCopyGrants:[
+					
+					],
+				DescribeSnapshotSchedules:[
+					
+					],
+				DescribeStorage:[
 					
 					],
 				DescribeTableRestoreStatus:[
 					
 					],
 				DescribeTags:[
+					
+					],
+				DescribeUsageLimits:[
 					
 					],
 				DisableLogging:[
@@ -504,8 +643,17 @@
 				ModifyClusterIamRoles:[
 					'#ClusterIdentifierAttr'
 					],
+				ModifyClusterMaintenance:[
+					'#ClusterIdentifierAttr'
+					],
 				ModifyClusterParameterGroup:[
 					'#ParameterGroupNameAttr','#ParametersAttr'
+					],
+				ModifyClusterSnapshot:[
+					'#SnapshotIdentifierAttr'
+					],
+				ModifyClusterSnapshotSchedule:[
+					'#ClusterIdentifierAttr'
 					],
 				ModifyClusterSubnetGroup:[
 					'#ClusterSubnetGroupNameAttr','#SubnetIdsAttr'
@@ -513,8 +661,20 @@
 				ModifyEventSubscription:[
 					'#SubscriptionNameAttr'
 					],
+				ModifyScheduledAction:[
+					'#ScheduledActionNameAttr'
+					],
 				ModifySnapshotCopyRetentionPeriod:[
 					'#ClusterIdentifierAttr','#RetentionPeriodAttr'
+					],
+				ModifySnapshotSchedule:[
+					'#ScheduleIdentifierAttr','#ScheduleDefinitionsAttr'
+					],
+				ModifyUsageLimit:[
+					'#UsageLimitIdAttr'
+					],
+				PauseCluster:[
+					
 					],
 				PurchaseReservedNodeOffering:[
 					'#ReservedNodeOfferingIdAttr'
@@ -526,13 +686,16 @@
 					'#ParameterGroupNameAttr'
 					],
 				ResizeCluster:[
-					'#ClusterIdentifierAttr','#NumberOfNodesAttr'
+					
 					],
 				RestoreFromClusterSnapshot:[
 					'#ClusterIdentifierAttr','#SnapshotIdentifierAttr'
 					],
 				RestoreTableFromClusterSnapshot:[
 					'#ClusterIdentifierAttr','#SnapshotIdentifierAttr','#SourceDatabaseNameAttr','#SourceTableNameAttr','#NewTableNameAttr'
+					],
+				ResumeCluster:[
+					
 					],
 				RevokeClusterSecurityGroupIngress:[
 					'#ClusterSecurityGroupNameAttr'
@@ -579,9 +742,11 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				ClusterSecurityGroupName: { value: ""} ,
 				SnapshotIdentifier: { value: ""} ,
 				AccountWithRestoreAccess: { value: ""} ,
+				Identifiers: { value: ""} ,
+				SnapshotIdentifierList: { value: ""} ,
+				ClusterIdentifier: { value: ""} ,
 				SourceSnapshotIdentifier: { value: ""} ,
 				TargetSnapshotIdentifier: { value: ""} ,
-				ClusterIdentifier: { value: ""} ,
 				NodeType: { value: ""} ,
 				MasterUsername: { value: ""} ,
 				MasterUserPassword: { value: ""} ,
@@ -598,18 +763,28 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				HsmPartitionName: { value: ""} ,
 				HsmPartitionPassword: { value: ""} ,
 				HsmServerPublicCertificate: { value: ""} ,
+				ScheduledActionName: { value: ""} ,
+				TargetAction: { value: ""} ,
+				Schedule: { value: ""} ,
+				IamRole: { value: ""} ,
 				SnapshotCopyGrantName: { value: ""} ,
 				ResourceName: { value: ""} ,
 				Tags: { value: ""} ,
+				FeatureType: { value: ""} ,
+				LimitType: { value: ""} ,
+				Amount: { value: ""} ,
+				ScheduleIdentifier: { value: ""} ,
 				TagKeys: { value: ""} ,
+				UsageLimitId: { value: ""} ,
+				ActionType: { value: ""} ,
 				BucketName: { value: ""} ,
 				DestinationRegion: { value: ""} ,
 				DbUser: { value: ""} ,
 				RevisionTarget: { value: ""} ,
 				Parameters: { value: ""} ,
 				RetentionPeriod: { value: ""} ,
+				ScheduleDefinitions: { value: ""} ,
 				ReservedNodeOfferingId: { value: ""} ,
-				NumberOfNodes: { value: ""} ,
 				SourceDatabaseName: { value: ""} ,
 				SourceTableName: { value: ""} ,
 				NewTableName: { value: ""} ,

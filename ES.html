@@ -28,15 +28,29 @@
 		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
 		<select type="text" id="node-input-operation">
 		
+			<option value="AcceptInboundCrossClusterSearchConnection">AcceptInboundCrossClusterSearchConnection</option>
+		
 			<option value="AddTags">AddTags</option>
+		
+			<option value="AssociatePackage">AssociatePackage</option>
 		
 			<option value="CancelElasticsearchServiceSoftwareUpdate">CancelElasticsearchServiceSoftwareUpdate</option>
 		
 			<option value="CreateElasticsearchDomain">CreateElasticsearchDomain</option>
 		
+			<option value="CreateOutboundCrossClusterSearchConnection">CreateOutboundCrossClusterSearchConnection</option>
+		
+			<option value="CreatePackage">CreatePackage</option>
+		
 			<option value="DeleteElasticsearchDomain">DeleteElasticsearchDomain</option>
 		
 			<option value="DeleteElasticsearchServiceRole">DeleteElasticsearchServiceRole</option>
+		
+			<option value="DeleteInboundCrossClusterSearchConnection">DeleteInboundCrossClusterSearchConnection</option>
+		
+			<option value="DeleteOutboundCrossClusterSearchConnection">DeleteOutboundCrossClusterSearchConnection</option>
+		
+			<option value="DeletePackage">DeletePackage</option>
 		
 			<option value="DescribeElasticsearchDomain">DescribeElasticsearchDomain</option>
 		
@@ -46,11 +60,21 @@
 		
 			<option value="DescribeElasticsearchInstanceTypeLimits">DescribeElasticsearchInstanceTypeLimits</option>
 		
+			<option value="DescribeInboundCrossClusterSearchConnections">DescribeInboundCrossClusterSearchConnections</option>
+		
+			<option value="DescribeOutboundCrossClusterSearchConnections">DescribeOutboundCrossClusterSearchConnections</option>
+		
+			<option value="DescribePackages">DescribePackages</option>
+		
 			<option value="DescribeReservedElasticsearchInstanceOfferings">DescribeReservedElasticsearchInstanceOfferings</option>
 		
 			<option value="DescribeReservedElasticsearchInstances">DescribeReservedElasticsearchInstances</option>
 		
+			<option value="DissociatePackage">DissociatePackage</option>
+		
 			<option value="GetCompatibleElasticsearchVersions">GetCompatibleElasticsearchVersions</option>
+		
+			<option value="GetPackageVersionHistory">GetPackageVersionHistory</option>
 		
 			<option value="GetUpgradeHistory">GetUpgradeHistory</option>
 		
@@ -58,19 +82,27 @@
 		
 			<option value="ListDomainNames">ListDomainNames</option>
 		
+			<option value="ListDomainsForPackage">ListDomainsForPackage</option>
+		
 			<option value="ListElasticsearchInstanceTypes">ListElasticsearchInstanceTypes</option>
 		
 			<option value="ListElasticsearchVersions">ListElasticsearchVersions</option>
 		
+			<option value="ListPackagesForDomain">ListPackagesForDomain</option>
+		
 			<option value="ListTags">ListTags</option>
 		
 			<option value="PurchaseReservedElasticsearchInstanceOffering">PurchaseReservedElasticsearchInstanceOffering</option>
+		
+			<option value="RejectInboundCrossClusterSearchConnection">RejectInboundCrossClusterSearchConnection</option>
 		
 			<option value="RemoveTags">RemoveTags</option>
 		
 			<option value="StartElasticsearchServiceSoftwareUpdate">StartElasticsearchServiceSoftwareUpdate</option>
 		
 			<option value="UpdateElasticsearchDomainConfig">UpdateElasticsearchDomainConfig</option>
+		
+			<option value="UpdatePackage">UpdatePackage</option>
 		
 			<option value="UpgradeElasticsearchDomain">UpgradeElasticsearchDomain</option>
 		;
@@ -83,6 +115,10 @@
 	<hr/>	
 	<div id="AttrHolder">
 	      
+	<div class="form-row" id='CrossClusterSearchConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CrossClusterSearchConnectionId"><i class="fa fa-tag"></i>CrossClusterSearchConnectionId</label>
+		<input type="text" id="node-input-CrossClusterSearchConnectionId" placeholder="CrossClusterSearchConnectionId"></input>
+	</div> 
 	<div class="form-row" id='ARNAttr' class='hiddenAttrs'>
 		<label for="node-input-ARN"><i class="fa fa-tag"></i>ARN</label>
 		<input type="text" id="node-input-ARN" placeholder="ARN"></input>
@@ -91,9 +127,37 @@
 		<label for="node-input-TagList"><i class="fa fa-tag"></i>TagList</label>
 		<input type="text" id="node-input-TagList" placeholder="TagList"></input>
 	</div> 
+	<div class="form-row" id='PackageIDAttr' class='hiddenAttrs'>
+		<label for="node-input-PackageID"><i class="fa fa-tag"></i>PackageID</label>
+		<input type="text" id="node-input-PackageID" placeholder="PackageID"></input>
+	</div> 
 	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
 		<label for="node-input-DomainName"><i class="fa fa-tag"></i>DomainName</label>
 		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='SourceDomainInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDomainInfo"><i class="fa fa-tag"></i>SourceDomainInfo</label>
+		<input type="text" id="node-input-SourceDomainInfo" placeholder="SourceDomainInfo"></input>
+	</div> 
+	<div class="form-row" id='DestinationDomainInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationDomainInfo"><i class="fa fa-tag"></i>DestinationDomainInfo</label>
+		<input type="text" id="node-input-DestinationDomainInfo" placeholder="DestinationDomainInfo"></input>
+	</div> 
+	<div class="form-row" id='ConnectionAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionAlias"><i class="fa fa-tag"></i>ConnectionAlias</label>
+		<input type="text" id="node-input-ConnectionAlias" placeholder="ConnectionAlias"></input>
+	</div> 
+	<div class="form-row" id='PackageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PackageName"><i class="fa fa-tag"></i>PackageName</label>
+		<input type="text" id="node-input-PackageName" placeholder="PackageName"></input>
+	</div> 
+	<div class="form-row" id='PackageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PackageType"><i class="fa fa-tag"></i>PackageType</label>
+		<input type="text" id="node-input-PackageType" placeholder="PackageType"></input>
+	</div> 
+	<div class="form-row" id='PackageSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-PackageSource"><i class="fa fa-tag"></i>PackageSource</label>
+		<input type="text" id="node-input-PackageSource" placeholder="PackageSource"></input>
 	</div> 
 	<div class="form-row" id='DomainNamesAttr' class='hiddenAttrs'>
 		<label for="node-input-DomainNames"><i class="fa fa-tag"></i>DomainNames</label>
@@ -128,8 +192,14 @@
  <script>
 	  var nodeOps={
 			
+				AcceptInboundCrossClusterSearchConnection:[
+					'#CrossClusterSearchConnectionIdAttr'
+					],
 				AddTags:[
 					'#ARNAttr','#TagListAttr'
+					],
+				AssociatePackage:[
+					'#PackageIDAttr','#DomainNameAttr'
 					],
 				CancelElasticsearchServiceSoftwareUpdate:[
 					'#DomainNameAttr'
@@ -137,11 +207,26 @@
 				CreateElasticsearchDomain:[
 					'#DomainNameAttr'
 					],
+				CreateOutboundCrossClusterSearchConnection:[
+					'#SourceDomainInfoAttr','#DestinationDomainInfoAttr','#ConnectionAliasAttr'
+					],
+				CreatePackage:[
+					'#PackageNameAttr','#PackageTypeAttr','#PackageSourceAttr'
+					],
 				DeleteElasticsearchDomain:[
 					'#DomainNameAttr'
 					],
 				DeleteElasticsearchServiceRole:[
 					
+					],
+				DeleteInboundCrossClusterSearchConnection:[
+					'#CrossClusterSearchConnectionIdAttr'
+					],
+				DeleteOutboundCrossClusterSearchConnection:[
+					'#CrossClusterSearchConnectionIdAttr'
+					],
+				DeletePackage:[
+					'#PackageIDAttr'
 					],
 				DescribeElasticsearchDomain:[
 					'#DomainNameAttr'
@@ -155,14 +240,29 @@
 				DescribeElasticsearchInstanceTypeLimits:[
 					'#InstanceTypeAttr','#ElasticsearchVersionAttr'
 					],
+				DescribeInboundCrossClusterSearchConnections:[
+					
+					],
+				DescribeOutboundCrossClusterSearchConnections:[
+					
+					],
+				DescribePackages:[
+					
+					],
 				DescribeReservedElasticsearchInstanceOfferings:[
 					
 					],
 				DescribeReservedElasticsearchInstances:[
 					
 					],
+				DissociatePackage:[
+					'#PackageIDAttr','#DomainNameAttr'
+					],
 				GetCompatibleElasticsearchVersions:[
 					
+					],
+				GetPackageVersionHistory:[
+					'#PackageIDAttr'
 					],
 				GetUpgradeHistory:[
 					'#DomainNameAttr'
@@ -173,17 +273,26 @@
 				ListDomainNames:[
 					
 					],
+				ListDomainsForPackage:[
+					'#PackageIDAttr'
+					],
 				ListElasticsearchInstanceTypes:[
 					'#ElasticsearchVersionAttr'
 					],
 				ListElasticsearchVersions:[
 					
 					],
+				ListPackagesForDomain:[
+					'#DomainNameAttr'
+					],
 				ListTags:[
 					'#ARNAttr'
 					],
 				PurchaseReservedElasticsearchInstanceOffering:[
 					'#ReservedElasticsearchInstanceOfferingIdAttr','#ReservationNameAttr'
+					],
+				RejectInboundCrossClusterSearchConnection:[
+					'#CrossClusterSearchConnectionIdAttr'
 					],
 				RemoveTags:[
 					'#ARNAttr','#TagKeysAttr'
@@ -193,6 +302,9 @@
 					],
 				UpdateElasticsearchDomainConfig:[
 					'#DomainNameAttr'
+					],
+				UpdatePackage:[
+					'#PackageIDAttr','#PackageSourceAttr'
 					],
 				UpgradeElasticsearchDomain:[
 					'#DomainNameAttr','#TargetVersionAttr'
@@ -226,11 +338,19 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		color:"#C0DEED",
 		defaults: {
 			aws: {type:"amazon config",required:true},
-			operation: { value: 'AddTags' },
+			operation: { value: 'AcceptInboundCrossClusterSearchConnection' },
 			
+				CrossClusterSearchConnectionId: { value: ""} ,
 				ARN: { value: ""} ,
 				TagList: { value: ""} ,
+				PackageID: { value: ""} ,
 				DomainName: { value: ""} ,
+				SourceDomainInfo: { value: ""} ,
+				DestinationDomainInfo: { value: ""} ,
+				ConnectionAlias: { value: ""} ,
+				PackageName: { value: ""} ,
+				PackageType: { value: ""} ,
+				PackageSource: { value: ""} ,
 				DomainNames: { value: ""} ,
 				InstanceType: { value: ""} ,
 				ElasticsearchVersion: { value: ""} ,

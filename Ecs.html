@@ -28,19 +28,31 @@
 		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
 		<select type="text" id="node-input-operation">
 		
+			<option value="CreateCapacityProvider">CreateCapacityProvider</option>
+		
 			<option value="CreateCluster">CreateCluster</option>
 		
 			<option value="CreateService">CreateService</option>
 		
+			<option value="CreateTaskSet">CreateTaskSet</option>
+		
+			<option value="DeleteAccountSetting">DeleteAccountSetting</option>
+		
 			<option value="DeleteAttributes">DeleteAttributes</option>
+		
+			<option value="DeleteCapacityProvider">DeleteCapacityProvider</option>
 		
 			<option value="DeleteCluster">DeleteCluster</option>
 		
 			<option value="DeleteService">DeleteService</option>
 		
+			<option value="DeleteTaskSet">DeleteTaskSet</option>
+		
 			<option value="DeregisterContainerInstance">DeregisterContainerInstance</option>
 		
 			<option value="DeregisterTaskDefinition">DeregisterTaskDefinition</option>
+		
+			<option value="DescribeCapacityProviders">DescribeCapacityProviders</option>
 		
 			<option value="DescribeClusters">DescribeClusters</option>
 		
@@ -50,9 +62,13 @@
 		
 			<option value="DescribeTaskDefinition">DescribeTaskDefinition</option>
 		
+			<option value="DescribeTaskSets">DescribeTaskSets</option>
+		
 			<option value="DescribeTasks">DescribeTasks</option>
 		
 			<option value="DiscoverPollEndpoint">DiscoverPollEndpoint</option>
+		
+			<option value="ListAccountSettings">ListAccountSettings</option>
 		
 			<option value="ListAttributes">ListAttributes</option>
 		
@@ -62,13 +78,21 @@
 		
 			<option value="ListServices">ListServices</option>
 		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
 			<option value="ListTaskDefinitionFamilies">ListTaskDefinitionFamilies</option>
 		
 			<option value="ListTaskDefinitions">ListTaskDefinitions</option>
 		
 			<option value="ListTasks">ListTasks</option>
 		
+			<option value="PutAccountSetting">PutAccountSetting</option>
+		
+			<option value="PutAccountSettingDefault">PutAccountSettingDefault</option>
+		
 			<option value="PutAttributes">PutAttributes</option>
+		
+			<option value="PutClusterCapacityProviders">PutClusterCapacityProviders</option>
 		
 			<option value="RegisterContainerInstance">RegisterContainerInstance</option>
 		
@@ -80,15 +104,29 @@
 		
 			<option value="StopTask">StopTask</option>
 		
+			<option value="SubmitAttachmentStateChanges">SubmitAttachmentStateChanges</option>
+		
 			<option value="SubmitContainerStateChange">SubmitContainerStateChange</option>
 		
 			<option value="SubmitTaskStateChange">SubmitTaskStateChange</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateCapacityProvider">UpdateCapacityProvider</option>
+		
+			<option value="UpdateClusterSettings">UpdateClusterSettings</option>
 		
 			<option value="UpdateContainerAgent">UpdateContainerAgent</option>
 		
 			<option value="UpdateContainerInstancesState">UpdateContainerInstancesState</option>
 		
 			<option value="UpdateService">UpdateService</option>
+		
+			<option value="UpdateServicePrimaryTaskSet">UpdateServicePrimaryTaskSet</option>
+		
+			<option value="UpdateTaskSet">UpdateTaskSet</option>
 		;
 		</select>
 	</div>
@@ -99,9 +137,25 @@
 	<hr/>	
 	<div id="AttrHolder">
 	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='autoScalingGroupProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-autoScalingGroupProvider"><i class="fa fa-tag"></i>autoScalingGroupProvider</label>
+		<input type="text" id="node-input-autoScalingGroupProvider" placeholder="autoScalingGroupProvider"></input>
+	</div> 
 	<div class="form-row" id='serviceNameAttr' class='hiddenAttrs'>
 		<label for="node-input-serviceName"><i class="fa fa-tag"></i>serviceName</label>
 		<input type="text" id="node-input-serviceName" placeholder="serviceName"></input>
+	</div> 
+	<div class="form-row" id='serviceAttr' class='hiddenAttrs'>
+		<label for="node-input-service"><i class="fa fa-tag"></i>service</label>
+		<input type="text" id="node-input-service" placeholder="service"></input>
+	</div> 
+	<div class="form-row" id='clusterAttr' class='hiddenAttrs'>
+		<label for="node-input-cluster"><i class="fa fa-tag"></i>cluster</label>
+		<input type="text" id="node-input-cluster" placeholder="cluster"></input>
 	</div> 
 	<div class="form-row" id='taskDefinitionAttr' class='hiddenAttrs'>
 		<label for="node-input-taskDefinition"><i class="fa fa-tag"></i>taskDefinition</label>
@@ -111,13 +165,13 @@
 		<label for="node-input-attributes"><i class="fa fa-tag"></i>attributes</label>
 		<input type="text" id="node-input-attributes" placeholder="attributes"></input>
 	</div> 
-	<div class="form-row" id='clusterAttr' class='hiddenAttrs'>
-		<label for="node-input-cluster"><i class="fa fa-tag"></i>cluster</label>
-		<input type="text" id="node-input-cluster" placeholder="cluster"></input>
+	<div class="form-row" id='capacityProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-capacityProvider"><i class="fa fa-tag"></i>capacityProvider</label>
+		<input type="text" id="node-input-capacityProvider" placeholder="capacityProvider"></input>
 	</div> 
-	<div class="form-row" id='serviceAttr' class='hiddenAttrs'>
-		<label for="node-input-service"><i class="fa fa-tag"></i>service</label>
-		<input type="text" id="node-input-service" placeholder="service"></input>
+	<div class="form-row" id='taskSetAttr' class='hiddenAttrs'>
+		<label for="node-input-taskSet"><i class="fa fa-tag"></i>taskSet</label>
+		<input type="text" id="node-input-taskSet" placeholder="taskSet"></input>
 	</div> 
 	<div class="form-row" id='containerInstanceAttr' class='hiddenAttrs'>
 		<label for="node-input-containerInstance"><i class="fa fa-tag"></i>containerInstance</label>
@@ -139,6 +193,22 @@
 		<label for="node-input-targetType"><i class="fa fa-tag"></i>targetType</label>
 		<input type="text" id="node-input-targetType" placeholder="targetType"></input>
 	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='valueAttr' class='hiddenAttrs'>
+		<label for="node-input-value"><i class="fa fa-tag"></i>value</label>
+		<input type="text" id="node-input-value" placeholder="value"></input>
+	</div> 
+	<div class="form-row" id='capacityProvidersAttr' class='hiddenAttrs'>
+		<label for="node-input-capacityProviders"><i class="fa fa-tag"></i>capacityProviders</label>
+		<input type="text" id="node-input-capacityProviders" placeholder="capacityProviders"></input>
+	</div> 
+	<div class="form-row" id='defaultCapacityProviderStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultCapacityProviderStrategy"><i class="fa fa-tag"></i>defaultCapacityProviderStrategy</label>
+		<input type="text" id="node-input-defaultCapacityProviderStrategy" placeholder="defaultCapacityProviderStrategy"></input>
+	</div> 
 	<div class="form-row" id='familyAttr' class='hiddenAttrs'>
 		<label for="node-input-family"><i class="fa fa-tag"></i>family</label>
 		<input type="text" id="node-input-family" placeholder="family"></input>
@@ -151,23 +221,59 @@
 		<label for="node-input-task"><i class="fa fa-tag"></i>task</label>
 		<input type="text" id="node-input-task" placeholder="task"></input>
 	</div> 
+	<div class="form-row" id='attachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-attachments"><i class="fa fa-tag"></i>attachments</label>
+		<input type="text" id="node-input-attachments" placeholder="attachments"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='settingsAttr' class='hiddenAttrs'>
+		<label for="node-input-settings"><i class="fa fa-tag"></i>settings</label>
+		<input type="text" id="node-input-settings" placeholder="settings"></input>
+	</div> 
 	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
 		<label for="node-input-status"><i class="fa fa-tag"></i>status</label>
 		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='primaryTaskSetAttr' class='hiddenAttrs'>
+		<label for="node-input-primaryTaskSet"><i class="fa fa-tag"></i>primaryTaskSet</label>
+		<input type="text" id="node-input-primaryTaskSet" placeholder="primaryTaskSet"></input>
+	</div> 
+	<div class="form-row" id='scaleAttr' class='hiddenAttrs'>
+		<label for="node-input-scale"><i class="fa fa-tag"></i>scale</label>
+		<input type="text" id="node-input-scale" placeholder="scale"></input>
 	</div> 
 	</div>
 
  <script>
 	  var nodeOps={
 			
+				CreateCapacityProvider:[
+					'#nameAttr','#autoScalingGroupProviderAttr'
+					],
 				CreateCluster:[
 					
 					],
 				CreateService:[
-					'#serviceNameAttr','#taskDefinitionAttr'
+					'#serviceNameAttr'
+					],
+				CreateTaskSet:[
+					'#serviceAttr','#clusterAttr','#taskDefinitionAttr'
+					],
+				DeleteAccountSetting:[
+					'#nameAttr'
 					],
 				DeleteAttributes:[
 					'#attributesAttr'
+					],
+				DeleteCapacityProvider:[
+					'#capacityProviderAttr'
 					],
 				DeleteCluster:[
 					'#clusterAttr'
@@ -175,11 +281,17 @@
 				DeleteService:[
 					'#serviceAttr'
 					],
+				DeleteTaskSet:[
+					'#clusterAttr','#serviceAttr','#taskSetAttr'
+					],
 				DeregisterContainerInstance:[
 					'#containerInstanceAttr'
 					],
 				DeregisterTaskDefinition:[
 					'#taskDefinitionAttr'
+					],
+				DescribeCapacityProviders:[
+					
 					],
 				DescribeClusters:[
 					
@@ -193,10 +305,16 @@
 				DescribeTaskDefinition:[
 					'#taskDefinitionAttr'
 					],
+				DescribeTaskSets:[
+					'#clusterAttr','#serviceAttr'
+					],
 				DescribeTasks:[
 					'#tasksAttr'
 					],
 				DiscoverPollEndpoint:[
+					
+					],
+				ListAccountSettings:[
 					
 					],
 				ListAttributes:[
@@ -211,6 +329,9 @@
 				ListServices:[
 					
 					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
 				ListTaskDefinitionFamilies:[
 					
 					],
@@ -220,8 +341,17 @@
 				ListTasks:[
 					
 					],
+				PutAccountSetting:[
+					'#nameAttr','#valueAttr'
+					],
+				PutAccountSettingDefault:[
+					'#nameAttr','#valueAttr'
+					],
 				PutAttributes:[
 					'#attributesAttr'
+					],
+				PutClusterCapacityProviders:[
+					'#clusterAttr','#capacityProvidersAttr','#defaultCapacityProviderStrategyAttr'
 					],
 				RegisterContainerInstance:[
 					
@@ -233,16 +363,31 @@
 					'#taskDefinitionAttr'
 					],
 				StartTask:[
-					'#taskDefinitionAttr','#containerInstancesAttr'
+					'#containerInstancesAttr','#taskDefinitionAttr'
 					],
 				StopTask:[
 					'#taskAttr'
+					],
+				SubmitAttachmentStateChanges:[
+					'#attachmentsAttr'
 					],
 				SubmitContainerStateChange:[
 					
 					],
 				SubmitTaskStateChange:[
 					
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateCapacityProvider:[
+					'#nameAttr','#autoScalingGroupProviderAttr'
+					],
+				UpdateClusterSettings:[
+					'#clusterAttr','#settingsAttr'
 					],
 				UpdateContainerAgent:[
 					'#containerInstanceAttr'
@@ -252,6 +397,12 @@
 					],
 				UpdateService:[
 					'#serviceAttr'
+					],
+				UpdateServicePrimaryTaskSet:[
+					'#clusterAttr','#serviceAttr','#primaryTaskSetAttr'
+					],
+				UpdateTaskSet:[
+					'#clusterAttr','#serviceAttr','#taskSetAttr','#scaleAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -282,22 +433,36 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		color:"#C0DEED",
 		defaults: {
 			aws: {type:"amazon config",required:true},
-			operation: { value: 'CreateCluster' },
+			operation: { value: 'CreateCapacityProvider' },
 			
+				name: { value: ""} ,
+				autoScalingGroupProvider: { value: ""} ,
 				serviceName: { value: ""} ,
+				service: { value: ""} ,
+				cluster: { value: ""} ,
 				taskDefinition: { value: ""} ,
 				attributes: { value: ""} ,
-				cluster: { value: ""} ,
-				service: { value: ""} ,
+				capacityProvider: { value: ""} ,
+				taskSet: { value: ""} ,
 				containerInstance: { value: ""} ,
 				containerInstances: { value: ""} ,
 				services: { value: ""} ,
 				tasks: { value: ""} ,
 				targetType: { value: ""} ,
+				resourceArn: { value: ""} ,
+				value: { value: ""} ,
+				capacityProviders: { value: ""} ,
+				defaultCapacityProviderStrategy: { value: ""} ,
 				family: { value: ""} ,
 				containerDefinitions: { value: ""} ,
 				task: { value: ""} ,
+				attachments: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				settings: { value: ""} ,
 				status: { value: ""} ,
+				primaryTaskSet: { value: ""} ,
+				scale: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

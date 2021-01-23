@@ -46,11 +46,15 @@
 		
 			<option value="DeleteBucketEncryption">DeleteBucketEncryption</option>
 		
+			<option value="DeleteBucketIntelligentTieringConfiguration">DeleteBucketIntelligentTieringConfiguration</option>
+		
 			<option value="DeleteBucketInventoryConfiguration">DeleteBucketInventoryConfiguration</option>
 		
 			<option value="DeleteBucketLifecycle">DeleteBucketLifecycle</option>
 		
 			<option value="DeleteBucketMetricsConfiguration">DeleteBucketMetricsConfiguration</option>
+		
+			<option value="DeleteBucketOwnershipControls">DeleteBucketOwnershipControls</option>
 		
 			<option value="DeleteBucketPolicy">DeleteBucketPolicy</option>
 		
@@ -66,6 +70,8 @@
 		
 			<option value="DeleteObjects">DeleteObjects</option>
 		
+			<option value="DeletePublicAccessBlock">DeletePublicAccessBlock</option>
+		
 			<option value="GetBucketAccelerateConfiguration">GetBucketAccelerateConfiguration</option>
 		
 			<option value="GetBucketAcl">GetBucketAcl</option>
@@ -75,6 +81,8 @@
 			<option value="GetBucketCors">GetBucketCors</option>
 		
 			<option value="GetBucketEncryption">GetBucketEncryption</option>
+		
+			<option value="GetBucketIntelligentTieringConfiguration">GetBucketIntelligentTieringConfiguration</option>
 		
 			<option value="GetBucketInventoryConfiguration">GetBucketInventoryConfiguration</option>
 		
@@ -92,7 +100,11 @@
 		
 			<option value="GetBucketNotificationConfiguration">GetBucketNotificationConfiguration</option>
 		
+			<option value="GetBucketOwnershipControls">GetBucketOwnershipControls</option>
+		
 			<option value="GetBucketPolicy">GetBucketPolicy</option>
+		
+			<option value="GetBucketPolicyStatus">GetBucketPolicyStatus</option>
 		
 			<option value="GetBucketReplication">GetBucketReplication</option>
 		
@@ -108,15 +120,25 @@
 		
 			<option value="GetObjectAcl">GetObjectAcl</option>
 		
+			<option value="GetObjectLegalHold">GetObjectLegalHold</option>
+		
+			<option value="GetObjectLockConfiguration">GetObjectLockConfiguration</option>
+		
+			<option value="GetObjectRetention">GetObjectRetention</option>
+		
 			<option value="GetObjectTagging">GetObjectTagging</option>
 		
 			<option value="GetObjectTorrent">GetObjectTorrent</option>
+		
+			<option value="GetPublicAccessBlock">GetPublicAccessBlock</option>
 		
 			<option value="HeadBucket">HeadBucket</option>
 		
 			<option value="HeadObject">HeadObject</option>
 		
 			<option value="ListBucketAnalyticsConfigurations">ListBucketAnalyticsConfigurations</option>
+		
+			<option value="ListBucketIntelligentTieringConfigurations">ListBucketIntelligentTieringConfigurations</option>
 		
 			<option value="ListBucketInventoryConfigurations">ListBucketInventoryConfigurations</option>
 		
@@ -144,6 +166,8 @@
 		
 			<option value="PutBucketEncryption">PutBucketEncryption</option>
 		
+			<option value="PutBucketIntelligentTieringConfiguration">PutBucketIntelligentTieringConfiguration</option>
+		
 			<option value="PutBucketInventoryConfiguration">PutBucketInventoryConfiguration</option>
 		
 			<option value="PutBucketLifecycle">PutBucketLifecycle</option>
@@ -157,6 +181,8 @@
 			<option value="PutBucketNotification">PutBucketNotification</option>
 		
 			<option value="PutBucketNotificationConfiguration">PutBucketNotificationConfiguration</option>
+		
+			<option value="PutBucketOwnershipControls">PutBucketOwnershipControls</option>
 		
 			<option value="PutBucketPolicy">PutBucketPolicy</option>
 		
@@ -174,7 +200,15 @@
 		
 			<option value="PutObjectAcl">PutObjectAcl</option>
 		
+			<option value="PutObjectLegalHold">PutObjectLegalHold</option>
+		
+			<option value="PutObjectLockConfiguration">PutObjectLockConfiguration</option>
+		
+			<option value="PutObjectRetention">PutObjectRetention</option>
+		
 			<option value="PutObjectTagging">PutObjectTagging</option>
+		
+			<option value="PutPublicAccessBlock">PutPublicAccessBlock</option>
 		
 			<option value="RestoreObject">RestoreObject</option>
 		
@@ -233,6 +267,10 @@
 		<label for="node-input-ServerSideEncryptionConfiguration"><i class="fa fa-tag"></i>ServerSideEncryptionConfiguration</label>
 		<input type="text" id="node-input-ServerSideEncryptionConfiguration" placeholder="ServerSideEncryptionConfiguration"></input>
 	</div> 
+	<div class="form-row" id='IntelligentTieringConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-IntelligentTieringConfiguration"><i class="fa fa-tag"></i>IntelligentTieringConfiguration</label>
+		<input type="text" id="node-input-IntelligentTieringConfiguration" placeholder="IntelligentTieringConfiguration"></input>
+	</div> 
 	<div class="form-row" id='InventoryConfigurationAttr' class='hiddenAttrs'>
 		<label for="node-input-InventoryConfiguration"><i class="fa fa-tag"></i>InventoryConfiguration</label>
 		<input type="text" id="node-input-InventoryConfiguration" placeholder="InventoryConfiguration"></input>
@@ -248,6 +286,10 @@
 	<div class="form-row" id='NotificationConfigurationAttr' class='hiddenAttrs'>
 		<label for="node-input-NotificationConfiguration"><i class="fa fa-tag"></i>NotificationConfiguration</label>
 		<input type="text" id="node-input-NotificationConfiguration" placeholder="NotificationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='OwnershipControlsAttr' class='hiddenAttrs'>
+		<label for="node-input-OwnershipControls"><i class="fa fa-tag"></i>OwnershipControls</label>
+		<input type="text" id="node-input-OwnershipControls" placeholder="OwnershipControls"></input>
 	</div> 
 	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
 		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
@@ -272,6 +314,10 @@
 	<div class="form-row" id='WebsiteConfigurationAttr' class='hiddenAttrs'>
 		<label for="node-input-WebsiteConfiguration"><i class="fa fa-tag"></i>WebsiteConfiguration</label>
 		<input type="text" id="node-input-WebsiteConfiguration" placeholder="WebsiteConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PublicAccessBlockConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicAccessBlockConfiguration"><i class="fa fa-tag"></i>PublicAccessBlockConfiguration</label>
+		<input type="text" id="node-input-PublicAccessBlockConfiguration" placeholder="PublicAccessBlockConfiguration"></input>
 	</div> 
 	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
 		<label for="node-input-Expression"><i class="fa fa-tag"></i>Expression</label>
@@ -325,6 +371,9 @@
 				DeleteBucketEncryption:[
 					'#BucketAttr'
 					],
+				DeleteBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr'
+					],
 				DeleteBucketInventoryConfiguration:[
 					'#BucketAttr','#IdAttr'
 					],
@@ -333,6 +382,9 @@
 					],
 				DeleteBucketMetricsConfiguration:[
 					'#BucketAttr','#IdAttr'
+					],
+				DeleteBucketOwnershipControls:[
+					'#BucketAttr'
 					],
 				DeleteBucketPolicy:[
 					'#BucketAttr'
@@ -355,6 +407,9 @@
 				DeleteObjects:[
 					'#BucketAttr','#DeleteAttr'
 					],
+				DeletePublicAccessBlock:[
+					'#BucketAttr'
+					],
 				GetBucketAccelerateConfiguration:[
 					'#BucketAttr'
 					],
@@ -369,6 +424,9 @@
 					],
 				GetBucketEncryption:[
 					'#BucketAttr'
+					],
+				GetBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr'
 					],
 				GetBucketInventoryConfiguration:[
 					'#BucketAttr','#IdAttr'
@@ -394,7 +452,13 @@
 				GetBucketNotificationConfiguration:[
 					
 					],
+				GetBucketOwnershipControls:[
+					'#BucketAttr'
+					],
 				GetBucketPolicy:[
+					'#BucketAttr'
+					],
+				GetBucketPolicyStatus:[
 					'#BucketAttr'
 					],
 				GetBucketReplication:[
@@ -418,11 +482,23 @@
 				GetObjectAcl:[
 					'#BucketAttr','#KeyAttr'
 					],
+				GetObjectLegalHold:[
+					'#BucketAttr','#KeyAttr'
+					],
+				GetObjectLockConfiguration:[
+					'#BucketAttr'
+					],
+				GetObjectRetention:[
+					'#BucketAttr','#KeyAttr'
+					],
 				GetObjectTagging:[
 					'#BucketAttr','#KeyAttr'
 					],
 				GetObjectTorrent:[
 					'#BucketAttr','#KeyAttr'
+					],
+				GetPublicAccessBlock:[
+					'#BucketAttr'
 					],
 				HeadBucket:[
 					'#BucketAttr'
@@ -431,6 +507,9 @@
 					'#BucketAttr','#KeyAttr'
 					],
 				ListBucketAnalyticsConfigurations:[
+					'#BucketAttr'
+					],
+				ListBucketIntelligentTieringConfigurations:[
 					'#BucketAttr'
 					],
 				ListBucketInventoryConfigurations:[
@@ -472,6 +551,9 @@
 				PutBucketEncryption:[
 					'#BucketAttr','#ServerSideEncryptionConfigurationAttr'
 					],
+				PutBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr','#IntelligentTieringConfigurationAttr'
+					],
 				PutBucketInventoryConfiguration:[
 					'#BucketAttr','#IdAttr','#InventoryConfigurationAttr'
 					],
@@ -492,6 +574,9 @@
 					],
 				PutBucketNotificationConfiguration:[
 					'#BucketAttr','#NotificationConfigurationAttr'
+					],
+				PutBucketOwnershipControls:[
+					'#BucketAttr','#OwnershipControlsAttr'
 					],
 				PutBucketPolicy:[
 					'#BucketAttr','#PolicyAttr'
@@ -517,8 +602,20 @@
 				PutObjectAcl:[
 					'#BucketAttr','#KeyAttr'
 					],
+				PutObjectLegalHold:[
+					'#BucketAttr','#KeyAttr'
+					],
+				PutObjectLockConfiguration:[
+					'#BucketAttr'
+					],
+				PutObjectRetention:[
+					'#BucketAttr','#KeyAttr'
+					],
 				PutObjectTagging:[
 					'#BucketAttr','#KeyAttr','#TaggingAttr'
+					],
+				PutPublicAccessBlock:[
+					'#BucketAttr','#PublicAccessBlockConfigurationAttr'
 					],
 				RestoreObject:[
 					'#BucketAttr','#KeyAttr'
@@ -573,16 +670,19 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				AnalyticsConfiguration: { value: ""} ,
 				CORSConfiguration: { value: ""} ,
 				ServerSideEncryptionConfiguration: { value: ""} ,
+				IntelligentTieringConfiguration: { value: ""} ,
 				InventoryConfiguration: { value: ""} ,
 				BucketLoggingStatus: { value: ""} ,
 				MetricsConfiguration: { value: ""} ,
 				NotificationConfiguration: { value: ""} ,
+				OwnershipControls: { value: ""} ,
 				Policy: { value: ""} ,
 				ReplicationConfiguration: { value: ""} ,
 				RequestPaymentConfiguration: { value: ""} ,
 				Tagging: { value: ""} ,
 				VersioningConfiguration: { value: ""} ,
 				WebsiteConfiguration: { value: ""} ,
+				PublicAccessBlockConfiguration: { value: ""} ,
 				Expression: { value: ""} ,
 				ExpressionType: { value: ""} ,
 				InputSerialization: { value: ""} ,

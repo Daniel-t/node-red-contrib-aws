@@ -42,6 +42,10 @@
 		
 			<option value="PutRecordBatch">PutRecordBatch</option>
 		
+			<option value="StartDeliveryStreamEncryption">StartDeliveryStreamEncryption</option>
+		
+			<option value="StopDeliveryStreamEncryption">StopDeliveryStreamEncryption</option>
+		
 			<option value="TagDeliveryStream">TagDeliveryStream</option>
 		
 			<option value="UntagDeliveryStream">UntagDeliveryStream</option>
@@ -110,6 +114,12 @@
 					],
 				PutRecordBatch:[
 					'#DeliveryStreamNameAttr','#RecordsAttr'
+					],
+				StartDeliveryStreamEncryption:[
+					'#DeliveryStreamNameAttr'
+					],
+				StopDeliveryStreamEncryption:[
+					'#DeliveryStreamNameAttr'
 					],
 				TagDeliveryStream:[
 					'#DeliveryStreamNameAttr','#TagsAttr'

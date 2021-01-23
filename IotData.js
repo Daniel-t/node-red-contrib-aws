@@ -47,7 +47,7 @@ module.exports = function(RED) {
             });
         }
 
-		var awsService = new AWS.IotData( { 'region': node.region ,'endpoint':n.endPoint} );
+		var awsService = new AWS.IotData( { 'region': node.region ,'endpoint':n.endPoint } );
 
 		node.on("input", function(msg) {
 			node.sendMsg = function (err, data) {
@@ -102,6 +102,7 @@ module.exports = function(RED) {
 			copyArg(n,"thingName",params,undefined,false); 
 			
 			copyArg(msg,"thingName",params,undefined,false); 
+			copyArg(msg,"shadowName",params,undefined,false); 
 			
 
 			svc.deleteThingShadow(params,cb);
@@ -115,9 +116,25 @@ module.exports = function(RED) {
 			copyArg(n,"thingName",params,undefined,false); 
 			
 			copyArg(msg,"thingName",params,undefined,false); 
+			copyArg(msg,"shadowName",params,undefined,false); 
 			
 
 			svc.getThingShadow(params,cb);
+		}
+
+		
+		service.ListNamedShadowsForThing=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"thingName",params,undefined,false); 
+			
+			copyArg(msg,"thingName",params,undefined,false); 
+			copyArg(msg,"nextToken",params,undefined,false); 
+			copyArg(msg,"pageSize",params,undefined,false); 
+			
+
+			svc.listNamedShadowsForThing(params,cb);
 		}
 
 		
@@ -144,6 +161,7 @@ module.exports = function(RED) {
 			copyArg(n,"payload",params,undefined,false); 
 			
 			copyArg(msg,"thingName",params,undefined,false); 
+			copyArg(msg,"shadowName",params,undefined,false); 
 			copyArg(msg,"payload",params,undefined,false); 
 			
 
